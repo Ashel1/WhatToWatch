@@ -10,6 +10,6 @@ Anupama Nair,
 Delora Almeida
 
 
-Stack: \n
+Stack:
 Backend: Golang
 Frontend: Angular
