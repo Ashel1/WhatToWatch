@@ -11,5 +11,7 @@ Delora Almeida
 
 
 Stack: 
+
 Backend: Golang
+
 Frontend: Angular
