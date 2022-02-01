@@ -13,4 +13,13 @@ $background-pale: #D1C4E9;
     background: $background-light ;
     color:rgb(233, 133, 18);
     min-height: 150px;
+    background-image:linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),url(/assets/images/moviebg.jpg); 
+
+}
+.text{
+    background-color: #050505;
+    color:#EE4B2B;
+    text-align: center;
+    font-size: large;
+    padding: 10px;
 }
