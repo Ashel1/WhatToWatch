@@ -1,0 +1,38 @@
+WhatToWatch:
+Sprint 1:
+-As a user, I would like to use the What2Watch platform for a movie suggestion. 
+
+-As a user, I would have to answer 6 questions to generate a random movie suggestion.
+
+  -What is the watching occasion?
+  -Select your preferred viewing platform. (Multiple Selection Option)
+  -Please select the genre of the Movie? (Multiple Selection Option)
+  -Should the movie be age-appropriate?
+  -How old would you like the movie to be?
+  -Preferred movie rating?
+
+-As a user, I would like to sign up/login to use the What2Watch platform and the features it provides.
+
+
+Sprint 2:
+-As a user, I would like to view the movie recommendation based on the answers I have provided.
+
+-As a user I would like to read the overview of the movie.
+
+-As a user, I would like to view more information about the movie.
+
+-As a user, I would like to watch the trailer of the movie so that I can decide whether I want to watch it or not.
+
+
+Sprint 3:
+-As a user, I want direct access to the viewing platform so that I don't need to look for movies there. 
+
+-As a registered user, I want my watch history to be saved, so that I can tell people about the movies I have watched.
+
+-As a registered user, I would like to add movies to my watchlist.
+
+
+Sprint 4:
+-As a user, I want  to view the list of movies with filter options. (Like IMDB maybe)
+
+-As a user I want to view reviews others have written for a movie, so that I can decide if I want to watch it or not. 
