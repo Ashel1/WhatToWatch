@@ -1,8 +1,8 @@
 WhatToWatch:
 Sprint 1:
--As a user, I would like to use the What2Watch platform for a movie suggestion. 
+*As a user, I would like to use the What2Watch platform for a movie suggestion. 
 
--As a user, I would have to answer 6 questions to generate a random movie suggestion.
+*As a user, I would have to answer 6 questions to generate a random movie suggestion.
 
   -What is the watching occasion?
   -Select your preferred viewing platform. (Multiple Selection Option)
@@ -15,7 +15,7 @@ Sprint 1:
 
 
 Sprint 2:
--As a user, I would like to view the movie recommendation based on the answers I have provided.
+*As a user, I would like to view the movie recommendation based on the answers I have provided.
 
 -As a user I would like to read the overview of the movie.
 
