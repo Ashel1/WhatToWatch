@@ -1,15 +1,15 @@
 WhatToWatch:
 Sprint 1:
-*As a user, I would like to use the What2Watch platform for a movie suggestion. 
+ Markup : -As a user, I would like to use the What2Watch platform for a movie suggestion. 
 
-*As a user, I would have to answer 6 questions to generate a random movie suggestion.
+-As a user, I would have to answer 6 questions to generate a random movie suggestion.
 
-  -What is the watching occasion?
-  -Select your preferred viewing platform. (Multiple Selection Option)
-  -Please select the genre of the Movie? (Multiple Selection Option)
-  -Should the movie be age-appropriate?
-  -How old would you like the movie to be?
-  -Preferred movie rating?
+        -What is the watching occasion?
+        -Select your preferred viewing platform. (Multiple Selection Option)
+        -Please select the genre of the Movie? (Multiple Selection Option)
+        -Should the movie be age-appropriate?
+        -How old would you like the movie to be?
+        -Preferred movie rating?
 
 -As a user, I would like to sign up/login to use the What2Watch platform and the features it provides.
 
