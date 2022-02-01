@@ -46,9 +46,8 @@ import 'hammerjs';
   ],
   providers: [],
   bootstrap: [AppComponent],
- 
-entryComponents: [
-  LoginComponent
-]
+  entryComponents: [
+  LoginComponent]
+                 
 })
 export class AppModule { }
