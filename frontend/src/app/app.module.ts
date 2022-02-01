@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatButtonModule } from '@angular/material/button'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 
 import 'hammerjs';
+import { Question1Component } from './question1/question1.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import 'hammerjs';
     FooterComponent,
     HomeComponent,
     HeaderComponent,
-    LoginComponent 
+    LoginComponent,
+    Question1Component 
   ],
   imports: [
     BrowserModule,
@@ -41,8 +44,8 @@ import 'hammerjs';
     FlexLayoutModule,
     MatListModule,
     FormsModule,
-    MatDialogModule
-    
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent],
