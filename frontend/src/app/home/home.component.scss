@@ -13,13 +13,17 @@ $background-pale: #D1C4E9;
     background: $background-light ;
     color:rgb(233, 133, 18);
     min-height: 150px;
-    background-image:linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),url(/assets/images/moviebg.jpg); 
+    background-image:linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.5)),url(/assets/images/moviebg.jpg); 
 
 }
 .text{
-    background-color: #050505;
-    color:#EE4B2B;
+    background-color: #363535;
+    color:#e9e8e8;
     text-align: center;
     font-size: large;
-    padding: 10px;
+    padding: 30px;
 }
+.center {
+    display: flex;
+    justify-content: center;
+  }
