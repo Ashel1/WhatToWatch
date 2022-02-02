@@ -21,8 +21,19 @@ $background-pale: #D1C4E9;
     color:#e9e8e8;
     text-align: center;
     font-size: large;
-    padding: 30px;
+    padding: 10px;
 }
+
+.b{
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+button{
+    border-radius: 10px;
+    font-size:20px;
+}
+
 .center {
     display: flex;
     justify-content: center;
