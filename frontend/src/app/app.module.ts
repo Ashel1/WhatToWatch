@@ -29,6 +29,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { SignupComponent } from './signup/signup.component';
 import 'hammerjs';
 import { Question1Component } from './question1/question1.component';
+import { Question2Component } from './question2/question2.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -40,6 +42,7 @@ import { Question1Component } from './question1/question1.component';
     HeaderComponent,
     LoginComponent,
     Question1Component,
+    Question2Component, 
     SignupComponent 
   ],
   imports: [
@@ -56,6 +59,9 @@ import { Question1Component } from './question1/question1.component';
     MatListModule,
     FormsModule,
     MatDialogModule,
+    MatButtonModule,
+    MatRadioModule,
+    MatProgressBarModule,
     MatCardModule,
     MatButtonModule,
     ReactiveFormsModule,
