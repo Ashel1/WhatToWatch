@@ -31,6 +31,10 @@ import 'hammerjs';
 import { Question1Component } from './question1/question1.component';
 import { Question2Component } from './question2/question2.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { Question3Component } from './question3/question3.component';
+import { Question4Component } from './question4/question4.component';
+import { Question5Component } from './question5/question5.component';
+import { Question6Component } from './question6/question6.component';
 
 
 @NgModule({
@@ -43,7 +47,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     LoginComponent,
     Question1Component,
     Question2Component, 
-    SignupComponent 
+    SignupComponent, Question3Component, Question4Component, Question5Component, Question6Component 
   ],
   imports: [
     BrowserModule,
