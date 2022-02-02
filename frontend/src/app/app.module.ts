@@ -19,9 +19,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms'; 
 import { MatDialogModule } from '@angular/material/dialog';
-
 import 'hammerjs';
 import { Question1Component } from './question1/question1.component';
+import { MatRadioModule} from '@angular/material/radio';
+import { Question2Component } from './question2/question2.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { Question1Component } from './question1/question1.component';
     HomeComponent,
     HeaderComponent,
     LoginComponent,
-    Question1Component 
+    Question1Component,
+    Question2Component 
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,9 @@ import { Question1Component } from './question1/question1.component';
     MatListModule,
     FormsModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    MatRadioModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent],

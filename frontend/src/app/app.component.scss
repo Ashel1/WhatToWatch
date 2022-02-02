@@ -9,3 +9,9 @@ body {
   .flexExpand {
     padding: 5px 50px 5px 50px;
               }
+
+  body, html {
+  height: 100%;
+  width: 100%;
+  margin: 0 !important;
+}

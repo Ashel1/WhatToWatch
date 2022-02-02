@@ -1,14 +1,53 @@
 .ques1{
-    height: 10em;
-  display: flex;
+  display: flex; 
   align-items: center;
   justify-content: center
 }
 
-/*
-Centering
-position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  */
+.up{
+  padding-top: 100px;
+  padding-bottom: 20%;
+}
+label{
+  color:white;
+  font-size:36px;
+  background-color: #000000;
+  background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
+  border: 2px solid #EE4B2B;
+  padding: 25px;
+  border-radius: 6px;
+}
+.bg{
+  //background-color: rgba(0, 0, 0, 0.8);
+  background-image:linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),url(/assets/images/moviebg.jpg); 
+
+  //background-color: #000000;
+  //background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
+}
+
+
+.example-radio-group {
+  display: flex; 
+  flex-direction: column;
+  margin-bottom: 15px;
+  color:white
+  
+}
+
+
+.example-radio-button {
+  border: 2px solid #EE4B2B;
+  width: 100%;
+  height: 100%;
+  padding: 25px;
+  border-radius: 6px;
+  background-color: #000000;
+  background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
+}
+
+.bar{
+  width:40%;
+  height:10px;
+  border-radius: 6px;
+  border: 1px solid white;
+}
