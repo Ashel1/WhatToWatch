@@ -1,4 +1,4 @@
-.progress, .rad, .ques2, .buttonq3{
+.progress, .rad, .ques6, .movie{
     display: flex; 
     align-items: center;
     justify-content: center
@@ -6,7 +6,7 @@
   
   .up{
     padding-top: 100px;
-    padding-bottom: 17%;
+    padding-bottom: 5.2%;
   }
   
   label{
@@ -22,26 +22,27 @@
     background-image:linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),url(/assets/images/moviebg.jpg); 
   }
   
-  .mat-list-option {
+  .example-radio-group {
+    display: flex; 
+    flex-direction: column;
+    margin-bottom: 15px;
+    color:white
+    
+  }
+  
+  .example-radio-button {
     border: 2px solid #EE4B2B;
+    width: 100%;
+    height: 100%;
+    padding: 25px;
     border-radius: 6px;
-    color:white;
     background-color: #000000;
     background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
   }
-
-  :host ::ng-deep .mat-checkbox-frame { 
-    border-color: white 
-}
-
+  
   .bar{
     width:40%;
     height:10px;
     border-radius: 6px;
     border: 1px solid white;
   }
-
-  .buttonq3{
-      margin-top: 20px;
-  }
-  

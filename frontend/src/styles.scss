@@ -13,4 +13,10 @@ body, html {
     margin: 0 !important;
   }
   
+//Checkbox color
+.mat-pseudo-checkbox {
+  background-color: white;
+}
+
+
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";

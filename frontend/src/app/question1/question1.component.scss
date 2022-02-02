@@ -1,4 +1,4 @@
-.ques1{
+.progress, .rad, .ques1, .buttonq2{
   display: flex; 
   align-items: center;
   justify-content: center
@@ -6,8 +6,9 @@
 
 .up{
   padding-top: 100px;
-  padding-bottom: 20%;
+  padding-bottom: 9%;
 }
+
 label{
   color:white;
   font-size:36px;
@@ -18,13 +19,8 @@ label{
   border-radius: 6px;
 }
 .bg{
-  //background-color: rgba(0, 0, 0, 0.8);
   background-image:linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),url(/assets/images/moviebg.jpg); 
-
-  //background-color: #000000;
-  //background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
 }
-
 
 .example-radio-group {
   display: flex; 
@@ -33,7 +29,6 @@ label{
   color:white
   
 }
-
 
 .example-radio-button {
   border: 2px solid #EE4B2B;

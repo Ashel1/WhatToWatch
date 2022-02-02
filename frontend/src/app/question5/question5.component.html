@@ -1,0 +1,24 @@
+<div class="bg  up">
+    <div class="progress">
+        <mat-progress-bar class="bar" color="warn" mode="determinate" value="82"></mat-progress-bar>
+    </div>
+    <br>
+    <div class="ques5">
+    <label>How Old would you like the Movie to be?</label>
+    </div>
+    <br>
+    <div class="rad">
+    <mat-radio-group
+      aria-labelledby="example-radio-group-label"
+      class="example-radio-group"
+      [(ngModel)]="selectedYear">
+      <mat-radio-button class="example-radio-button" *ngFor="let yr of years" [value]="yr" color="warn">
+        {{yr}}
+      </mat-radio-button>
+    </mat-radio-group>
+    </div>
+    <div class="buttonq6">
+    <button mat-raised-button color="warn" (click)="goToQuestions('Question6')">Next</button>
+    </div>
+</div>
+    
