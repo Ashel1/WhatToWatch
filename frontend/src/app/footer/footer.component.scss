@@ -10,6 +10,7 @@ $background-pale: #EE4B2B;
 
 .footer{
     background-color: $background-pale;
+   
     @include zero-margin(20px, 0px);
 }
 
