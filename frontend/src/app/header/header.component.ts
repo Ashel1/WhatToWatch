@@ -3,6 +3,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
 import {MatDialogConfig} from "@angular/material/dialog";
 import {Router} from '@angular/router'
+//import {about} from '../home/home.component';
 
 @Component({
   selector: 'app-header',
@@ -26,5 +27,10 @@ export class HeaderComponent implements OnInit {
   goToHome(page:string):void{
     this.router.navigate([`${page}`]);
   }
-
+  goToAbout(page:string):void{
+    this.router.navigate([`${page}`]);
+  }
+  scroll(el: HTMLElement) {
+    el.scrollIntoView();
+  }
 }
