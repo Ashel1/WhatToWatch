@@ -1,12 +1,11 @@
 <mat-toolbar color="warn">
-    <span><img src="/assets/images/logo3.png" height=100 width=100></span>
-    <a mat-button routerLink='/'><span class="fa fa-home fa-lg"></span> Home</a>
-    <a mat-button [routerLink]="['/contact']" routerLinkActive="active"><span class="fa fa-home fa-lg"></span> Contact</a>
-   
-    
+    <span><img src="/assets/images/logo3.png" height=100 width=100  (click)="goToHome('Home')"></span>
+    <a  (click)="goToHome('Home')"><span class="fa fa-home fa-lg"></span>What2Watch</a>
+    <span class="flexExpand"></span>
+    <a (click)="goToAbout('About')"><span class="fa fa-info fa-lg"></span> About</a>
     <span class="flex-spacer"></span>
-    <a mat-button (click)="openLoginForm()"><span class="fa fa-sign-in fa-lg"></span> Login</a>
-    
+    <a  (click)="openLoginForm()"><span class="fa fa-sign-in fa-lg"></span>Login</a>
+
   </mat-toolbar>
   
   

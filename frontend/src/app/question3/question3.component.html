@@ -1,0 +1,21 @@
+<div class="bg up">
+    <div class="progress">
+        <mat-progress-bar class="bar" color="warn" mode="determinate" value="48"></mat-progress-bar>
+    </div>
+    <br>
+    <div class="ques3">
+    <label>Select the Genre(s) of the Movie? </label>
+    </div>
+    <br>
+    <div class="rad">
+        <mat-selection-list >
+            <mat-list-option color="warn" *ngFor="let genre of typeOfGenres">
+                {{genre}}
+            </mat-list-option>
+        </mat-selection-list>
+    </div>
+    <div class="buttonq4">
+    <button mat-raised-button color="warn" (click)="goToQuestions('Question4')">Next</button>
+    </div>
+    </div>
+    

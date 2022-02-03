@@ -1,0 +1,24 @@
+<div class="bg up">
+    <div class="progress">
+        <mat-progress-bar class="bar" color="warn" mode="determinate" value="100"></mat-progress-bar>
+    </div>
+    <br>
+    <div class="ques6">
+    <label>Preferred movie rating?</label>
+    </div>
+    <br>
+    <div class="rad">
+    <mat-radio-group
+      aria-labelledby="example-radio-group-label"
+      class="example-radio-group"
+      [(ngModel)]="selectedRating">
+      <mat-radio-button class="example-radio-button" *ngFor="let rate of ratings" [value]="rate" color="warn">
+        {{rate}}
+      </mat-radio-button>
+    </mat-radio-group>
+    </div>
+    <div class="movie">
+    <button mat-raised-button color="warn" (click)="goToQuestions('Home')">Next</button>
+    </div>
+</div>
+    
