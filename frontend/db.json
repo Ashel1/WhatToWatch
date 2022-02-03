@@ -54,6 +54,22 @@
       "email": "sonika@gmail.com",
       "password": "sonika",
       "id": 7
+    },
+    {
+      "firstname": "q",
+      "lastname": "q",
+      "username": "q",
+      "email": "qq",
+      "password": "q",
+      "id": 8
+    },
+    {
+      "firstname": "w",
+      "lastname": "w",
+      "username": "w",
+      "email": "w",
+      "password": "w",
+      "id": 9
     }
   ],
   "profile": {

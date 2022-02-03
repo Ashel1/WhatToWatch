@@ -13,6 +13,7 @@ import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   {path: 'Home', component: HomeComponent},
+  { path: '', redirectTo: '/Home', pathMatch: 'full' },
   {path:'Signup', component: SignupComponent},
   {path:'About', component: AboutComponent},
   {path:'Question1', component: Question1Component},

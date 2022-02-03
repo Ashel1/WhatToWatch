@@ -36,7 +36,7 @@ export class SignupComponent implements OnInit {
     .subscribe(res=>{
       alert("Sign Up successful");
       this.signupFrom.reset();
-      this.router.navigate(['']);
+      this.router.navigate(['Home']);
     },err=>{
       alert("SOmething went wrong");
     })
