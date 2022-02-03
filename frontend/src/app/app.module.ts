@@ -4,11 +4,15 @@ import { MatButtonModule } from '@angular/material/button'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+// used to create fake backend
+
+
 
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
+import { HttpClientModule } from  '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar'; 
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -26,16 +30,21 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+
 import { SignupComponent } from './signup/signup.component';
 import 'hammerjs';
 import { Question1Component } from './question1/question1.component';
 import { Question2Component } from './question2/question2.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+
+import { ContactComponent } from './contact/contact.component';
+
 import { Question3Component } from './question3/question3.component';
 import { Question4Component } from './question4/question4.component';
 import { Question5Component } from './question5/question5.component';
 import { Question6Component } from './question6/question6.component';
 import { AboutComponent } from './about/about.component';
+
 
 
 @NgModule({
@@ -48,7 +57,8 @@ import { AboutComponent } from './about/about.component';
     LoginComponent,
     Question1Component,
     Question2Component, 
-    SignupComponent, Question3Component, Question4Component, Question5Component, Question6Component, AboutComponent 
+    SignupComponent, ContactComponent,
+    SignupComponent, Question3Component, Question4Component, Question5Component, Question6Component, AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +69,9 @@ import { AboutComponent } from './about/about.component';
     MatSelectModule,
     MatSlideToggleModule, 
     MatInputModule,
+    HttpClientModule ,
     MatCheckboxModule,
+    HttpClientModule,
     FlexLayoutModule,
     MatListModule,
     FormsModule,
@@ -74,7 +86,11 @@ import { AboutComponent } from './about/about.component';
     MatNativeDateModule,
     MatDatepickerModule
   ],
-  providers: [],
+  providers: [
+   
+    HttpClientModule
+    
+  ],
   bootstrap: [AppComponent],
   entryComponents: [
   LoginComponent]

@@ -12,7 +12,11 @@ $background-pale: #D1C4E9;
     @include zero-margin(70px,30px);
     background: $background-light ;
     color:rgb(233, 133, 18);
-    min-height: 800px;
+
+    min-height: 150px;
+    padding-top: 150px;
+  padding-bottom: 14%;
+
     background-image:linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.5)),url(/assets/images/moviebg.jpg); 
 
 }
