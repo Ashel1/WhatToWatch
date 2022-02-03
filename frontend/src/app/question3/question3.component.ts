@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class Question3Component implements OnInit {
 
-  typeOfGenres: string[] = ['Action', 'Adventure', 'Comedy', 'Crime & Mystery', 'Fantasy', 'Historical', 'Horror', 'Romance', 'Satire', 'Science Fiction', 'Thriller', 'Western'];
+  typeOfGenres: string[] = ['Any', 'Action', 'Adventure', 'Comedy', 'Crime & Mystery', 'Fantasy', 'Historical', 'Horror', 'Romance', 'Satire', 'Science Fiction', 'Thriller', 'Western'];
 
   constructor(private router:Router) { }
 

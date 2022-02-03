@@ -35,6 +35,7 @@ import { Question3Component } from './question3/question3.component';
 import { Question4Component } from './question4/question4.component';
 import { Question5Component } from './question5/question5.component';
 import { Question6Component } from './question6/question6.component';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
@@ -47,7 +48,7 @@ import { Question6Component } from './question6/question6.component';
     LoginComponent,
     Question1Component,
     Question2Component, 
-    SignupComponent, Question3Component, Question4Component, Question5Component, Question6Component 
+    SignupComponent, Question3Component, Question4Component, Question5Component, Question6Component, AboutComponent 
   ],
   imports: [
     BrowserModule,

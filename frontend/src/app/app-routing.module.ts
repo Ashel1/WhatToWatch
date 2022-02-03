@@ -9,10 +9,12 @@ import { Question3Component } from './question3/question3.component';
 import { Question4Component } from './question4/question4.component';
 import { Question5Component } from './question5/question5.component';
 import { Question6Component } from './question6/question6.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   {path: 'Home', component: HomeComponent},
   {path:'Signup', component: SignupComponent},
+  {path:'About', component: AboutComponent},
   {path:'Question1', component: Question1Component},
   {path:'Question2', component: Question2Component},
   {path:'Question3', component: Question3Component},
