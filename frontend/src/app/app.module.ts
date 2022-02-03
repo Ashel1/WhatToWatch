@@ -4,11 +4,15 @@ import { MatButtonModule } from '@angular/material/button'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+// used to create fake backend
+
+
 
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
+import { HttpClientModule } from  '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar'; 
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -26,11 +30,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+
 import { SignupComponent } from './signup/signup.component';
 import 'hammerjs';
 import { Question1Component } from './question1/question1.component';
 import { Question2Component } from './question2/question2.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -43,7 +49,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     LoginComponent,
     Question1Component,
     Question2Component, 
-    SignupComponent 
+    SignupComponent, ContactComponent 
   ],
   imports: [
     BrowserModule,
@@ -54,7 +60,9 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatSelectModule,
     MatSlideToggleModule, 
     MatInputModule,
+    HttpClientModule ,
     MatCheckboxModule,
+    HttpClientModule,
     FlexLayoutModule,
     MatListModule,
     FormsModule,
@@ -69,7 +77,11 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatNativeDateModule,
     MatDatepickerModule
   ],
-  providers: [],
+  providers: [
+   
+    HttpClientModule
+    
+  ],
   bootstrap: [AppComponent],
   entryComponents: [
   LoginComponent]
