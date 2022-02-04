@@ -36,7 +36,7 @@ import 'hammerjs';
 import { Question1Component } from './question1/question1.component';
 import { Question2Component } from './question2/question2.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ContactComponent } from './contact/contact.component';
 
 import { Question3Component } from './question3/question3.component';
@@ -44,7 +44,7 @@ import { Question4Component } from './question4/question4.component';
 import { Question5Component } from './question5/question5.component';
 import { Question6Component } from './question6/question6.component';
 import { AboutComponent } from './about/about.component';
-
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -77,6 +77,7 @@ import { AboutComponent } from './about/about.component';
     FormsModule,
     MatDialogModule,
     MatButtonModule,
+    MatIconModule,
     MatRadioModule,
     MatProgressBarModule,
     MatCardModule,

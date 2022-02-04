@@ -13,12 +13,13 @@ export class LoginComponent implements OnInit {
 
   
    public loginForm !: FormGroup
+   public showPassword: boolean = false;
   constructor(public dialogRef: MatDialogRef<LoginComponent> ,private formBuilder : FormBuilder, private http :HttpClient, private router:Router) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      username: [''],
-      password: [''],
+      username: ['', Validators.required],
+      password: ['', Validators.required],
       
     })
     
@@ -43,6 +44,10 @@ export class LoginComponent implements OnInit {
     alert("Something went wrong!!")
   })
 
+  }
+  hide = true;
+  public togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
   }
 
   goToSignUp(page:string):void{

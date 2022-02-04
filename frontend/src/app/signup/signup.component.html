@@ -9,29 +9,34 @@
  
        <mat-card-content>
          <mat-form-field class="example-full-width">
-            <input matInput placeholder="FirstName" formControlName="firstname">
+            <input matInput placeholder="FirstName" formControlName="firstname"  required>
+            <mat-error >First Name  is required</mat-error>
           </mat-form-field>
           <br>
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="LastName" formControlName="lastname">
+            <input matInput placeholder="LastName" formControlName="lastname"  >
+            
           </mat-form-field>
           <br>
 
          <mat-form-field class="example-full-width">
-           <input matInput placeholder="Username" formControlName="username">
+           <input matInput placeholder="Username" formControlName="username"  required>
+           <mat-error >Username is required</mat-error>
          </mat-form-field>
           <br>
          <mat-form-field class="example-full-width">
-           <input matInput placeholder="Email" formControlName="email">
+           <input matInput placeholder="Email" formControlName="email"  required>
+           <mat-error >Email is required</mat-error>
          </mat-form-field>
          <br>
  
          <mat-form-field class="example-full-width">
-           <input matInput placeholder="Password" formControlName="password">
+           <input matInput placeholder="Password" formControlName="password"  required>
+           <mat-error >Password is required</mat-error>
          </mat-form-field>
        </mat-card-content>
  
-       <button mat-stroked-button color="accent" class="btn-block">Register</button>
+       <button mat-stroked-button color="accent"  type="submit"  [disabled]="!signupFrom.valid" class="btn-block">Register</button>
  
      </form>
    </mat-card>
