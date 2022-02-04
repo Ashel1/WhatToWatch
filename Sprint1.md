@@ -23,6 +23,8 @@ User Stories for Sprint 1:
 
 <h2>Tasks Accomplished in the Front-end</h2>
 
+<img src="https://github.com/Ashel1/WhatToWatch/blob/57e73dea25b6442db40ace8d31b4666b7e4e4c8c/images/angularcli.jpg" height="150" width="500"/>
+
 - Set up the Environemnt for Angular from https://angular.io/guide/setup-local
 - Referred to https://material.angular.io/ to design the components
 - Designed the Homepage
@@ -30,3 +32,10 @@ User Stories for Sprint 1:
 - Designed the Login Component
 - Designed the Sign Up Component
 - Designed the Pages for Question 1 to Question 6 along with answers to choose from
+
+<h2>Tasks Accomplished in the Back-end</h2>
+
+<img src="https://github.com/Ashel1/WhatToWatch/blob/5fa54d47f8c0b96912c5378442eec04433270f0f/images/go.png" height="100" width="250"/>
+
+
+
