@@ -1,15 +1,16 @@
+//What2Watch Navbar Styling
+
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 body { 
-    padding: 0; 
-    margin: 0; 
-    font-family: Roboto, sans-serif; 
-    
-  }
-  .flexExpand {
-    padding: 5px 20px 5px 20px;
-              }
+  padding: 0; 
+  margin: 0; 
+  font-family: Roboto, sans-serif; 
+}
+
+.flexExpand {
+  padding: 5px 20px 5px 20px;
+}
 
 .dialogConfig.position  {
-      top: '0',
-  
-            };
+  top: '0',
+};

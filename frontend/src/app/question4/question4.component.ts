@@ -13,6 +13,7 @@ export class Question4Component implements OnInit {
   ngOnInit(): void {
   }
   
+  //Navigate to Question5
   goToQuestions(page:string):void{
     this.router.navigate([`${page}`]);
   }

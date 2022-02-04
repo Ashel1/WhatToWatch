@@ -3,7 +3,6 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
 import {MatDialogConfig} from "@angular/material/dialog";
 import {Router} from '@angular/router'
-//import {about} from '../home/home.component';
 
 @Component({
   selector: 'app-header',
@@ -17,6 +16,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //User Login Form
   openLoginForm(): void {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
@@ -24,12 +24,16 @@ export class HeaderComponent implements OnInit {
    let dialogRef = this.dialog.open(LoginComponent, {width: '500px', height: '450px'});
   }
 
+  //Link to Homepage
   goToHome(page:string):void{
     this.router.navigate([`${page}`]);
   }
+
+  //Link to About page
   goToAbout(page:string):void{
     this.router.navigate([`${page}`]);
   }
+
   scroll(el: HTMLElement) {
     el.scrollIntoView();
   }

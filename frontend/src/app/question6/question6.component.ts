@@ -8,6 +8,7 @@ import {Router} from '@angular/router'
 })
 export class Question6Component implements OnInit {
 
+  //List of Movie Rating
   selectedRating: string | undefined;
   ratings: string[] = ['No preference', '9 +', '8 +', '7 +', '5 +'];
 
@@ -16,6 +17,7 @@ export class Question6Component implements OnInit {
   ngOnInit(): void {
   }
   
+  //Navigate to next page
   goToQuestions(page:string):void{
     this.router.navigate([`${page}`]);
   }

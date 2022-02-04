@@ -8,6 +8,7 @@ import {Router} from '@angular/router'
 })
 export class Question5Component implements OnInit {
 
+  //List for Movie Release
   selectedYear: string | undefined;
   years: string[] = ['No preference', 'Released Last Year', 'Released in the Last 3 years', 'Released in the Last 5 years ', 'Released in the Last 10 years'];
 
@@ -16,6 +17,7 @@ export class Question5Component implements OnInit {
   ngOnInit(): void {
   }
   
+  //Navigate to Question6
   goToQuestions(page:string):void{
     this.router.navigate([`${page}`]);
   }

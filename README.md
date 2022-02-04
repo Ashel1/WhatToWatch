@@ -1,4 +1,4 @@
-# What2Watch - The Movie Recomendation Platform
+# What2Watch - The Movie Recommendation Platform
 CEN5035 - Software Engineering - Spring 2022
 <hr>
 
@@ -18,4 +18,3 @@ Delora Almeida.</br>
 Stack: </br>
 Frontend: Angular 2+</br>
 Backend: Golang
-
