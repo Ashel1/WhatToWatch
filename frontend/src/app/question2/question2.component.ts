@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./question2.component.scss']
 })
 export class Question2Component implements OnInit {
+
+  //Viewing Platforms List
   typeOfPlatforms: string[] = ['Netflix', 'Amazon Prime', 'Hulu'];
 
   constructor(private router:Router) { }
@@ -13,6 +15,7 @@ export class Question2Component implements OnInit {
   ngOnInit(): void {
   }
 
+  //Navigate to Question3
   goToQuestions(page:string):void{
     this.router.navigate([`${page}`]);
   }
