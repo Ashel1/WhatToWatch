@@ -1,21 +1,20 @@
+<!--What2Watch About Page-->
+
 <div class="container jumbotron">
     <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
        <mat-card class="box about">
-           <mat-toolbar color ="warm" style="border-radius:6px" >About Us</mat-toolbar>
+           <mat-toolbar color ="warm" style="border-radius:6px">About Us</mat-toolbar>
          <mat-card-header>
            <mat-card-title></mat-card-title>
          </mat-card-header>
          <p> Our quiz-based recommendation platform recommends a movie based on your selected preferences.</p>
-         <p> Our platform is:</p>
-         <ul>
-             <li>Time-saving & easy to use</li>
-             <li>Use without registering</li>
-             <li>Multiple movie genres</li>
-             <li>One Recommendation at a time</li>
-             <li>Read overview of the movie</li>
-             <li>Watch trailers</li>
-         </ul>
-         
+         <p> The <b>What2Watch</b> platform is:</p>
+         <mat-list>
+          <mat-list-item class="colorOfItems" *ngFor="let feature of listOfFeatures">  
+            <i class="fa fa-circle"></i>
+              {{feature}}
+          </mat-list-item>
+         </mat-list>      
        </mat-card>
       
     </div>

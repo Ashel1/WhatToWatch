@@ -7,6 +7,8 @@ import {Router} from '@angular/router'
   styleUrls: ['./question1.component.scss']
 })
 export class Question1Component implements OnInit {
+
+  //Viewing Occasion
   selectedOccasion: string | undefined;
   occasions: string[] = ['Watching By Myself', 'Watching a movie with Family', 'Movie Night with Friends', 'Movie Date'];
 
@@ -15,6 +17,7 @@ export class Question1Component implements OnInit {
   ngOnInit(): void {
   }
   
+  //Navigate to Question2
   goToQuestions(page:string):void{
     this.router.navigate([`${page}`]);
   }
