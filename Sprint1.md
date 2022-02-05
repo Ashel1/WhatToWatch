@@ -58,4 +58,3 @@ User Stories for Sprint 1:
 - Created connection to the SQLite file
 - Implemented encryption of password before saving it using bcrypt
 - Referred to https://pkg.go.dev/golang.org/x/crypto/bcrypt for encryption
-
