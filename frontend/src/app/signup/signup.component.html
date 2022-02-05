@@ -31,11 +31,11 @@
          <br>
  
          <mat-form-field class="example-full-width">
-           <input matInput placeholder="Password" formControlName="password"  required>
+           <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'"  formControlName="password" required>
+           <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
            <mat-error >Password is required</mat-error>
          </mat-form-field>
        </mat-card-content>
- 
        <button mat-stroked-button color="accent"  type="submit"  [disabled]="!signupFrom.valid" class="btn-block">Register</button>
  
      </form>

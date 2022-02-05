@@ -42,7 +42,7 @@ export class SignupComponent implements OnInit {
     })
 
   }
-
+hide=true;
   
   
 

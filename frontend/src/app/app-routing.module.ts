@@ -10,12 +10,13 @@ import { Question4Component } from './question4/question4.component';
 import { Question5Component } from './question5/question5.component';
 import { Question6Component } from './question6/question6.component';
 import { AboutComponent } from './about/about.component';
-
+import{MovieRecommendComponent} from './movie-recommend/movie-recommend.component';
 const routes: Routes = [
   {path: 'Home', component: HomeComponent},
   { path: '', redirectTo: '/Home', pathMatch: 'full' },
   {path:'Signup', component: SignupComponent},
   {path:'About', component: AboutComponent},
+  {path:'Movie', component: MovieRecommendComponent},
   {path:'Question1', component: Question1Component},
   {path:'Question2', component: Question2Component},
   {path:'Question3', component: Question3Component},

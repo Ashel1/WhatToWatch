@@ -45,6 +45,7 @@ import { Question5Component } from './question5/question5.component';
 import { Question6Component } from './question6/question6.component';
 import { AboutComponent } from './about/about.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MovieRecommendComponent } from './movie-recommend/movie-recommend.component';
 
 
 @NgModule({
@@ -58,7 +59,7 @@ import { MatIconModule } from '@angular/material/icon';
     Question1Component,
     Question2Component, 
     SignupComponent, ContactComponent,
-    SignupComponent, Question3Component, Question4Component, Question5Component, Question6Component, AboutComponent
+    SignupComponent, Question3Component, Question4Component, Question5Component, Question6Component, AboutComponent, MovieRecommendComponent
   ],
   imports: [
     BrowserModule,
