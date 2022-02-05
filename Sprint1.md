@@ -3,9 +3,15 @@
 Date: 4th February 2022
 
 
-<h1>A Demo of the What2Watch Platform Frontend</h1>
+<h1>A Demo of the What2Watch Platform Front-end</h1>
 
 https://user-images.githubusercontent.com/48183518/152627055-8cbd798f-99c7-404e-b31d-b9f6a9fc8bb2.mp4
+
+<h1>A Demo of the What2Watch Platform Back-end using Postman</h1>
+
+
+https://user-images.githubusercontent.com/48183518/152628099-519e68bf-d664-434d-9df0-1c1884f5010e.mp4
+
 
 <br>
 <h1>Tasks accomplished in Sprint 1</h1>
