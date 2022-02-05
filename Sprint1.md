@@ -31,7 +31,9 @@ User Stories for Sprint 1:
 - Designed the About Page
 - Designed the Login Component
 - Designed the Sign Up Component
+- Implemented Login and Registration of users by simulating a Fake REST API using JSON server
 - Designed the Pages for Question 1 to Question 6 along with answers to choose from
+
 
 <h2>Tasks Accomplished in the Back-end</h2>
 
