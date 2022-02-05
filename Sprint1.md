@@ -51,5 +51,11 @@ User Stories for Sprint 1:
 
 <img src="https://github.com/Ashel1/WhatToWatch/blob/5fa54d47f8c0b96912c5378442eec04433270f0f/images/go.png" height="100" width="250"/>
 
-
+- Set up the Environemnt for Golang from https://go.dev/doc/install
+- Referred to https://go.dev/doc/ to learn the basics
+- Designed an API for the registration
+- Designed an API for the signin
+- Created connection to the SQLite file
+- Implemented encryption of password before saving it using bcrypt
+- Referred to https://pkg.go.dev/golang.org/x/crypto/bcrypt for encryption
 
