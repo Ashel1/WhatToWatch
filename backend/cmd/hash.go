@@ -3,10 +3,10 @@ package main
 import (
 	"fmt"
 
-	"golang.org/x/crypto/bcrypt"
+	//"golang.org/x/crypto/bcrypt"
 )
 
-func HashPassword(password string) (string, error) {
+/*func HashPassword(password string) (string, error) {
 	bytes, err := bcrypt.GenerateFromPassword([]byte(password), 14)
 	return string(bytes), err
 }
@@ -14,9 +14,9 @@ func HashPassword(password string) (string, error) {
 func CheckPasswordHash(password, hash string) bool {
 	err := bcrypt.CompareHashAndPassword([]byte(hash), []byte(password))
 	return err == nil
-}
+}*/
 
-func main() {
+func main1() {
 	fmt.Println("Enter Your Password: ")
 
 	var password string
