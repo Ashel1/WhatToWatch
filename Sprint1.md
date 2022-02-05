@@ -46,7 +46,7 @@ User Stories for Sprint 1:
 - Implemented Login and Registration of users by simulating a Fake REST API using JSON server
 - Designed the Pages for Question 1 to Question 6 along with answers to choose from
 
-
+<hr>
 <h2>Tasks Accomplished in the Back-end</h2>
 
 <img src="https://github.com/Ashel1/WhatToWatch/blob/5fa54d47f8c0b96912c5378442eec04433270f0f/images/go.png" height="100" width="250"/>
