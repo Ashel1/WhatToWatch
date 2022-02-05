@@ -2,7 +2,13 @@
 <h2>Sprint 1</h2> <br>
 Date: 4th February 2022
 
-Tasks accomplished in Sprint 1
+
+<h1>A Demo of the What2Watch Platform Frontend</h1>
+
+https://user-images.githubusercontent.com/48183518/152627055-8cbd798f-99c7-404e-b31d-b9f6a9fc8bb2.mp4
+
+<br>
+<h1>Tasks accomplished in Sprint 1</h1>
 <br>
 
 User Stories for Sprint 1:
