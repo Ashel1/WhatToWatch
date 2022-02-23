@@ -44,6 +44,17 @@ type registerstruct struct {
 	Password string
 }
 
+type ans2ques struct{
+	q1	string
+	q2	string
+	q3	string
+	q4	string
+	q5	string
+	q6	string
+	q7	string
+	q8	string
+}
+
 func signin(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case "GET":
@@ -153,7 +164,17 @@ func register(w http.ResponseWriter, r *http.Request) {
 
 func questionnaire(w http.ResponseWriter, r *http.Request) {
 	fmt.Print("Recieved the answers for the questions!")
-	
+	switch r.Method {
+	case "GET":
+		fmt.Fprintf(w, "Only Post request please!")
+	case "POST":
+		var answers registerstruct
+		err := json.NewDecoder(r.Body).Decode(&user)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusBadRequest)
+			return
+		}
+
 }
 
 func main() {
