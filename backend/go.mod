@@ -13,7 +13,8 @@ require (
 )
 
 require (
-	golang.org/x/text v0.3.0 // indirect
+	golang.org/x/crypto v0.0.0-20220131195533-30dcbda58838
+	golang.org/x/text v0.3.6 // indirect
 	gorm.io/driver/sqlite v1.2.6
 	rsc.io/sampler v1.3.0 // indirect
 )

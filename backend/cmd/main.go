@@ -151,10 +151,16 @@ func register(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func questionnaire(w http.ResponseWriter, r *http.Request) {
+	fmt.Print("Recieved the answers for the questions!")
+	
+}
+
 func main() {
 
 	http.HandleFunc("/signin", signin)
 	http.HandleFunc("/register", register)
+	http.HandleFunc("/questionnaire",questionnaire)
 	log.Fatal(http.ListenAndServe(":3000", nil))
 
 	/*db, err := gorm.Open(sqlite.Open("user.db"), &gorm.Config{})
