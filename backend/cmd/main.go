@@ -168,13 +168,14 @@ func questionnaire(w http.ResponseWriter, r *http.Request) {
 	case "GET":
 		fmt.Fprintf(w, "Only Post request please!")
 	case "POST":
-		var answers registerstruct
-		err := json.NewDecoder(r.Body).Decode(&user)
+		var answers ans2ques
+		err := json.NewDecoder(r.Body).Decode(&answers)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusBadRequest)
 			return
 		}
 
+}
 }
 
 func main() {
