@@ -3,6 +3,7 @@ package main
 import (
 	"database/sql"
 	//"strconv"
+	"math/rand"
 	"encoding/json"
 	"fmt"
 
@@ -174,6 +175,11 @@ func questionnaire(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, err.Error(), http.StatusBadRequest)
 			return
 		}
+		//Remove comment when the database is finalized
+		//database, _ := sql.Open("sqlite3", "./movies.db")
+		//statement, _ := database.Prepare("CREATE TABLE IF NOT EXISTS User (Username TEXT PRIMARY KEY, Fname TEXT, Lname TEXT, Email TEXT, Password TEXT)")
+		//statement.Exec()
+		RandomIntegerwithinRange := rand.Intn(len())
 
 }
 }
