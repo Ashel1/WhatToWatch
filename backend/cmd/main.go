@@ -179,7 +179,7 @@ func questionnaire(w http.ResponseWriter, r *http.Request) {
 		//database, _ := sql.Open("sqlite3", "./movies.db")
 		//statement, _ := database.Prepare("CREATE TABLE IF NOT EXISTS User (Username TEXT PRIMARY KEY, Fname TEXT, Lname TEXT, Email TEXT, Password TEXT)")
 		//statement.Exec()
-		RandomIntegerwithinRange := rand.Intn(len())
+		//RandomIntegerwithinRange := rand.Intn(len())
 
 }
 }
