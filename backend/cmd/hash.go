@@ -1,4 +1,4 @@
-package main
+/*package main
 
 import (
 	"fmt"
@@ -14,8 +14,7 @@ import (
 func CheckPasswordHash(password, hash string) bool {
 	err := bcrypt.CompareHashAndPassword([]byte(hash), []byte(password))
 	return err == nil
-}*/
-
+}
 func main1() {
 	fmt.Println("Enter Your Password: ")
 
@@ -30,3 +29,4 @@ func main1() {
 	match := CheckPasswordHash(password, hash)
 	fmt.Println("Match:   ", match)
 }
+/*
