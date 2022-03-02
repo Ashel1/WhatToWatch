@@ -1,4 +1,4 @@
-# What2Watch - The Movie Recommendation Platform
+# What2Watch - The Movie Recommendation Platform 
 <b>CEN5035 - Software Engineering - Spring 2022</b>
 <hr>
 
