@@ -27,7 +27,7 @@ User Stories for Sprint 1:
     - Please select the genre of the Movie? (Multiple Selection Option)
     - Should the movie be age-appropriate?
     - How old would you like the movie to be?
-    - Preferred movie rating?
+    - Preferred IMDB movie rating?
 
 - As a user, I would like to sign up/login to use the What2Watch platform and the features it provides.
 
