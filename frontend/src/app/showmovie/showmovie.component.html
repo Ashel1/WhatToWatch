@@ -10,8 +10,13 @@
         <p style="margin-bottom:1cm;"></p>
         <img mat-card-image src={{photo}} alt="Avatar" class="avatar">
         <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
+          <button mat-icon-button>
+            <mat-icon>thumb_up</mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon>share</mat-icon>
+          </button>
+         
         </mat-card-actions>
     </mat-card>
     
@@ -30,7 +35,7 @@
           </p>
         </mat-card-content>
         <p style="margin-bottom:1cm;"></p>
-        <button mat-raised-button color="warn" width="100px">Watch Trailer</button>
+        <button mat-raised-button color="warn" width="100px">Watch Trailer<mat-icon>play</mat-icon></button>
         <button mat-raised-button color="warn" width="100px">Watch On {{ platform}}</button>
         </mat-card>
 		</div>
