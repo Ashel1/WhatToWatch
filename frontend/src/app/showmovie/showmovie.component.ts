@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-
 @Component({
   selector: 'app-showmovie',
   templateUrl: './showmovie.component.html',
@@ -19,16 +18,17 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   ]
 })
 export class ShowmovieComponent implements OnInit {
- 
   flip: string = 'inactive';
 
   toggleFlip() {
     this.flip = (this.flip == 'inactive') ? 'active' : 'inactive';
   }
+  
 
   constructor() { }
-  
-  ngOnInit(): void {
+
+  ngOnInit() {
+   
   }
   
   
