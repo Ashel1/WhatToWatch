@@ -1,8 +1,89 @@
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans);
+*, *:before, *:after {
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+ }
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1em;
+}
 .jumbotron {
  
   
     background-image:linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.5)),url(/assets/images/moviebg.jpg); 
     padding-top: 100px;
-    padding-bottom: 40%;
+    padding-bottom: 18%;
 }
-  
+
+img {
+  display:block;
+}
+
+.carousel-five-images{
+	position: relative;
+  top: 1em;
+  left: 3%;
+  /* Can be anything, but must be defined */
+}
+.carousel-five-images img {
+  width: 400px;
+  height: 400px;
+}
+.carousel-five-images .changing {
+	position:absolute;
+	opacity:0;
+	top:0;
+	left:0;
+}
+.carousel-five-images .two{
+	animation:animate-five-two 0.5s infinite forwards linear;
+}
+.carousel-five-images .three{
+	animation:animate-five-three 0.5s infinite forwards linear;
+}
+.carousel-five-images .four{
+	animation:animate-five-four 0.5s infinite forwards linear;
+}
+.carousel-five-images .five{
+	animation:animate-five-five 0.5s infinite forwards linear;
+}
+
+@keyframes animate-five-two
+{
+    0%	{opacity:0;}
+    15% {opacity:0;}
+    20% {opacity:1;}
+    90% {opacity:1;}
+    95% {opacity:0;}
+}
+@keyframes animate-five-three
+{
+    0% {opacity:0;}
+    35% {opacity:0;}
+    40% {opacity:1;}
+    90% {opacity:1;}
+    95% {opacity:0;}
+}
+@keyframes animate-five-four
+{
+    0% {opacity:0;}
+    55% {opacity:0;}
+    60% {opacity:1;}
+    90% {opacity:1;}
+    95% {opacity:0;}
+}
+@keyframes animate-five-five
+{
+    0% {opacity:0;}
+    75% {opacity:0;}
+    80% {opacity:1;}
+    95% {opacity:1;}
+    100% {opacity:0;}
+}
+
