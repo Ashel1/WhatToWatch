@@ -25,7 +25,8 @@ const routes: Routes = [
   {path:'Question4', component: Question4Component},
   {path:'Question5', component: Question5Component},
   {path:'Question6', component: Question6Component},
-  {path:'ShowMovie', component: ShowmovieComponent}
+  {path:'ShowMovie', component: ShowmovieComponent},
+  {path:'Movieshuffle', component: MovieRecommendComponent}
 ];
 
 @NgModule({
