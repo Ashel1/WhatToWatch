@@ -26,7 +26,7 @@ img {
 }
 
 .carousel-five-images{
-	position: relative;
+    position: relative;
   top: 1em;
   left: 3%;
   /* Can be anything, but must be defined */
@@ -36,27 +36,27 @@ img {
   height: 400px;
 }
 .carousel-five-images .changing {
-	position:absolute;
-	opacity:0;
-	top:0;
-	left:0;
+    position:absolute;
+    opacity:0;
+    top:0;
+    left:0;
 }
 .carousel-five-images .two{
-	animation:animate-five-two 0.5s infinite forwards linear;
+    animation:animate-five-two 0.5s infinite forwards linear;
 }
 .carousel-five-images .three{
-	animation:animate-five-three 0.5s infinite forwards linear;
+    animation:animate-five-three 0.5s infinite forwards linear;
 }
 .carousel-five-images .four{
-	animation:animate-five-four 0.5s infinite forwards linear;
+    animation:animate-five-four 0.5s infinite forwards linear;
 }
 .carousel-five-images .five{
-	animation:animate-five-five 0.5s infinite forwards linear;
+    animation:animate-five-five 0.5s infinite forwards linear;
 }
 
 @keyframes animate-five-two
 {
-    0%	{opacity:0;}
+    0%  {opacity:0;}
     15% {opacity:0;}
     20% {opacity:1;}
     90% {opacity:1;}
@@ -86,4 +86,5 @@ img {
     95% {opacity:1;}
     100% {opacity:0;}
 }
+
 
