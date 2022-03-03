@@ -5,9 +5,10 @@
 		<div class="tp-box__side tp-box__front">
       <mat-card >
         <mat-card-header>
-          <mat-card-title>Iron Man</mat-card-title>
+          <mat-card-title>{{title}}</mat-card-title>
         </mat-card-header>
-        <img mat-card-image src="assets/images/1st.jpeg" alt="Avatar" class="avatar">
+        <p style="margin-bottom:1cm;"></p>
+        <img mat-card-image src={{photo}} alt="Avatar" class="avatar">
         <mat-card-actions>
           <button mat-button>LIKE</button>
           <button mat-button>SHARE</button>
@@ -25,12 +26,12 @@
   <p style="margin-bottom:2cm;"></p>
         <mat-card-content>
           <p>
-              A billionaire idustrialist and genius inventor, Tony Stark (Robert Downey Jr.), is conducting weapons tests overseas, but terrorists kidnap him to force him to build a devastating weapon. Instead, he builds an armored suit and upends his captors. Returning to America, Stark refines the suit and uses it to combat crime and terrorism.
+            {{details}}
           </p>
         </mat-card-content>
         <p style="margin-bottom:1cm;"></p>
         <button mat-raised-button color="warn" width="100px">Watch Trailer</button>
-        <button mat-raised-button color="warn" width="100px">Watch On Amazon</button>
+        <button mat-raised-button color="warn" width="100px">Watch On {{ platform}}</button>
         </mat-card>
 		</div>
 	</div>
