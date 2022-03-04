@@ -26,4 +26,8 @@ describe('Question6Component', () => {
   it('default: should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it(`'No preference is an option`, ()=>{
+    expect(component.ratings).toContain('No preference');
+  });
 });

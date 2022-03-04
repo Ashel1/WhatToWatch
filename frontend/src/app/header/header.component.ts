@@ -11,7 +11,6 @@ import {Router} from '@angular/router'
 })
 export class HeaderComponent implements OnInit {
 
-  userName ="User"
   constructor(public dialog: MatDialog, private router:Router) { }
 
   ngOnInit(): void {
