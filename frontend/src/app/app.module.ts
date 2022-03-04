@@ -79,7 +79,6 @@ import { ShowmovieComponent } from './showmovie/showmovie.component';
     MatListModule,
     FormsModule,
     MatDialogModule,
-    MatDialog,
     MatGridListModule,
     MatButtonModule,
     MatIconModule,
