@@ -3,6 +3,9 @@ package main
 import (
 	"database/sql"
 	"math/rand"
+	"net/http"
+
+	"github.com/rs/cors"
 
 	//"strconv"
 	"encoding/json"
@@ -14,7 +17,6 @@ import (
 	"golang.org/x/crypto/bcrypt"
 	//For API
 	"log"
-	"net/http"
 )
 
 /*type Product struct {
@@ -39,11 +41,11 @@ type signinstruct struct {
 }
 
 type registerstruct struct {
-	Fname    string
-	Lname    string
-	Username string
-	Email    string
-	Password string
+	Firstname string
+	Lastname  string
+	Username  string
+	Email     string
+	Password  string
 }
 
 type ans2ques struct {
@@ -65,6 +67,15 @@ type movRes struct {
 	Director    string
 	Overview    string
 	Genre       string
+}
+
+type JsonResponse struct {
+	Type string `json:"type"`
+	Data string `json:"data"`
+}
+type quesResponse struct {
+	Type string `json:"type"`
+	Data movRes `json:"data"`
 }
 
 func signin(w http.ResponseWriter, r *http.Request) {
@@ -91,9 +102,12 @@ func signin(w http.ResponseWriter, r *http.Request) {
 		}
 		err = bcrypt.CompareHashAndPassword([]byte(Password), []byte(user.Password))
 		if err == nil {
-			fmt.Fprintf(w, "Sign in successful!")
+			//fmt.Fprintf(w, "%v", user.Username)
+			var response = JsonResponse{Type: "Complete", Data: user.Username}
+			json.NewEncoder(w).Encode(response)
 		} else {
-			fmt.Fprintf(w, "Username/Password not correct")
+			var response = JsonResponse{Type: "Incorrect Details"}
+			json.NewEncoder(w).Encode(response)
 		}
 		//fmt.Printf("Name = %s\n", user.Username)
 		//fmt.Printf("Address = %s\n", user.Password)
@@ -143,6 +157,8 @@ func register(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, err.Error(), http.StatusBadRequest)
 			return
 		}
+		println("Printing the recieved values: ")
+		println(user.Username, user.Firstname, user.Lastname, user.Email)
 		//fmt.Printf("Name = %s\n", user.Username)
 		//fmt.Printf("Address = %s\n", user.Password)
 		//fmt.Fprintf(w, "Print done")
@@ -166,9 +182,11 @@ func register(w http.ResponseWriter, r *http.Request) {
 		// Create
 		hashedPassword, _ := HashPassword(user.Password)
 		statement, _ = database.Prepare("INSERT INTO User (Fname,Lname,Email,Username,Password) VALUES (?, ? ,?, ?, ?)")
-		statement.Exec(user.Fname, user.Lname, user.Email, user.Username, hashedPassword)
+		statement.Exec(user.Firstname, user.Lastname, user.Email, user.Username, hashedPassword)
 		//db.Create(&registerstruct{Fname: user.Fname, Lname: user.Lname, Email: user.Email, Username: user.Username, Password: hashedPassword})
-		fmt.Fprintf(w, "Registration Successful")
+		//fmt.Fprintf(w, "Registration Successful")
+		var response = JsonResponse{Type: "Correct"}
+		json.NewEncoder(w).Encode(response)
 
 	default:
 		fmt.Fprintf(w, "Only Post request please!")
@@ -187,7 +205,7 @@ func questionnaire(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		database, _ := sql.Open("sqlite3", "./movieDatabase.db")
-		qy := fmt.Sprintf("SELECT title, Released_Year, Certificate, Runtime, Genre, IMDB_Rating, Overview, Director, Poster_Link FROM movies where " + answers.Q2 + "=1 AND genre LIKE '%%Drama%%' AND certificate='" + answers.Q4 + "' AND Released_Year>" + answers.Q5 + " AND IMDB_Rating>" + answers.Q6 + "")
+		qy := fmt.Sprintf("SELECT title, Released_Year, Certificate, Runtime, Genre, IMDB_Rating, Overview, Director, Poster_Link FROM movies where " + answers.Q2 + "=1 AND genre LIKE '%%"+answers.Q3+"%%' AND certificate='" + answers.Q4 + "' AND Released_Year>" + answers.Q5 + " AND IMDB_Rating>" + answers.Q6 + "")
 		//fmt.Println(qy)
 		rows, _ := database.Query(qy)
 		defer rows.Close()
@@ -214,7 +232,9 @@ func questionnaire(w http.ResponseWriter, r *http.Request) {
 		//println(randnum)
 		//var rts string
 		//rts="\"Name:\""
-		fmt.Fprintf(w, "%+v", mov[randnum].Title)
+		var response = quesResponse{Type: "Correct", Data: mov[randnum]}
+		json.NewEncoder(w).Encode(response)
+		//fmt.Fprintf(w, "%+v", mov[randnum])
 		/*statement, _ := database.Prepare("CREATE TABLE IF NOT EXISTS Movie (Poster_Link varchar(255), title varchar(255),Released_in_Year INTEGER,
 		Certificate varchar(255),Runtime varchar(255),Genre varchar(255),IMDB_Rating decimal,Overview varchar(255),Meta_score integer,
 		Director varchar(255),Star1 varchar(255),Star2 varchar(255),Star3 varchar(255),Star4 varchar(255),No_of_Votes integer,
@@ -232,12 +252,16 @@ func questionnaire(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-
-	http.HandleFunc("/signin", signin)
-	http.HandleFunc("/register", register)
-	http.HandleFunc("/questionnaire", questionnaire)
-	log.Fatal(http.ListenAndServe(":3000", nil))
-
+	mux := http.NewServeMux()
+	mux.HandleFunc("/register", register)
+	mux.HandleFunc("/signin", signin)
+	mux.HandleFunc("/questionnaire", questionnaire)
+	//http.HandleFunc("/signin", signin)
+	//http.HandleFunc("/register", register)
+	//http.HandleFunc("/questionnaire", questionnaire)
+	handler := cors.Default().Handler(mux)
+	//log.Fatal(http.ListenAndServe(":3000", nil))
+	http.ListenAndServe(":3000", handler)
 	/*db, err := gorm.Open(sqlite.Open("user.db"), &gorm.Config{})
 	if err != nil {
 		panic("failed to connect database")
