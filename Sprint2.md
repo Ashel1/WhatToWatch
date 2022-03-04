@@ -26,7 +26,7 @@ User Stories for Sprint 2:
 
 <h2>Tasks Accomplished in the Front-end</h2>
 
-- Implemented a shuffler for the movies
+- Implemented a movie shuffler.
 - Viewing movie recommendation based on the answers provided
 - Displaying the movie
 - End-to-end Testing using Cypress
