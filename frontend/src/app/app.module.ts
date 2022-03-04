@@ -4,9 +4,6 @@ import { MatButtonModule } from '@angular/material/button'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// used to create fake backend
-
-
 
 
 import { FooterComponent } from './footer/footer.component';
@@ -21,7 +18,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 
 import { MatListModule } from '@angular/material/list'; 
 import { MatDatepickerModule } from '@angular/material/datepicker';
-    import { MatNativeDateModule } from '@angular/material/core';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import{MatCardModule}from '@angular/material/card'
@@ -32,7 +29,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 
 import { SignupComponent } from './signup/signup.component';
 import 'hammerjs';
@@ -82,6 +79,7 @@ import { ShowmovieComponent } from './showmovie/showmovie.component';
     MatListModule,
     FormsModule,
     MatDialogModule,
+    MatDialog,
     MatGridListModule,
     MatButtonModule,
     MatIconModule,
@@ -95,7 +93,6 @@ import { ShowmovieComponent } from './showmovie/showmovie.component';
     MatDatepickerModule
   ],
   providers: [
-   
     HttpClientModule
     
   ],

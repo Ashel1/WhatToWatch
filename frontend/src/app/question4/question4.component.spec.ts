@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Question4Component } from './question4.component';
+import { Router } from '@angular/router';
 
 describe('Question4Component', () => {
   let component: Question4Component;
@@ -8,7 +9,10 @@ describe('Question4Component', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Question4Component ]
+      declarations: [ Question4Component ],
+      providers: [
+        { provide: Router, useValue: "" }
+      ],
     })
     .compileComponents();
   });
@@ -19,7 +23,7 @@ describe('Question4Component', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('default: should create', () => {
     expect(component).toBeTruthy();
   });
 });
