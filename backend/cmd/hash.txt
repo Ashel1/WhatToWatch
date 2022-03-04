@@ -29,4 +29,4 @@ func main1() {
 	match := CheckPasswordHash(password, hash)
 	fmt.Println("Match:   ", match)
 }
-/*
+*/

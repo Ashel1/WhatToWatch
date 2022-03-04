@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
@@ -13,6 +14,8 @@ import { HttpClientModule } from  '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar'; 
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatGridListModule} from '@angular/material/grid-list';
+
 import { MatListModule } from '@angular/material/list'; 
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -44,6 +47,7 @@ import { AboutComponent } from './about/about.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MovieRecommendComponent } from './movie-recommend/movie-recommend.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { ShowmovieComponent } from './showmovie/showmovie.component';
 
 
 @NgModule({
@@ -57,7 +61,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     Question1Component,
     Question2Component, 
     SignupComponent, ContactComponent,
-    SignupComponent, Question3Component, Question4Component, Question5Component, Question6Component, AboutComponent, MovieRecommendComponent, SpinnerComponent
+    SignupComponent, Question3Component, Question4Component, Question5Component, Question6Component, AboutComponent, MovieRecommendComponent, SpinnerComponent, ShowmovieComponent
   ],
   imports: [
     BrowserModule,
@@ -76,6 +80,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     FormsModule,
     MatDialogModule,
     MatDialog,
+    MatGridListModule,
     MatButtonModule,
     MatIconModule,
     MatRadioModule,

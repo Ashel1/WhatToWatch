@@ -1,0 +1,47 @@
+
+<div class="container jumbotron">
+<div class="tp-wrapper">
+	<div class="tp-box" (click)="toggleFlip()" [@flipState]="flip">
+		<div class="tp-box__side tp-box__front">
+      <mat-card >
+        <mat-card-header>
+          <mat-card-title>{{title}}</mat-card-title>
+        </mat-card-header>
+        <p style="margin-bottom:1cm;"></p>
+        <img mat-card-image src={{photo}} alt="Avatar" class="avatar">
+        <mat-card-actions>
+          <button mat-icon-button>
+            <mat-icon>thumb_up</mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon>share</mat-icon>
+          </button>
+         
+        </mat-card-actions>
+    </mat-card>
+    
+
+		</div>
+		<div class="tp-box__side tp-box__back">
+
+      <mat-card >
+        <mat-card-header>
+          <mat-card-title>About the Movie</mat-card-title>
+        </mat-card-header>
+  <p style="margin-bottom:2cm;"></p>
+        <mat-card-content>
+          <p>
+            {{details}}
+          </p>
+        </mat-card-content>
+        <p style="margin-bottom:1cm;"></p>
+        <button mat-raised-button color="warn" width="100px"><mat-icon class="material-icons">play_circle_filled</mat-icon>Watch Trailer<mat-icon>play</mat-icon></button>
+        <button mat-raised-button color="warn" width="100px">Watch On {{ platform}}</button>
+        </mat-card>
+  
+		</div>
+    
+
+</div>
+
+</div>

@@ -2,6 +2,8 @@ package main
 
 import (
 	"database/sql"
+	"math/rand"
+
 	//"strconv"
 	"encoding/json"
 	"fmt"
@@ -44,15 +46,25 @@ type registerstruct struct {
 	Password string
 }
 
-type ans2ques struct{
-	q1	string
-	q2	string
-	q3	string
-	q4	string
-	q5	string
-	q6	string
-	q7	string
-	q8	string
+type ans2ques struct {
+	Q1 string //Occasion
+	Q2 string //Viewing platform
+	Q3 string //genre
+	Q4 string //Age appropriate
+	Q5 string //Age of movie
+	Q6 string //Movie rating
+}
+
+type movRes struct {
+	Title       string
+	ReleaseYear string
+	Cert        string
+	RunTime     string
+	Rating      string
+	Link        string
+	Director    string
+	Overview    string
+	Genre       string
 }
 
 func signin(w http.ResponseWriter, r *http.Request) {
@@ -70,6 +82,7 @@ func signin(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, err.Error(), http.StatusBadRequest)
 			return
 		}
+		fmt.Println(user.Username, user.Password)
 		database, _ := sql.Open("sqlite3", "./user.db")
 		rows, _ := database.Query("SELECT Password FROM User where Username=?", user.Username)
 		var Password string
@@ -163,7 +176,6 @@ func register(w http.ResponseWriter, r *http.Request) {
 }
 
 func questionnaire(w http.ResponseWriter, r *http.Request) {
-	fmt.Print("Recieved the answers for the questions!")
 	switch r.Method {
 	case "GET":
 		fmt.Fprintf(w, "Only Post request please!")
@@ -174,6 +186,42 @@ func questionnaire(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, err.Error(), http.StatusBadRequest)
 			return
 		}
+		database, _ := sql.Open("sqlite3", "./movieDatabase.db")
+		qy := fmt.Sprintf("SELECT title, Released_Year, Certificate, Runtime, Genre, IMDB_Rating, Overview, Director, Poster_Link FROM movies where " + answers.Q2 + "=1 AND genre LIKE '%%Drama%%' AND certificate='" + answers.Q4 + "' AND Released_Year>" + answers.Q5 + " AND IMDB_Rating>" + answers.Q6 + "")
+		//fmt.Println(qy)
+		rows, _ := database.Query(qy)
+		defer rows.Close()
+		var mov []movRes
+		var overview string
+		var genre string
+		var title string
+		var Released_Year string
+		var Certificate string
+		var Runtime string
+		var IMDB_Rating string
+		var Director string
+		var Poster_Link string
+		for rows.Next() {
+			err := rows.Scan(&title, &Released_Year, &Certificate, &Runtime, &IMDB_Rating, &Director, &Poster_Link, &overview, &genre)
+			if err != nil {
+				log.Fatal(err)
+			}
+			//log.Println(overview, genre)
+			mov = append(mov, movRes{Title: title, ReleaseYear: Released_Year, Cert: Certificate, RunTime: Runtime, Rating: IMDB_Rating, Director: Director, Link: Poster_Link, Overview: overview, Genre: genre})
+		}
+		var randnum int
+		randnum = rand.Intn(len(mov))
+		//println(randnum)
+		//var rts string
+		//rts="\"Name:\""
+		fmt.Fprintf(w, "%+v", mov[randnum].Title)
+		/*statement, _ := database.Prepare("CREATE TABLE IF NOT EXISTS Movie (Poster_Link varchar(255), title varchar(255),Released_in_Year INTEGER,
+		Certificate varchar(255),Runtime varchar(255),Genre varchar(255),IMDB_Rating decimal,Overview varchar(255),Meta_score integer,
+		Director varchar(255),Star1 varchar(255),Star2 varchar(255),Star3 varchar(255),Star4 varchar(255),No_of_Votes integer,
+		Gross integer,show_id varchar(255),type varchar(255),directorofmovie varchar(255),cast varchar(255),country varchar(255),
+		release_year integer,rating varchar(255),duration varchar(255),listed_in varchar(255),description TEXT,NETFLIX integer,
+		AMAZONPRIME integer,HOTSTAR integer);")*/
+		//statement.Exec()
 		//Remove comment when the database is finalized
 		//database, _ := sql.Open("sqlite3", "./movies.db")
 		//statement, _ := database.Prepare("CREATE TABLE IF NOT EXISTS User (Username TEXT PRIMARY KEY, Fname TEXT, Lname TEXT, Email TEXT, Password TEXT)")
@@ -187,7 +235,7 @@ func main() {
 
 	http.HandleFunc("/signin", signin)
 	http.HandleFunc("/register", register)
-	http.HandleFunc("/questionnaire",questionnaire)
+	http.HandleFunc("/questionnaire", questionnaire)
 	log.Fatal(http.ListenAndServe(":3000", nil))
 
 	/*db, err := gorm.Open(sqlite.Open("user.db"), &gorm.Config{})
