@@ -172,7 +172,8 @@ func questionnaire(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, err.Error(), http.StatusBadRequest)
 			return
 		}
-		database, _ := sql.Open("sqlite3", "./movieDatabase.db")
+		fmt.Println(answers.q1,answers.q2,answers.q3,answers.q4,answers.q5,answers.q6)
+		/*database, _ := sql.Open("sqlite3", "./movieDatabase.db")
 		rows, _ := database.Query("SELECT * FROM movies where ?=1 AND genre LIKE %?% AND certificate=? AND Released_Year>? AND IMDB_Rating>?", answers.q2,answers.q3,answers.q4,answers.q5,answers.q6);
 		var result [][]string	
 		cols, err := rows.Columns()
@@ -186,7 +187,7 @@ func questionnaire(w http.ResponseWriter, r *http.Request) {
 			result = append(result, container)
 		}
 		fmt.Println("Printing result now")
-		fmt.Print(result[0][0])
+		fmt.Print(result[0][0])*/
 		/*statement, _ := database.Prepare("CREATE TABLE IF NOT EXISTS Movie (Poster_Link varchar(255), title varchar(255),Released_in_Year INTEGER,
 						 Certificate varchar(255),Runtime varchar(255),Genre varchar(255),IMDB_Rating decimal,Overview varchar(255),Meta_score integer,
 						 Director varchar(255),Star1 varchar(255),Star2 varchar(255),Star3 varchar(255),Star4 varchar(255),No_of_Votes integer,
