@@ -79,7 +79,6 @@ import { ShowmovieComponent } from './showmovie/showmovie.component';
     MatListModule,
     FormsModule,
     MatDialogModule,
-    MatDialog,
     MatGridListModule,
     MatButtonModule,
     MatIconModule,
@@ -93,8 +92,8 @@ import { ShowmovieComponent } from './showmovie/showmovie.component';
     MatDatepickerModule
   ],
   providers: [
-    HttpClientModule
-    
+    HttpClientModule,
+    MatDialogModule,
   ],
   bootstrap: [AppComponent],
   entryComponents: [
