@@ -45,14 +45,12 @@ type registerstruct struct {
 }
 
 type ans2ques struct{
-	q1	string
-	q2	string
-	q3	string
-	q4	string
-	q5	string
-	q6	string
-	q7	string
-	q8	string
+	q1	string				//Occasion	
+	q2	string				//Viewing platform 
+	q3	string				//genre
+	q4	string				//Age appropriate
+	q5	string				//Age of movie
+	q6	string				//Movie rating
 }
 
 func signin(w http.ResponseWriter, r *http.Request) {
@@ -163,7 +161,7 @@ func register(w http.ResponseWriter, r *http.Request) {
 }
 
 func questionnaire(w http.ResponseWriter, r *http.Request) {
-	fmt.Print("Recieved the answers for the questions!")
+	fmt.Println("Recieved the answers for the questions!")
 	switch r.Method {
 	case "GET":
 		fmt.Fprintf(w, "Only Post request please!")
@@ -174,14 +172,28 @@ func questionnaire(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, err.Error(), http.StatusBadRequest)
 			return
 		}
-		database, _ := sql.Open("sqlite3", "./movies.db")
-		statement, _ := database.Prepare("CREATE TABLE IF NOT EXISTS Movie (Poster_Link varchar(255), title varchar(255),Released_in_Year INTEGER,
+		database, _ := sql.Open("sqlite3", "./movieDatabase.db")
+		rows, _ := database.Query("SELECT * FROM movies where ?=1 AND genre LIKE %?% AND certificate=? AND Released_Year>? AND IMDB_Rating>?", answers.q2,answers.q3,answers.q4,answers.q5,answers.q6);
+		var result [][]string	
+		cols, err := rows.Columns()
+		pointers := make([]interface{}, len(cols))
+		container := make([]string, len(cols))
+		for i, _ := range pointers {
+			pointers[i] = &container[i]
+		}
+		for rows.Next() {
+			rows.Scan(pointers...)
+			result = append(result, container)
+		}
+		fmt.Println("Printing result now")
+		fmt.Print(result[0][0])
+		/*statement, _ := database.Prepare("CREATE TABLE IF NOT EXISTS Movie (Poster_Link varchar(255), title varchar(255),Released_in_Year INTEGER,
 						 Certificate varchar(255),Runtime varchar(255),Genre varchar(255),IMDB_Rating decimal,Overview varchar(255),Meta_score integer,
 						 Director varchar(255),Star1 varchar(255),Star2 varchar(255),Star3 varchar(255),Star4 varchar(255),No_of_Votes integer,
 						 Gross integer,show_id varchar(255),type varchar(255),directorofmovie varchar(255),cast varchar(255),country varchar(255),
 						 release_year integer,rating varchar(255),duration varchar(255),listed_in varchar(255),description TEXT,NETFLIX integer,
-						 AMAZONPRIME integer,HOTSTAR integer)")
-		statement.Exec()
+						 AMAZONPRIME integer,HOTSTAR integer);")*/
+		//statement.Exec()
 		//Remove comment when the database is finalized
 		//database, _ := sql.Open("sqlite3", "./movies.db")
 		//statement, _ := database.Prepare("CREATE TABLE IF NOT EXISTS User (Username TEXT PRIMARY KEY, Fname TEXT, Lname TEXT, Email TEXT, Password TEXT)")
