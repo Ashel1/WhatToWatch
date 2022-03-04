@@ -40,11 +40,7 @@ describe('HeaderComponent', () => {
     expect (routerSpy.navigate).toHaveBeenCalledWith(['/About']);
  });*/
 
-    it('check name', ()=>{
-      expect(component.userName).toBe('User')
-
-    })
-    it('check name', ()=>{
+    it('check name of the button', ()=>{
       const data = fixture.nativeElement;
       expect(data.querySelector("#Home").textContent).toBe('Home')
     })

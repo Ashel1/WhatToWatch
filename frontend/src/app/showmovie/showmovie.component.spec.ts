@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ShowmovieComponent } from './showmovie.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('ShowmovieComponent', () => {
   let component: ShowmovieComponent;
@@ -8,6 +9,7 @@ describe('ShowmovieComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports:[BrowserAnimationsModule],
       declarations: [ ShowmovieComponent ]
     })
     .compileComponents();
@@ -19,7 +21,7 @@ describe('ShowmovieComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('default: should create', () => {
     expect(component).toBeTruthy();
   });
 });

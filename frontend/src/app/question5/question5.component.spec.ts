@@ -21,8 +21,12 @@ describe('Question5Component', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
+  
   it('default: should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('Option for movie releasedlast years exists', ()=>{
+    expect(component.years).toContain('Released Last Year');
   });
 });

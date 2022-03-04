@@ -26,4 +26,8 @@ describe('Question3Component', () => {
   it('default: should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Genre Adventure exists', ()=>{
+    expect(component.typeOfGenres).toContain('Adventure');
+  });
 });

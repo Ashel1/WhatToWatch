@@ -22,12 +22,13 @@ describe('Question1Component', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('default: should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('check name', ()=>{
-    expect(component.occasions).toContain('Watching By Myself')
-
-  })
+  it('occasions contains the required options', ()=>{
+    expect(component.occasions).toContain('Watching By Myself', 'Watching a movie with Family');
+    expect(component.occasions).toContain('Movie Night with Friends', 'Movie Date')
+  });
+  
 });

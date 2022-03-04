@@ -19,7 +19,7 @@ describe('FooterComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('default: should create', () => {
     expect(component).toBeTruthy();
   });
 });

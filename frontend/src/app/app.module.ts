@@ -37,7 +37,6 @@ import { Question1Component } from './question1/question1.component';
 import { Question2Component } from './question2/question2.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ContactComponent } from './contact/contact.component';
 
 import { Question3Component } from './question3/question3.component';
 import { Question4Component } from './question4/question4.component';
@@ -46,7 +45,6 @@ import { Question6Component } from './question6/question6.component';
 import { AboutComponent } from './about/about.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MovieRecommendComponent } from './movie-recommend/movie-recommend.component';
-import { SpinnerComponent } from './spinner/spinner.component';
 import { ShowmovieComponent } from './showmovie/showmovie.component';
 
 
@@ -60,8 +58,15 @@ import { ShowmovieComponent } from './showmovie/showmovie.component';
     LoginComponent,
     Question1Component,
     Question2Component, 
-    SignupComponent, ContactComponent,
-    SignupComponent, Question3Component, Question4Component, Question5Component, Question6Component, AboutComponent, MovieRecommendComponent, SpinnerComponent, ShowmovieComponent
+    SignupComponent,
+    SignupComponent, 
+    Question3Component, 
+    Question4Component, 
+    Question5Component, 
+    Question6Component, 
+    AboutComponent, 
+    MovieRecommendComponent,
+    ShowmovieComponent
   ],
   imports: [
     BrowserModule,
