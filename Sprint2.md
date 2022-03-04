@@ -20,7 +20,7 @@ User Stories for Sprint 2:
 
 - As a user I would like to read the overview of the movie.
 
--As a user, I would like to view more information about the movie.
+- As a user, I would like to view more information about the movie.
 
 <hr>
 
