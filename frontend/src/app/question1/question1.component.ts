@@ -1,7 +1,7 @@
 import { ElementRef } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router'
-import {Movie} from '../../shared/movie'
+//import {Movie} from '../../shared/movie'
 
 @Component({
   selector: 'app-question1',
