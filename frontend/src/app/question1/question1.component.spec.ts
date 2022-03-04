@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { Router } from '@angular/router';
 import { Question1Component } from './question1.component';
 
 describe('Question1Component', () => {
@@ -8,7 +8,10 @@ describe('Question1Component', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Question1Component ]
+      declarations: [ Question1Component ],
+      providers: [
+        { provide: Router, useValue: "" }
+      ],
     })
     .compileComponents();
   });
@@ -22,4 +25,9 @@ describe('Question1Component', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('check name', ()=>{
+    expect(component.occasions).toContain('Watching By Myself')
+
+  })
 });

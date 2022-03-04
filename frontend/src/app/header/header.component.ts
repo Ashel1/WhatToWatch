@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog} from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
 import {MatDialogConfig} from "@angular/material/dialog";
 import {Router} from '@angular/router'
@@ -11,6 +11,7 @@ import {Router} from '@angular/router'
 })
 export class HeaderComponent implements OnInit {
 
+  userName ="User"
   constructor(public dialog: MatDialog, private router:Router) { }
 
   ngOnInit(): void {

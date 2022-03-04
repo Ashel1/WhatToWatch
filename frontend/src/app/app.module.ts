@@ -4,9 +4,6 @@ import { MatButtonModule } from '@angular/material/button'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// used to create fake backend
-
-
 
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
@@ -18,7 +15,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatListModule } from '@angular/material/list'; 
 import { MatDatepickerModule } from '@angular/material/datepicker';
-    import { MatNativeDateModule } from '@angular/material/core';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import{MatCardModule}from '@angular/material/card'
@@ -29,7 +26,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 
 import { SignupComponent } from './signup/signup.component';
 import 'hammerjs';
@@ -78,6 +75,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     MatListModule,
     FormsModule,
     MatDialogModule,
+    MatDialog,
     MatButtonModule,
     MatIconModule,
     MatRadioModule,
@@ -90,7 +88,6 @@ import { SpinnerComponent } from './spinner/spinner.component';
     MatDatepickerModule
   ],
   providers: [
-   
     HttpClientModule
     
   ],
