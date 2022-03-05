@@ -30,8 +30,9 @@ Create an Account for the authenticated User if an Account for that User does no
 | Lastname   | last name of user     
 | Email      |email of user     
 | username   | username of user     
-| password      | password of user
-Data example All fields must be sent.
+| password      | password of user |
+
+Data Examples for user
 ```
 {
     "Firstname": "[abcde]",
