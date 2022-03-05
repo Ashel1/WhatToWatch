@@ -20,7 +20,11 @@ User Stories for Sprint 2:
  <br>
 
 
-https://user-images.githubusercontent.com/63602357/156868906-d23589a3-6f43-423c-acd0-c861e584bdc9.mp4
+
+https://user-images.githubusercontent.com/63551026/156869203-7c4da7f5-2eb3-4932-8a5d-a26f358c0b78.mp4
+
+
+
 
 
 - End-to-end Testing using Cypress
