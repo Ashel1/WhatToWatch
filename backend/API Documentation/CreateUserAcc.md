@@ -59,8 +59,3 @@ Condition : If Account already exists for User, which include two situation: use
 Code : 400 BadRequest
 
 Content : {"error": "User already exist!"}
-
-| Syntax      | Description | Test Text     |
-| :---        |    :----:   |          ---: |
-| Header      | Title       | Here's this   |
-| Paragraph   | Text        | And more      |
