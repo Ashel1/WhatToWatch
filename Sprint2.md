@@ -39,3 +39,6 @@ User Stories for Sprint 2:
  - API documentation
  - API testing using Postman 
 <h2>Backend API Documentation</h2>
+
+ - The API documentation is present in the backend/API Documentation/ 
+   Link: https://github.com/Ashel1/WhatToWatch/tree/main/backend/API%20Documentation
