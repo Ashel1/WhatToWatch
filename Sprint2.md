@@ -34,4 +34,8 @@ User Stories for Sprint 2:
 
 <hr>
 <h2>Tasks Accomplished in the Back-end</h2>
+
+ - Completed 3rd API for recieving questions from the questionnaire and selecting random movie
+ - API documentation
+ - API testing using Postman 
 <h2>Backend API Documentation</h2>
