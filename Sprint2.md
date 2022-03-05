@@ -37,6 +37,7 @@ User Stories for Sprint 2:
 
  - Completed 3rd API for recieving questions from the questionnaire and selecting random movie
  - API documentation
+ - Integrated the frontend with the backend
  - API testing using Postman 
 <h2>Backend API Documentation</h2>
 
