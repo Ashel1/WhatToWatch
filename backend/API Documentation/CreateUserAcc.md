@@ -1,11 +1,11 @@
 
 
 
-## Create User Account
+## Create User Account using Register
 
-Create an Account for the authenticated User if an Account for that User does not already exist. Each User can only have one Account.
+Create an Account for the User if an Account for that particular User does not already exist.
 
-**URL** : ``` /api/create/ ```
+**URL** : ``` /api/register/ ```
 
 **Method** : ``` POST ```
 
