@@ -44,7 +44,7 @@ https://user-images.githubusercontent.com/63551026/156869203-7c4da7f5-2eb3-4932-
  - Completed 3rd API for recieving questions from the questionnaire and selecting random movie
  - API documentation
  - API testing using Postman 
-<h2>Backend API Documentation</h2>
+
 
 <h2> API Testing using Postman Video </h2>
 
@@ -52,7 +52,7 @@ https://user-images.githubusercontent.com/63551026/156869203-7c4da7f5-2eb3-4932-
 https://user-images.githubusercontent.com/48183518/156868781-46cf93be-d3c4-45a6-9ea7-baabbaba3fa6.mp4
 
 
-
+<h2>Backend API Documentation</h2>
 
  - The API documentation is present in the backend/API Documentation/ 
    Link: https://github.com/Ashel1/WhatToWatch/tree/main/backend/API%20Documentation
