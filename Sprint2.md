@@ -25,15 +25,19 @@ User Stories for Sprint 2:
 - Displaying the movie
  
  Movie displayed:
- https://github.com/Ashel1/WhatToWatch/blob/323e379780ca2b59f8bcb22f10817deb42b710f8/images/A0F06091-0919-420A-A8C1-D79469121CC9_2_0_a.mov
+ <br>
+ <img src="https://github.com/Ashel1/WhatToWatch/blob/323e379780ca2b59f8bcb22f10817deb42b710f8/images/A0F06091-0919-420A-A8C1-D79469121CC9_2_0_a.mov" height="300" width="700"/>
  
 - End-to-end Testing using Cypress
 - Unit testing
  
  Unit Testing using Karma and Jasmine:
- https://github.com/Ashel1/WhatToWatch/blob/323e379780ca2b59f8bcb22f10817deb42b710f8/images/test1.png
- https://github.com/Ashel1/WhatToWatch/blob/323e379780ca2b59f8bcb22f10817deb42b710f8/images/test2.png
- https://github.com/Ashel1/WhatToWatch/blob/323e379780ca2b59f8bcb22f10817deb42b710f8/images/test3.png
+  <br>
+ <img src="https://github.com/Ashel1/WhatToWatch/blob/323e379780ca2b59f8bcb22f10817deb42b710f8/images/test1.png" height="200" width="700"/> <br>
+
+ <img src="https://github.com/Ashel1/WhatToWatch/blob/323e379780ca2b59f8bcb22f10817deb42b710f8/images/test2.png" height="300" width="700"/> <br>
+
+ <img src="https://github.com/Ashel1/WhatToWatch/blob/323e379780ca2b59f8bcb22f10817deb42b710f8/images/test3.png" height="200" width="700"/> <br>
 
 <hr>
 <h2>Tasks Accomplished in the Back-end</h2>
