@@ -2,12 +2,6 @@
 <h2>Sprint 2</h2> <br>
 Date: 4th March 2022
 
-
-<h1>A Demo of the What2Watch Platform Front-end & Backend Integration</h1
-
-
-
-
 <br>
 <h1>Tasks accomplished in Sprint 2</h1>
 <br>
@@ -46,6 +40,13 @@ User Stories for Sprint 2:
  - API documentation
  - API testing using Postman 
 <h2>Backend API Documentation</h2>
+
+<h2> API Testing using Postman Video </h2>
+
+
+https://user-images.githubusercontent.com/48183518/156868718-62ce50bb-3061-4725-b23c-9d7d75a1ced9.mp4
+
+
 
  - The API documentation is present in the backend/API Documentation/ 
    Link: https://github.com/Ashel1/WhatToWatch/tree/main/backend/API%20Documentation
