@@ -20,8 +20,9 @@ User Stories for Sprint 2:
  
  Movie displayed:
  <br>
- <img src="https://github.com/Ashel1/WhatToWatch/blob/323e379780ca2b59f8bcb22f10817deb42b710f8/images/A0F06091-0919-420A-A8C1-D79469121CC9_2_0_a.mov" height="300" width="700"/>
- 
+
+ ![A0F06091-0919-420A-A8C1-D79469121CC9_1_105_c](https://user-images.githubusercontent.com/63551026/156868794-9ec081a2-69a7-4d4b-8732-960076046a09.jpeg)
+
 - End-to-end Testing using Cypress
 - Unit testing
  
