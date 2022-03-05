@@ -25,8 +25,18 @@ export class LoginComponent implements OnInit {
     
   }
   login() {
-  
-  this.http.get<any>("http://localhost:3000/SignupUsers")
+      this.http.post<any>("http://localhost:3000/signin", this.loginForm.value)
+      .subscribe({
+        next: (v) => console.log(v),
+        error: (e) => alert("Something went wrong!!"),
+        complete: () => {alert("Login Success");
+        this.loginForm.reset();
+        this.dialogRef.close();
+        this.router.navigate(['Question1'])
+      }
+    })
+    }
+  /*this.http.get<any>("http://localhost:3000/signin")
   .subscribe(res=>{
     const user = res.find((a:any)=>{
       return a.username === this.loginForm.value.username && a.password === this.loginForm.value.password
@@ -42,9 +52,9 @@ export class LoginComponent implements OnInit {
     }
   },err=>{
     alert("Something went wrong!!")
-  })
+  })*/
 
-  }
+  //}
   hide = true;
   public togglePasswordVisibility(): void {
     this.showPassword = !this.showPassword;
