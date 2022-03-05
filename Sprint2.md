@@ -44,7 +44,8 @@ User Stories for Sprint 2:
 <h2> API Testing using Postman Video </h2>
 
 
-https://user-images.githubusercontent.com/48183518/156868718-62ce50bb-3061-4725-b23c-9d7d75a1ced9.mp4
+https://user-images.githubusercontent.com/48183518/156868781-46cf93be-d3c4-45a6-9ea7-baabbaba3fa6.mp4
+
 
 
 
