@@ -3,10 +3,7 @@
 Date: 4th March 2022
 
 
-<h1>A Demo of the What2Watch Platform Front-end with testing</h1>
-
-
-<h1>A Demo of the What2Watch Platform Back-end with the developed APIs</h1>
+<h1>A Demo of the What2Watch Platform Front-end & Backend Integration</h1
 
 
 
@@ -20,24 +17,29 @@ User Stories for Sprint 2:
 
 - As a user I would like to read the description of the movie.
 
-- As a user, I would like to view more information about the movie.
-
 <hr>
 
 <h2>Tasks Accomplished in the Front-end</h2>
 
 - Implemented a movie shuffler.
-- Viewing movie recommendation based on the answers provided
 - Displaying the movie
+ 
+ Movie displayed:
+ https://github.com/Ashel1/WhatToWatch/blob/323e379780ca2b59f8bcb22f10817deb42b710f8/images/A0F06091-0919-420A-A8C1-D79469121CC9_2_0_a.mov
+ 
 - End-to-end Testing using Cypress
 - Unit testing
+ 
+ Unit Testing using Karma and Jasmine:
+ https://github.com/Ashel1/WhatToWatch/blob/323e379780ca2b59f8bcb22f10817deb42b710f8/images/test1.png
+ https://github.com/Ashel1/WhatToWatch/blob/323e379780ca2b59f8bcb22f10817deb42b710f8/images/test2.png
+ https://github.com/Ashel1/WhatToWatch/blob/323e379780ca2b59f8bcb22f10817deb42b710f8/images/test3.png
 
 <hr>
 <h2>Tasks Accomplished in the Back-end</h2>
 
  - Completed 3rd API for recieving questions from the questionnaire and selecting random movie
  - API documentation
- - Integrated the frontend with the backend
  - API testing using Postman 
 <h2>Backend API Documentation</h2>
 
