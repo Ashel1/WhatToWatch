@@ -9,6 +9,7 @@ require (
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.2 // indirect
 	github.com/mattn/go-sqlite3 v1.14.11 // indirect
+	github.com/rs/cors v1.8.2 // indirect
 	gorm.io/gorm v1.22.3 // indirect
 )
 
