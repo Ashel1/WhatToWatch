@@ -11,7 +11,7 @@ import { Question5Component } from './question5/question5.component';
 import { Question6Component } from './question6/question6.component';
 import { AboutComponent } from './about/about.component';
 import{MovieRecommendComponent} from './movie-recommend/movie-recommend.component';
-
+import { YoutubeComponent } from './youtube/youtube.component';
 import { ShowmovieComponent } from './showmovie/showmovie.component';
 const routes: Routes = [
   {path: 'Home', component: HomeComponent},
@@ -26,7 +26,8 @@ const routes: Routes = [
   {path:'Question5', component: Question5Component},
   {path:'Question6', component: Question6Component},
   {path:'ShowMovie', component: ShowmovieComponent},
-  {path:'Movieshuffle', component: MovieRecommendComponent}
+  {path:'Movieshuffle', component: MovieRecommendComponent},
+  {path:'video', component: YoutubeComponent}
 ];
 
 @NgModule({
