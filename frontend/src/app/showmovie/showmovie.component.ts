@@ -27,8 +27,6 @@ export class ShowmovieComponent implements OnInit {
   toggleFlip() {
     this.flip = (this.flip == 'inactive') ? 'active' : 'inactive';
   }
-  
-
   constructor() { }
 
   ngOnInit() {
