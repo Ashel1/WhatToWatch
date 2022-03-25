@@ -8,7 +8,9 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class YoutubeComponent implements OnInit {
 
 safeUrl: any;
-
+platform = "Amazon";
+Cast = "Tony Stark";
+name = "Iron Man";
   constructor(private _sanitizer : DomSanitizer) { }
 
   ngOnInit(): void {
