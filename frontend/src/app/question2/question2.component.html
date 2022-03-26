@@ -13,7 +13,7 @@
     <br>
     <div class="rad">
         <mat-selection-list >
-            <mat-list-option color="warn" *ngFor="let plat of typeOfPlatforms">
+            <mat-list-option color="warn" *ngFor="let plat of typeOfPlatforms "  (click)="AddtoArray(plat)">
                 {{plat}}
             </mat-list-option>
         </mat-selection-list>
@@ -23,4 +23,9 @@
         <button mat-raised-button color="warn" (click)="goToQuestions('Question3')">Next</button>
     </div>
 </div>
-    
+<ul>
+    <li *ngFor="let item of array; let i = index">
+      {{i}} {{item}}
+    </li>
+  </ul>
+  <h1>hjxh</h1>

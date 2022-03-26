@@ -9,7 +9,7 @@ export class Question2Component implements OnInit {
 
   //Viewing Platforms List
   typeOfPlatforms: string[] = ['Netflix', 'Amazon Prime', 'Hulu'];
-
+  array:any[]=[];
   constructor(private router:Router) { }
 
   ngOnInit(): void {
@@ -19,4 +19,8 @@ export class Question2Component implements OnInit {
   goToQuestions(page:string):void{
     this.router.navigate([`${page}`]);
   }
+  AddtoArray(feature:any){
+    this.array.push(feature);
+}
+
 }

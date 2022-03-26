@@ -11,7 +11,7 @@ export class Question5Component implements OnInit {
   //List for Movie Release
   selectedYear: string | undefined;
   years: string[] = ['No preference', 'Released Last Year', 'Released in the Last 3 years', 'Released in the Last 5 years ', 'Released in the Last 10 years'];
-
+ 
   constructor(private router:Router) { }
 
   ngOnInit(): void {
@@ -20,6 +20,9 @@ export class Question5Component implements OnInit {
   //Navigate to Question6
   goToQuestions(page:string):void{
     this.router.navigate([`${page}`]);
+  }
+  radioChange(event:any){
+    this. selectedYear= event.target.value;
   }
 
 }
