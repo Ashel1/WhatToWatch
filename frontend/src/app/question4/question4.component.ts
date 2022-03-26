@@ -9,13 +9,16 @@ import {Router} from '@angular/router'
 export class Question4Component implements OnInit {
 
   constructor(private router:Router) { }
-
+  selectedOccasion: string | undefined;
   ngOnInit(): void {
   }
   
   //Navigate to Question5
   goToQuestions(page:string):void{
     this.router.navigate([`${page}`]);
+  }
+  radioChange(event:any){
+    this.selectedOccasion = event.target.value;
   }
   
 }

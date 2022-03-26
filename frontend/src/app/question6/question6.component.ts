@@ -21,5 +21,8 @@ export class Question6Component implements OnInit {
   goToQuestions(page:string):void{
     this.router.navigate([`${page}`]);
   }
+  radioChange(event:any){
+    this. selectedRating= event.target.value;
+  }
 
 }

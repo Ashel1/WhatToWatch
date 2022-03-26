@@ -16,7 +16,7 @@
         aria-labelledby="example-radio-group-label"
         class="example-radio-group"
         [(ngModel)]="selectedYear">
-        <mat-radio-button class="example-radio-button" *ngFor="let yr of years" [value]="yr" color="warn">
+        <mat-radio-button class="example-radio-button" *ngFor="let yr of years" [value]="yr" color="warn" (change)="radioChange($event)">
           {{yr}}
         </mat-radio-button>
       </mat-radio-group>
@@ -25,5 +25,6 @@
     <div class="buttonq6">
       <button mat-raised-button color="warn" (click)="goToQuestions('Question6')">Next</button>
     </div>
+    <h1>{{ selectedYear}}</h1>
 </div>
     

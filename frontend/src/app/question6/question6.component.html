@@ -16,7 +16,7 @@
         aria-labelledby="example-radio-group-label"
         class="example-radio-group"
         [(ngModel)]="selectedRating">
-        <mat-radio-button class="example-radio-button" *ngFor="let rate of ratings" [value]="rate" color="warn">
+        <mat-radio-button class="example-radio-button" *ngFor="let rate of ratings" [value]="rate" color="warn" (change)="radioChange($event)">
           {{rate}}
         </mat-radio-button>
       </mat-radio-group>
@@ -25,5 +25,6 @@
     <div class="movie">
       <button mat-raised-button color="warn" (click)="goToQuestions('ShowMovie')">Next</button>
     </div>
+    <h1>{{selectedRating}}</h1>
 </div>
    
