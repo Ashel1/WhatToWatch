@@ -20,6 +20,7 @@ import { DataService } from '../data.service';
     ])
   ]
 })
+
 export class ShowmovieComponent implements OnInit {
   
   title = "Iron Man";
