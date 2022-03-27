@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-showmovie',
@@ -29,10 +30,12 @@ export class ShowmovieComponent implements OnInit {
   toggleFlip() {
     this.flip = (this.flip == 'inactive') ? 'active' : 'inactive';
   }
-  constructor(private router:Router) { }
+
+  ans6: string="";
+  constructor(private router:Router, private data:DataService) { }
 
   ngOnInit() {
-   
+    this.data.currentans6.subscribe(ans6=>this.ans6=ans6)
   }
   goToVideo(page:string):void{
     this.router.navigate([`${page}`]);
