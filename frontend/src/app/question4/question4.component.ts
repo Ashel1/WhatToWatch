@@ -11,8 +11,10 @@ export class Question4Component implements OnInit {
 
   constructor(private router:Router, private data:DataService) { }
   ans4: string | undefined;
+  ans3: any []=[];
   selectedAns: string="";
   ngOnInit(): void {
+    this.data.currentans3.subscribe(ans3=>this.ans3=ans3)
     this.data.currentans4.subscribe(ans4=>this.ans4=ans4)
   }
   
