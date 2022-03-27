@@ -11,7 +11,7 @@ export class DataService {
   private ans2 = new BehaviorSubject<any[]>([]);
   currentans2 = this.ans2.asObservable();
 
-  private ans3 = new BehaviorSubject<string>("ans3");
+  private ans3 = new BehaviorSubject<any[]>([]);
   currentans3 = this.ans3.asObservable();
 
   private ans4 = new BehaviorSubject<string>("ans4");
@@ -32,15 +32,8 @@ export class DataService {
     this.ans2.next(this.ans2.getValue().concat([ans]));
     //this.ans2.next([this.ans2.getValue(),ans])
   }
-
-  addAns2(dataAns2:any) {
-    const currentValue = this.ans2.value;
-    const updatedValue = [...currentValue, dataAns2];
-    this.ans2.next(updatedValue);
-  }
-
   changeAns3(ans: string){
-    this.ans3.next(ans);
+    this.ans3.next(this.ans3.getValue().concat([ans]));
   }
 
   changeAns4(ans: string){

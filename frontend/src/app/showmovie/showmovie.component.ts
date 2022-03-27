@@ -32,10 +32,20 @@ export class ShowmovieComponent implements OnInit {
     this.flip = (this.flip == 'inactive') ? 'active' : 'inactive';
   }
 
+  ans1: string="";
+  ans2: any []=[];
+  ans3: any []=[];
+  ans4: string="";
+  ans5: string="";
   ans6: string="";
   constructor(private router:Router, private data:DataService) { }
 
   ngOnInit() {
+    this.data.currentans1.subscribe(ans1=>this.ans1=ans1)
+    this.data.currentans2.subscribe(ans2=>this.ans2=ans2)
+    this.data.currentans3.subscribe(ans3=>this.ans3=ans3)
+    this.data.currentans4.subscribe(ans4=>this.ans4=ans4)
+    this.data.currentans5.subscribe(ans5=>this.ans5=ans5)
     this.data.currentans6.subscribe(ans6=>this.ans6=ans6)
   }
   goToVideo(page:string):void{
