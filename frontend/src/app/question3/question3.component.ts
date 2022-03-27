@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-question3',
@@ -9,11 +10,13 @@ import { Router } from '@angular/router';
 export class Question3Component implements OnInit {
 
   //What2Watch List of Genres
+  ans2:any[]=[];
   typeOfGenres: string[] = ['Any', 'Action', 'Adventure', 'Comedy', 'Crime & Mystery', 'Fantasy', 'Historical', 'Horror', 'Romance', 'Satire', 'Science Fiction', 'Thriller', 'Western'];
   array:any[]=[];
-  constructor(private router:Router) { }
+  constructor(private router:Router, private data:DataService) { }
 
   ngOnInit(): void {
+    this.data.currentans2.subscribe(ans2=>this.ans2=ans2)
   }
 
   //Navigate to Question4
