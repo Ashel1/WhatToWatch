@@ -14,14 +14,15 @@ export class Question6Component implements OnInit {
   ans6: string|undefined;
   selectedRating: string="";
   ratings: string[] = ['No preference', '9 +', '8 +', '7 +', '5 +'];
+ 
 
   constructor(private router:Router, private data:DataService) { }
 
   ngOnInit(): void {
     this.data.currentans5.subscribe(ans5=>this.ans5=ans5)
     this.data.currentans6.subscribe(ans6=>this.ans6=ans6)
+   
   }
-  
   //Navigate to next page
   goToQuestions(page:string):void{
     this.data.changeAns6(this.selectedRating);
