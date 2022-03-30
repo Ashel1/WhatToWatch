@@ -28,6 +28,8 @@ export class ShowmovieComponent implements OnInit {
    platform ="Amazon";
   flip: string = 'inactive';
   photo = "https://i.pinimg.com/originals/93/b3/c0/93b3c0d4745f4839a2f276427d340203.jpg";
+  stringJson: string | undefined;
+  stringObject: any;
   toggleFlip() {
     this.flip = (this.flip == 'inactive') ? 'active' : 'inactive';
   }
@@ -39,7 +41,8 @@ export class ShowmovieComponent implements OnInit {
   ans5: string="";
   ans6: string="";
 
-  answer1:string="";
+  
+  answer = '"Q1":"'+ this.ans1 +'",  "Q6":"'+this.ans6+'"';
 
   constructor(private router:Router, private data:DataService) { }
   ngOnInit() {
@@ -49,14 +52,19 @@ export class ShowmovieComponent implements OnInit {
     this.data.currentans4.subscribe(ans4=>this.ans4=ans4)
     this.data.currentans5.subscribe(ans5=>this.ans5=ans5)
     this.data.currentans6.subscribe(ans6=>this.ans6=ans6)
-    let answer = '"Q1":"'+this.ans1+'", "Q6":"'+this.ans6+'"';
-    let Janswer = JSON.parse(answer);
-    console.log(Janswer);
+    this.stringJson = JSON.stringify(this.answer);
+    console.log("String json object :", this.stringJson);
+    console.log("Type :", typeof this.stringJson);
+
+    this.stringObject = JSON.parse(this.stringJson);
+    console.log("JSON object -", this.stringObject);
+
+   
   }
   goToVideo(page:string):void{
     this.router.navigate([`${page}`]);
   }
-  answer = '"Q1":"'+this.ans1+'", "Q2":"'+this.ans2+'", "Q3":"'+this.ans3+'", "Q4":"'+this.ans4+'", "Q5":"'+this.ans5+'", "Q6":"'+this.ans6+'"';
+ 
   
   
 }
