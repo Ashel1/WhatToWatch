@@ -57,6 +57,11 @@ type ans2ques struct {
 	Q6 string //Movie rating
 }
 
+type addWH struct {
+	Username string
+	mName    string
+}
+
 type movRes struct {
 	Title       string
 	ReleaseYear string
@@ -205,7 +210,7 @@ func questionnaire(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		database, _ := sql.Open("sqlite3", "./movieDatabase.db")
-		qy := fmt.Sprintf("SELECT title, Released_Year, Certificate, Runtime, Genre, IMDB_Rating, Overview, Director, Poster_Link FROM movies where " + answers.Q2 + "=1 AND genre LIKE '%%"+answers.Q3+"%%' AND certificate='" + answers.Q4 + "' AND Released_Year>" + answers.Q5 + " AND IMDB_Rating>" + answers.Q6 + "")
+		qy := fmt.Sprintf("SELECT title, Released_Year, Certificate, Runtime, Genre, IMDB_Rating, Overview, Director, Poster_Link FROM movies where " + answers.Q2 + "=1 AND genre LIKE '%%" + answers.Q3 + "%%' AND certificate='" + answers.Q4 + "' AND Released_Year>" + answers.Q5 + " AND IMDB_Rating>" + answers.Q6 + "")
 		//fmt.Println(qy)
 		rows, _ := database.Query(qy)
 		defer rows.Close()
@@ -251,11 +256,41 @@ func questionnaire(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func getWatchHistory(w http.ResponseWriter, r *http.Request) {
+	switch r.Method {
+	case "GET":
+		fmt.Fprintf(w, "Only Post request please!")
+	case "POST":
+		fmt.Fprintf(w, "Only Post request please!")
+		//To be colmpleted
+	}
+}
+
+func addWatchHistory(w http.ResponseWriter, r *http.Request) {
+	switch r.Method {
+	case "GET":
+		fmt.Fprintf(w, "Only Post request please!")
+	case "POST":
+		var details addWH
+		err := json.NewDecoder(r.Body).Decode(&details)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusBadRequest)
+			return
+		}
+		database, _ := sql.Open("sqlite3", "./movieDatabase.db")
+		qy := fmt.Sprintf("INSERT INTO WatchHistory(Username,Movie) VALUES)'" + details.Username + "','" + details.mName + "');")
+		rows, _ := database.Query(qy)
+		defer rows.Close()
+	}
+}
+
 func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/register", register)
 	mux.HandleFunc("/signin", signin)
 	mux.HandleFunc("/questionnaire", questionnaire)
+	mux.HandleFunc("/getWatchHistory", getWatchHistory)
+	mux.HandleFunc("/addWatchHistory", addWatchHistory)
 	//http.HandleFunc("/signin", signin)
 	//http.HandleFunc("/register", register)
 	//http.HandleFunc("/questionnaire", questionnaire)
