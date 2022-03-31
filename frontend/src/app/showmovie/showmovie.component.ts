@@ -34,6 +34,7 @@ export class ShowmovieComponent implements OnInit {
     this.flip = (this.flip == 'inactive') ? 'active' : 'inactive';
   }
 
+  answer: any;
   ans1: string="";
   ans2: any []=[];
   ans3: any []=[];
@@ -42,24 +43,25 @@ export class ShowmovieComponent implements OnInit {
   ans6: string="";
 
   
-  answer = '"Q1":"'+ this.ans1 +'",  "Q6":"'+this.ans6+'"';
-
+  
   constructor(private router:Router, private data:DataService) { }
   ngOnInit() {
-   this.data.currentans1.subscribe(ans1=>this.ans1=ans1)
+    this.data.currentans1.subscribe(ans1=>this.ans1=ans1)
     this.data.currentans2.subscribe(ans2=>this.ans2=ans2)
     this.data.currentans3.subscribe(ans3=>this.ans3=ans3)
     this.data.currentans4.subscribe(ans4=>this.ans4=ans4)
     this.data.currentans5.subscribe(ans5=>this.ans5=ans5)
     this.data.currentans6.subscribe(ans6=>this.ans6=ans6)
+
+    this.answer = '"Q1":"'+ this.ans1 +'",  "Q2":"'+this.ans2+'",  "Q3":"'+this.ans3+'",  "Q4":"'+this.ans4+'",  "Q5":"'+this.ans5+'",  "Q6":"'+this.ans6+'"';
+
     this.stringJson = JSON.stringify(this.answer);
-    console.log("String json object :", this.stringJson);
-    console.log("Type :", typeof this.stringJson);
+    //console.log("String json object :", this.stringJson);
+    //console.log("Type :", typeof this.stringJson);
 
     this.stringObject = JSON.parse(this.stringJson);
     console.log("JSON object -", this.stringObject);
 
-   
   }
   goToVideo(page:string):void{
     this.router.navigate([`${page}`]);
