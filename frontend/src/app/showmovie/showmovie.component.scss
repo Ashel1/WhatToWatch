@@ -1,4 +1,11 @@
 
+.getrec{
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  //margin-top:160px;
+}
+
     .tp-wrapper {
       -webkit-perspective: 800px;
               perspective: 800px;
@@ -59,6 +66,6 @@
  
   
       background-image:linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.5)),url(/assets/images/moviebg.jpg); 
-      padding-top: 30px;
-      padding-bottom: 30%;
+      padding-top: 2px;
+      padding-bottom: 50px;
   }
