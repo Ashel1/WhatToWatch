@@ -278,9 +278,10 @@ func addWatchHistory(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		database, _ := sql.Open("sqlite3", "./movieDatabase.db")
-		qy := fmt.Sprintf("INSERT INTO WatchHistory(Username,Movie) VALUES)'" + details.Username + "','" + details.mName + "');")
-		rows, _ := database.Query(qy)
-		defer rows.Close()
+		statement, _ := database.Prepare("INSERT INTO WatchHistory(Username,Movie) VALUES(?, ? )")
+		statement.Exec(details.Username, details.mName)
+		var response = JsonResponse{Type: "Correct"}
+		json.NewEncoder(w).Encode(response)
 	}
 }
 
