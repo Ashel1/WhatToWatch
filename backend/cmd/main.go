@@ -59,7 +59,7 @@ type ans2ques struct {
 
 type addWH struct {
 	Username string
-	mName    string
+	Movie    string
 }
 
 type movRes struct {
@@ -277,9 +277,28 @@ func addWatchHistory(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, err.Error(), http.StatusBadRequest)
 			return
 		}
-		database, _ := sql.Open("sqlite3", "./movieDatabase.db")
-		statement, _ := database.Prepare("INSERT INTO WatchHistory(Username,Movie) VALUES(?, ? )")
-		statement.Exec(details.Username, details.mName)
+		database, _ := sql.Open("sqlite3", "./watchDatabase.db")
+		statement, _ := database.Prepare("INSERT INTO WatchHistory (Username,Movie) VALUES(?, ? )")
+		statement.Exec(details.Username, details.Movie)
+		var response = JsonResponse{Type: "Correct"}
+		json.NewEncoder(w).Encode(response)
+	}
+}
+
+func addWatchLater(w http.ResponseWriter, r *http.Request) {
+	switch r.Method {
+	case "GET":
+		fmt.Fprintf(w, "Only Post request please!")
+	case "POST":
+		var details addWH
+		err := json.NewDecoder(r.Body).Decode(&details)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusBadRequest)
+			return
+		}
+		database, _ := sql.Open("sqlite3", "./watchDatabase.db")
+		statement, _ := database.Prepare("INSERT INTO WatchLater (Username,Movie) VALUES(?, ? )")
+		statement.Exec(details.Username, details.Movie)
 		var response = JsonResponse{Type: "Correct"}
 		json.NewEncoder(w).Encode(response)
 	}
@@ -292,6 +311,7 @@ func main() {
 	mux.HandleFunc("/questionnaire", questionnaire)
 	mux.HandleFunc("/getWatchHistory", getWatchHistory)
 	mux.HandleFunc("/addWatchHistory", addWatchHistory)
+	mux.HandleFunc("/addWatchLater", addWatchLater)
 	//http.HandleFunc("/signin", signin)
 	//http.HandleFunc("/register", register)
 	//http.HandleFunc("/questionnaire", questionnaire)
