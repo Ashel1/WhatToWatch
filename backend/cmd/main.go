@@ -261,7 +261,6 @@ func getWatchHistory(w http.ResponseWriter, r *http.Request) {
 	case "GET":
 		fmt.Fprintf(w, "Only Post request please!")
 	case "POST":
-		fmt.Fprintf(w, "Only Post request please!")
 		//To be colmpleted
 	}
 }
