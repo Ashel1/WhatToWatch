@@ -5,22 +5,22 @@ import { BehaviorSubject } from "rxjs";
   providedIn: 'root'
 })
 export class DataService {
-  private ans1 = new BehaviorSubject<string>("ans1");
+  private ans1 = new BehaviorSubject<string>("");
   currentans1 = this.ans1.asObservable();
 
   private ans2 = new BehaviorSubject<any[]>([]);
   currentans2 = this.ans2.asObservable();
 
-  private ans3 = new BehaviorSubject<any[]>([]);
+  private ans3 = new BehaviorSubject<string>("");
   currentans3 = this.ans3.asObservable();
 
-  private ans4 = new BehaviorSubject<string>("ans4");
+  private ans4 = new BehaviorSubject<string>("");
   currentans4 = this.ans4.asObservable();
 
-  private ans5 = new BehaviorSubject<string>("ans5");
+  private ans5 = new BehaviorSubject<string>("");
   currentans5 = this.ans5.asObservable();
 
-  private ans6 = new BehaviorSubject<string>("ans6");
+  private ans6 = new BehaviorSubject<string>("");
   currentans6 = this.ans6.asObservable();
 
   private logincheck = new BehaviorSubject<string>("not login");
@@ -36,7 +36,8 @@ export class DataService {
     //this.ans2.next([this.ans2.getValue(),ans])
   }
   changeAns3(ans: string){
-    this.ans3.next(this.ans3.getValue().concat([ans]));
+    //this.ans3.next(this.ans3.getValue().concat([ans]));
+    this.ans3.next(ans);
   }
 
   changeAns4(ans: string){
