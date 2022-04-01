@@ -293,6 +293,39 @@ func getWatchLater(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func getWatchHistory(w http.ResponseWriter, r *http.Request) {
+	switch r.Method {
+	case "GET":
+		fmt.Fprintf(w, "Only Post request please!")
+	case "POST":
+		//To be colmpleted
+		var details addWH
+		err := json.NewDecoder(r.Body).Decode(&details)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusBadRequest)
+			return
+		}
+		database, _ := sql.Open("sqlite3", "./watchDatabase.db")
+		qy := fmt.Sprintf("SELECT Movie FROM WatchHistory where Username='" + details.Username + "';");
+		//fmt.Println(qy)
+		rows, _ := database.Query(qy)
+		defer rows.Close()
+		var mov []string;
+		var movName string;
+		for rows.Next() {
+			err := rows.Scan(&movName)
+			if err != nil {
+				log.Fatal(err)
+			}
+			//log.Println(overview, genre)
+			mov = append(mov, movName)
+		}
+		var response = history{Type: "Correct", Data: mov}
+		json.NewEncoder(w).Encode(response)
+	}
+}
+
+
 func addWatchHistory(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case "GET":
@@ -337,6 +370,7 @@ func main() {
 	mux.HandleFunc("/signin", signin)
 	mux.HandleFunc("/questionnaire", questionnaire)
 	mux.HandleFunc("/getWatchLater", getWatchLater)
+	mux.HandleFunc("/getWatchHistory", getWatchHistory)
 	mux.HandleFunc("/addWatchHistory", addWatchHistory)
 	mux.HandleFunc("/addWatchLater", addWatchLater)
 	//http.HandleFunc("/signin", signin)
