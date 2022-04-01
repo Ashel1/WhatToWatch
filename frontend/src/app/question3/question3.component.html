@@ -12,11 +12,14 @@
 
     <br>
     <div class="rad">
-        <mat-selection-list >
-            <mat-list-option color="warn" *ngFor="let genre of typeOfGenres" (click)="AddtoArray(genre)">
-                {{genre}}
-            </mat-list-option>
-        </mat-selection-list>
+        <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="selectedGenre">
+        <mat-radio-button class="example-radio-button" *ngFor="let genre of typeOfGenres" [value]="genre" color="warn" (change)="radioChange($event)">
+            {{genre}}
+        </mat-radio-button>
+      </mat-radio-group>
     </div>
 
     <div class="buttonq4">

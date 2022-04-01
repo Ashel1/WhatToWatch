@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"math/rand"
 	"net/http"
+	"strings"
 
 	"github.com/rs/cors"
 
@@ -83,8 +84,8 @@ type quesResponse struct {
 	Data movRes `json:"data"`
 }
 
-type history struct{
-	Type string `json:"type"`
+type history struct {
+	Type string   `json:"type"`
 	Data []string `json:"data"`
 }
 
@@ -214,9 +215,56 @@ func questionnaire(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, err.Error(), http.StatusBadRequest)
 			return
 		}
+		fmt.Printf("Q2: %s\n, Q3: %s\n,Q4: %s\n,Q5: %s\n,Q6: %s\n", answers.Q2, answers.Q3, answers.Q4, answers.Q5, answers.Q6)
+		var platform string
+		platform = ""
+		if strings.Contains(answers.Q2, "Hulu") {
+			platform = platform + "(HULU = 1"
+		}
+		if strings.Contains(answers.Q2, "Net") {
+			if platform == "" {
+				platform = "(NETFLIX = 1"
+			} else {
+				platform = platform + " OR NETFLIX = 1"
+			}
+		}
+		if strings.Contains(answers.Q2, "Amazon") {
+			if platform == "" {
+				platform = "(AMAZONPRIME = 1"
+			} else {
+				platform = platform + " OR AMAZONPRIME = 1"
+			}
+		}
+		//fmt.Printf("Platform %s\n", platform)
+		/*var certi string
+		if answers.Q4 == "no" {
+			certi = "='A"
+		} else {
+			certi = "<>'A"
+		}*/
+		var ryear string
+		if strings.Contains(answers.Q5, "Year") {
+			ryear = "2020"
+		} else if strings.Contains(answers.Q5, "3") {
+			ryear = "2017"
+		} else if strings.Contains(answers.Q5, "5") {
+			ryear = "2015"
+		} else if strings.Contains(answers.Q5, "10") {
+			ryear = "2010"
+		}
+		var rati string
+		if strings.Contains(answers.Q6, "9") {
+			rati = "9"
+		} else if strings.Contains(answers.Q6, "8") {
+			rati = "8"
+		} else if strings.Contains(answers.Q6, "7") {
+			rati = "7"
+		} else if strings.Contains(answers.Q6, "5") {
+			rati = "5"
+		}
 		database, _ := sql.Open("sqlite3", "./movieDatabase.db")
-		qy := fmt.Sprintf("SELECT title, Released_Year, Certificate, Runtime, Genre, IMDB_Rating, Overview, Director, Poster_Link FROM movies where " + answers.Q2 + "=1 AND genre LIKE '%%" + answers.Q3 + "%%' AND certificate='" + answers.Q4 + "' AND Released_Year>" + answers.Q5 + " AND IMDB_Rating>" + answers.Q6 + "")
-		//fmt.Println(qy)
+		qy := fmt.Sprintf("SELECT title, Released_Year, Certificate, Runtime, Genre, IMDB_Rating, Overview, Director, Poster_Link FROM movies where " + platform + ") AND genre LIKE '%%" + answers.Q3 + "%%' AND certificate ='U' AND Released_Year>" + ryear + " AND IMDB_Rating>" + rati + ";")
+		fmt.Println(qy)
 		rows, _ := database.Query(qy)
 		defer rows.Close()
 		var mov []movRes
@@ -274,12 +322,12 @@ func getWatchLater(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		database, _ := sql.Open("sqlite3", "./watchDatabase.db")
-		qy := fmt.Sprintf("SELECT Movie FROM WatchLater where Username='" + details.Username + "';");
+		qy := fmt.Sprintf("SELECT Movie FROM WatchLater where Username='" + details.Username + "';")
 		//fmt.Println(qy)
 		rows, _ := database.Query(qy)
 		defer rows.Close()
-		var mov []string;
-		var movName string;
+		var mov []string
+		var movName string
 		for rows.Next() {
 			err := rows.Scan(&movName)
 			if err != nil {
@@ -306,12 +354,12 @@ func getWatchHistory(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		database, _ := sql.Open("sqlite3", "./watchDatabase.db")
-		qy := fmt.Sprintf("SELECT Movie FROM WatchHistory where Username='" + details.Username + "';");
+		qy := fmt.Sprintf("SELECT Movie FROM WatchHistory where Username='" + details.Username + "';")
 		//fmt.Println(qy)
 		rows, _ := database.Query(qy)
 		defer rows.Close()
-		var mov []string;
-		var movName string;
+		var mov []string
+		var movName string
 		for rows.Next() {
 			err := rows.Scan(&movName)
 			if err != nil {
@@ -324,7 +372,6 @@ func getWatchHistory(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(response)
 	}
 }
-
 
 func addWatchHistory(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
