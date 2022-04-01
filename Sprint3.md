@@ -9,6 +9,11 @@ Date: 1st April 2022
 
 https://user-images.githubusercontent.com/48183518/161352161-cf3c5e83-3297-4560-81bf-157745b8de41.mp4
 
+<h1>A Demo of the What2Watch Platform Front-end Testing</h1>
+
+
+https://user-images.githubusercontent.com/63602357/161354878-19bcce6f-84fa-4c0b-bc30-b59bcc841864.mp4
+
 
 
 <h1>A Demo of the What2Watch Platform Back-end using Postman</h1>
