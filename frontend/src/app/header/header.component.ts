@@ -13,11 +13,14 @@ import { DataService } from '../data.service';
 export class HeaderComponent implements OnInit {
 
   logincheck:string="";
+  user_names: string= "";
   constructor(public dialog: MatDialog, private router:Router, private data:DataService) { }
 
   ngOnInit(): void {
     this.data.currentlogincheck.subscribe(logincheck=>this.logincheck=logincheck);
+    this.data.currentuser.subscribe(user_names=>this.user_names=user_names);
     console.log("check", this.logincheck);
+    console.log(this.user_names);
   }
 
   //User Login Form
