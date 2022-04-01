@@ -1,10 +1,12 @@
 <!--What2Watch Navbar/Header/Toolbar-->
 
 <mat-toolbar color="warn">
-    <span><img src="/assets/images/logo3.png" height=100 width=100  (click)="goToHome('Home')"></span>
-    <a mat-button id="Home" (click)="goToHome('Home')"><span class="fa fa-home fa-lg"></span>Home</a>
+    <span><img src="/assets/images/logo3.png" height=100 width=100  (click)="goToPage('Home')"></span>
+    <a mat-button id="Home" (click)="goToPage('Home')"><span class="fa fa-home fa-lg"></span>Home</a>
     <span class="flexExpand"></span>
-    <a mat-button (click)="goToAbout('About')"><span class="fa fa-info fa-lg"></span> About</a>
+    <a mat-button (click)="goToPage('About')"><span class="fa fa-info fa-lg"></span>About</a>
+    <span class="flexExpand"></span>
+    <a *ngIf="logincheck=='Logged'" mat-button (click)="goToPage('WatchList')"><span class="fa fa-eye fa-lg"></span>Watchlist</a>
     <span class="flex-spacer"></span>
     <a mat-button (click)="openLoginForm()"><span class="fa fa-sign-in fa-lg"></span>Login</a>
   </mat-toolbar>

@@ -9,6 +9,8 @@ import {Router} from '@angular/router'
 
 export class HomeComponent implements OnInit {
 
+  logincheck:string="";
+
   constructor(private router:Router) { }
 
   ngOnInit(): void {

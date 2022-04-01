@@ -3,6 +3,7 @@ import { MatDialog} from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
 import {MatDialogConfig} from "@angular/material/dialog";
 import {Router} from '@angular/router'
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-header',
@@ -11,9 +12,12 @@ import {Router} from '@angular/router'
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, private router:Router) { }
+  logincheck:string="";
+  constructor(public dialog: MatDialog, private router:Router, private data:DataService) { }
 
   ngOnInit(): void {
+    this.data.currentlogincheck.subscribe(logincheck=>this.logincheck=logincheck);
+    console.log("check", this.logincheck);
   }
 
   //User Login Form
@@ -25,7 +29,7 @@ export class HeaderComponent implements OnInit {
   }
 
   //Link to Homepage
-  goToHome(page:string):void{
+  goToPage(page:string):void{
     this.router.navigate([`${page}`]);
   }
 

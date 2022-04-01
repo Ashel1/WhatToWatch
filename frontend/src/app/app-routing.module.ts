@@ -13,6 +13,8 @@ import { AboutComponent } from './about/about.component';
 import{MovieRecommendComponent} from './movie-recommend/movie-recommend.component';
 import { YoutubeComponent } from './youtube/youtube.component';
 import { ShowmovieComponent } from './showmovie/showmovie.component';
+import { WatchListComponent } from './watch-list/watch-list.component';
+
 const routes: Routes = [
   {path: 'Home', component: HomeComponent},
   { path: '', redirectTo: '/Home', pathMatch: 'full' },
@@ -27,7 +29,8 @@ const routes: Routes = [
   {path:'Question6', component: Question6Component},
   {path:'ShowMovie', component: ShowmovieComponent},
   {path:'Movieshuffle', component: MovieRecommendComponent},
-  {path:'video', component: YoutubeComponent}
+  {path:'video', component: YoutubeComponent},
+  {path:'WatchList', component: WatchListComponent}
 ];
 
 @NgModule({
