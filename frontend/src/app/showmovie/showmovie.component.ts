@@ -38,7 +38,7 @@ export class ShowmovieComponent implements OnInit {
   answer: any;
   ans1: string="";
   ans2: any []=[];
-  ans3: any []=[];
+  ans3: string="";
   ans4: string="";
   ans5: string="";
   ans6: string="";

@@ -29,7 +29,7 @@ export class Question6Component implements OnInit {
     this.router.navigate([`${page}`]);
   }
   radioChange(event:any){
-    this. selectedRating= event.target.value;
+    this.selectedRating= event.target.value;
   }
 
 }
