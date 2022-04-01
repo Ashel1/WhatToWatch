@@ -24,17 +24,21 @@ import { HttpClient } from '@angular/common/http';
 
 export class ShowmovieComponent implements OnInit {
   
-  title = "Iron Man";
-  details = " A billionaire idustrialist and genius inventor, Tony Stark (Robert Downey Jr.), is conducting weapons tests overseas, but terrorists kidnap him to force him to build a devastating weapon. Instead, he builds an armored suit and upends his captors. Returning to America, Stark refines the suit and uses it to combat crime and terrorism.";
-   platform ="Amazon";
+  //title = "jhvyt";
+  //details = " A billionaire idustrialist and genius inventor, Tony Stark (Robert Downey Jr.), is conducting weapons tests overseas, but terrorists kidnap him to force him to build a devastating weapon. Instead, he builds an armored suit and upends his captors. Returning to America, Stark refines the suit and uses it to combat crime and terrorism.";
+  // platform ="Amazon";
   flip: string = 'inactive';
-  photo = "https://i.pinimg.com/originals/93/b3/c0/93b3c0d4745f4839a2f276427d340203.jpg";
+  //photo = "https://i.pinimg.com/originals/93/b3/c0/93b3c0d4745f4839a2f276427d340203.jpg";
   stringJson: string | undefined;
   stringObject: any;
   toggleFlip() {
     this.flip = (this.flip == 'inactive') ? 'active' : 'inactive';
   }
 
+  title:string="";
+  details:string="";
+  platform:string="";
+  photo:string="";
   answer: any;
   ans1: string="";
   ans2: any []=[];
@@ -71,12 +75,19 @@ export class ShowmovieComponent implements OnInit {
     body: JSON.stringify(this.stringObject),
     })
     .then(response => response.json())
-    .then(data => {
-    console.log('Success:', data);
+    .then(currdata => {
+    console.log('Success:', currdata.data['Title']);
+      this.title = currdata.data['Title'];
+      this.details = currdata.data['Link'];
+      this.platform = "Netflix";
+      this.photo = currdata.data['Genre'];
     })
     .catch((error) => {
     console.error('Error:', error);
 });
+  
+  
+
 }
 
   goToVideo(page:string):void{
