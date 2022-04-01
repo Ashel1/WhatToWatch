@@ -4,6 +4,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import {Router} from '@angular/router'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { DataService } from '../data.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,10 +12,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginComponent implements OnInit {
 
-  
+   logincheck="";
    public loginForm !: FormGroup
    public showPassword: boolean = false;
-  constructor(public dialogRef: MatDialogRef<LoginComponent> ,private formBuilder : FormBuilder, private http :HttpClient, private router:Router) { }
+  constructor(public dialogRef: MatDialogRef<LoginComponent> ,private formBuilder : FormBuilder, private http :HttpClient, private router:Router, private data:DataService) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -22,8 +23,9 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required],
       
     })
-    
+    this.data.currentlogincheck.subscribe(logincheck=>this.logincheck=logincheck);
   }
+
   login() {
       this.http.post<any>("http://localhost:3000/signin", this.loginForm.value)
       .subscribe({
@@ -33,6 +35,7 @@ export class LoginComponent implements OnInit {
         this.loginForm.reset();
         this.dialogRef.close();
         this.router.navigate(['Question1'])
+        this.data.changeLoginCheck('Logged');
       }
     })
     }

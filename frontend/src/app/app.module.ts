@@ -47,6 +47,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MovieRecommendComponent } from './movie-recommend/movie-recommend.component';
 import { ShowmovieComponent } from './showmovie/showmovie.component';
 import { YoutubeComponent } from './youtube/youtube.component';
+import { WatchListComponent } from './watch-list/watch-list.component';
 
 
 @NgModule({
@@ -68,7 +69,8 @@ import { YoutubeComponent } from './youtube/youtube.component';
     AboutComponent, 
     MovieRecommendComponent,
     ShowmovieComponent,
-    YoutubeComponent
+    YoutubeComponent,
+    WatchListComponent
   ],
   imports: [
     BrowserModule,
