@@ -8,7 +8,8 @@
     <span class="flexExpand"></span>
     <a *ngIf="logincheck=='Logged'" mat-button (click)="goToPage('WatchList')"><span class="fa fa-eye fa-lg"></span>Watchlist</a>
     <span class="flex-spacer"></span>
-    <a mat-button (click)="openLoginForm()"><span class="fa fa-sign-in fa-lg"></span>Login</a>
+    <a *ngIf="logincheck=='not login'"  mat-button (click)="openLoginForm()"><span class="fa fa-sign-in fa-lg"></span>Login</a>
+    <a *ngIf="logincheck=='Logged'" mat-button (click)="loggedout('Home')"><span class="fa fa-sign-in fa-lg"></span>Logout</a>
   </mat-toolbar>
   
   

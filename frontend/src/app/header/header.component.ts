@@ -41,4 +41,9 @@ export class HeaderComponent implements OnInit {
   scroll(el: HTMLElement) {
     el.scrollIntoView();
   }
+  loggedout(page:string):void
+  {
+    this.data.changeLoginCheck("not login");
+    this.router.navigate([`${page}`]);
+  }
 }
