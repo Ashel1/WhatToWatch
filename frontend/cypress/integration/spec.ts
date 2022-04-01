@@ -1,6 +1,21 @@
+///<reference types="cypress"/>
 
+//import Chance from 'chance';
+//const chance = new Chance();
 
-function sleep(milliseconds:any) {
+describe('login', ()=>{
+//const email = chance.email();
+
+  beforeEach(()=>{
+    cy.visit('http://localhost:4200/Home');
+  })
+
+  it('has a title',()=>{
+    cy.contains('Watching movies is fun');
+  })
+});
+
+/*function sleep(milliseconds:any) {
     var start = new Date().getTime();
     for (var i = 0; i < 1e7; i++) {
       if ((new Date().getTime() - start) > milliseconds){
@@ -9,7 +24,7 @@ function sleep(milliseconds:any) {
     }
   }
 
-describe('Instructor login pg', () => {
+describe('login pg', () => {
   var chars = 'abcdefghijklmnopqrstuvwxyz1234567890';
   var string = '';
   for(var ii=0; ii<8; ii++){
@@ -29,4 +44,5 @@ describe('Instructor login pg', () => {
 
 
   })
-});
+});*/
+
