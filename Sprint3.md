@@ -29,10 +29,11 @@ User Stories for Sprint 3:
 
 <h2>Tasks Accomplished in the Front-end</h2>
 
-- Created addWatchLater and addWatchHistory API to add movies to these two categories for a particular user. 
-- Created getWatchLater and getWatchHistory API to get the data that has been added by the addWatchLater and addWatchHistory, this is based on username the backend recieves from the frontend. 
+
 
 <hr>
 <h2>Tasks Accomplished in the Back-end</h2>
 
-- 
+- Created addWatchLater and addWatchHistory API to add movies to these two categories for a particular user. 
+- Created getWatchLater and getWatchHistory API to get the data that has been added by the addWatchLater and addWatchHistory, this is based on username the backend recieves from the frontend. 
+- Tested the newly designed API using Postman. 
