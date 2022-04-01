@@ -13,6 +13,7 @@ import { DataService } from '../data.service';
 export class LoginComponent implements OnInit {
 
    logincheck="";
+   currentVal = "";
    public loginForm !: FormGroup
    public showPassword: boolean = false;
   constructor(public dialogRef: MatDialogRef<LoginComponent> ,private formBuilder : FormBuilder, private http :HttpClient, private router:Router, private data:DataService) { }
@@ -26,16 +27,26 @@ export class LoginComponent implements OnInit {
     this.data.currentlogincheck.subscribe(logincheck=>this.logincheck=logincheck);
   }
 
+  getVal(val: any)
+  {
+    console.log(val.target.value)
+
+   this.currentVal = val.target.value;
+   this.data.changeusername(this.currentVal);
+    
+  }
   login() {
       this.http.post<any>("http://localhost:3000/signin", this.loginForm.value)
       .subscribe({
         next: (v) => console.log(v),
         error: (e) => alert("Something went wrong!!"),
         complete: () => {alert("Login Success");
+      
         this.loginForm.reset();
         this.dialogRef.close();
         this.router.navigate(['Question1'])
         this.data.changeLoginCheck('Logged');
+        console.log(this.loginForm.getRawValue());
       }
     })
     }

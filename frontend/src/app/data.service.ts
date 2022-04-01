@@ -26,6 +26,10 @@ export class DataService {
   private logincheck = new BehaviorSubject<string>("not login");
   currentlogincheck = this.logincheck.asObservable();
 
+  private user_name = new BehaviorSubject<string>(" ");
+  currentuser = this.user_name.asObservable();
+
+
   constructor() { }
   changeAns1(ans: string){
     this.ans1.next(ans);
@@ -52,5 +56,9 @@ export class DataService {
 
   changeLoginCheck(ans: string){
     this.logincheck.next(ans);
+  }
+
+  changeusername(ans: string){
+    this.user_name.next(ans);
   }
 }
