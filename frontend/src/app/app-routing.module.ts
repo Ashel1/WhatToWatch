@@ -14,6 +14,7 @@ import{MovieRecommendComponent} from './movie-recommend/movie-recommend.componen
 import { YoutubeComponent } from './youtube/youtube.component';
 import { ShowmovieComponent } from './showmovie/showmovie.component';
 import { WatchListComponent } from './watch-list/watch-list.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {path: 'Home', component: HomeComponent},
@@ -30,7 +31,9 @@ const routes: Routes = [
   {path:'ShowMovie', component: ShowmovieComponent},
   {path:'Movieshuffle', component: MovieRecommendComponent},
   {path:'video', component: YoutubeComponent},
-  {path:'WatchList', component: WatchListComponent}
+  {path:'WatchList', component: WatchListComponent},
+  {path:'login', component: LoginComponent}
+
 ];
 
 @NgModule({

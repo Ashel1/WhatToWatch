@@ -11,9 +11,9 @@ export class Question3Component implements OnInit {
 
   //What2Watch List of Genres
   ans2:any[]=[];
-  ans3: any []=[];
-  typeOfGenres: string[] = ['Any', 'Action', 'Adventure', 'Comedy', 'Crime & Mystery', 'Fantasy', 'Historical', 'Horror', 'Romance', 'Satire', 'Science Fiction', 'Thriller', 'Western'];
-  array:any[]=[];
+  ans3: string="";
+  typeOfGenres: string[] = ['Action', 'Adventure', 'Comedy', 'Crime & Mystery', 'Fantasy', 'Historical', 'Horror', 'Romance', 'Satire', 'Science Fiction', 'Thriller', 'Western'];
+  selectedGenre: string="";
   constructor(private router:Router, private data:DataService) { }
 
   ngOnInit(): void {
@@ -23,13 +23,14 @@ export class Question3Component implements OnInit {
 
   //Navigate to Question4
   goToQuestions(page:string):void{
-    for(var i of this.array){
+    /*for(var i of this.array){
       this.data.changeAns3(i);
-    }
+    }*/
+    this.data.changeAns3(this.selectedGenre);
     this.router.navigate([`${page}`]);
   }
-  AddtoArray(feature:any){
-    this.array.push(feature);
-}
+  radioChange(event:any){
+    this.selectedGenre= event.target.value;
+  }
 
 }
