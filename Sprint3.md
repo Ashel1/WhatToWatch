@@ -28,12 +28,14 @@ https://user-images.githubusercontent.com/48183518/161352883-d004ecb9-0e9d-4a63-
 <h1>Tasks accomplished in Sprint 3</h1>
 <br>
 
-User Stories for Sprint 3:
-* 
 <hr>
 
 <h2>Tasks Accomplished in the Front-end</h2>
-
+- Displayed the movie name and movie details based on user's answers.  
+- Showed the embedded youtube video for the movie trailer.
+- Added the functionality for logout and displayed current username.
+- Displayed Watch list option for user's logged in.
+- Did the cypress end to end testing for login and register functionality
 
 
 <hr>
