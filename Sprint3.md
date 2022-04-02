@@ -23,7 +23,6 @@ https://user-images.githubusercontent.com/48183518/161352883-d004ecb9-0e9d-4a63-
 
 
 
-
 <br>
 <h1>Tasks accomplished in Sprint 3</h1>
 <br>
