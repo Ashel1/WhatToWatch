@@ -44,3 +44,4 @@ https://user-images.githubusercontent.com/48183518/161352883-d004ecb9-0e9d-4a63-
 - Created getWatchLater and getWatchHistory API to get the data that has been added by the addWatchLater and addWatchHistory, this is based on username the backend recieves from the frontend. 
 - Tested the newly designed API using Postman. 
 - Unit Testing for backend API's
+- API documentation for the newly created API's
