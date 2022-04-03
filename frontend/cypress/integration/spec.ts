@@ -51,9 +51,9 @@ describe('login pg', () => {
   it('Instructor should be able to login', ()=>{
 
     cy.visit('/Home');
-    cy.get('[name=loginbutton]').click();
-    cy.get('[formControlName="username"]').type(`${username}`);
-    cy.get('[formControlName="password"]').type(`${password}`);
+    cy.get('[name=loginbun]').click();
+    cy.get('[formControlName=user1]').type(`${username}`);
+    cy.get('[formControlName=password]').type(`${password}`);
     cy.get('[name=login]').click();
     sleep(1000);
   //  cy.getLocalStorage('ACCESS_TOKEN').then((token) => {
