@@ -4,7 +4,7 @@
 Date: 1st April 2022
 
 
-<h1>A Demo of the What2Watch Platform Front-end</h1>
+<h1>A Demo of the What2Watch Platform</h1>
 
 
 https://user-images.githubusercontent.com/48183518/161352161-cf3c5e83-3297-4560-81bf-157745b8de41.mp4
