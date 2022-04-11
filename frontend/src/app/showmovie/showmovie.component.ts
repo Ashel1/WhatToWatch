@@ -93,6 +93,9 @@ export class ShowmovieComponent implements OnInit {
   goToVideo(page:string):void{
     this.router.navigate([`${page}`]);
   }
+  alert() {
+    window.alert('Succesfully added to watchlist');
+  }
  
   
   
