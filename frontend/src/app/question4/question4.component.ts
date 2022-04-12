@@ -18,6 +18,10 @@ export class Question4Component implements OnInit {
     this.data.currentans4.subscribe(ans4=>this.ans4=ans4)
   }
   
+  goBack(page:string):void{
+    this.router.navigate([`${page}`]);
+  }
+  
   //Navigate to Question5
   goToQuestions(page:string):void{
     this.data.changeAns4(this.selectedAns);

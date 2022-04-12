@@ -28,6 +28,10 @@ export class Question1Component implements OnInit {
     this.router.navigate([`${page}`]);
   }
 
+  goBack(page:string):void{
+    this.router.navigate([`${page}`]);
+  }
+
   radioChange(event:any){
     this.selectedOccasion = event.target.value;
   }

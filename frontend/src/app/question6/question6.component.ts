@@ -23,6 +23,11 @@ export class Question6Component implements OnInit {
     this.data.currentans6.subscribe(ans6=>this.ans6=ans6)
    
   }
+  
+  goBack(page:string):void{
+    this.router.navigate([`${page}`]);
+  }
+  
   //Navigate to next page
   goToQuestions(page:string):void{
     this.data.changeAns6(this.selectedRating);
