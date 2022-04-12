@@ -14,6 +14,7 @@ export class Question3Component implements OnInit {
   ans3: string="";
   typeOfGenres: string[] = ['Action', 'Adventure', 'Comedy', 'Crime & Mystery', 'Fantasy', 'Historical', 'Horror', 'Romance', 'Satire', 'Science Fiction', 'Thriller', 'Western'];
   selectedGenre: string="";
+  array=[]
   constructor(private router:Router, private data:DataService) { }
 
   ngOnInit(): void {
@@ -21,11 +22,14 @@ export class Question3Component implements OnInit {
     this.data.currentans3.subscribe(ans3=>this.ans3=ans3)
   }
 
+  goBack(page:string):void{
+    /**for(var i of this.array){
+      this.data.changeAns2(i);
+    }*/
+    this.router.navigate([`${page}`]);
+  }
   //Navigate to Question4
   goToQuestions(page:string):void{
-    /*for(var i of this.array){
-      this.data.changeAns3(i);
-    }*/
     this.data.changeAns3(this.selectedGenre);
     this.router.navigate([`${page}`]);
   }
