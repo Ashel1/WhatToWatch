@@ -48,6 +48,7 @@ import { MovieRecommendComponent } from './movie-recommend/movie-recommend.compo
 import { ShowmovieComponent } from './showmovie/showmovie.component';
 import { YoutubeComponent } from './youtube/youtube.component';
 import { WatchListComponent } from './watch-list/watch-list.component';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import { WatchListComponent } from './watch-list/watch-list.component';
     MovieRecommendComponent,
     ShowmovieComponent,
     YoutubeComponent,
-    WatchListComponent
+    WatchListComponent,
+    MovieDetailComponent
   ],
   imports: [
     BrowserModule,
