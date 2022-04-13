@@ -15,7 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar'; 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatGridListModule} from '@angular/material/grid-list';
-
+import {MatTabsModule} from '@angular/material/tabs';
 
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -80,6 +80,7 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatFormFieldModule,
+    MatTabsModule,
     MatSelectModule,
     MatSlideToggleModule, 
     MatInputModule,
