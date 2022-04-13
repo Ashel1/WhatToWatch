@@ -49,6 +49,7 @@ import { ShowmovieComponent } from './showmovie/showmovie.component';
 import { YoutubeComponent } from './youtube/youtube.component';
 import { WatchListComponent } from './watch-list/watch-list.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { AppMovieDialogeComponent } from './movie-detail/app-movie-dialoge/app-movie-dialoge.component';
 
 
 @NgModule({
@@ -72,7 +73,8 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
     ShowmovieComponent,
     YoutubeComponent,
     WatchListComponent,
-    MovieDetailComponent
+    MovieDetailComponent,
+    AppMovieDialogeComponent
   ],
   imports: [
     BrowserModule,
