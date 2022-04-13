@@ -1,3 +1,28 @@
+<h1>WatchList</h1>
 <div class="container jumbotron">
 
- </div>
+  
+    <div class="content">
+    
+        <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center">
+          <div fxFlex="20%" *ngFor="let dish of movies">
+            <mat-card >
+              <mat-card-header>
+                <mat-card-title>{{dish.name}}</mat-card-title>
+              </mat-card-header>
+              <img mat-card-image src={{dish.image}} height="400px" width="400px" >
+              <mat-card-content>
+                <p>
+                  {{dish.description}}
+                </p>
+              </mat-card-content>
+              <mat-card-actions>
+                <button mat-button>LIKE</button>
+                <button mat-button>SHARE</button>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        </div>
+        </div>
+    </div>
+    

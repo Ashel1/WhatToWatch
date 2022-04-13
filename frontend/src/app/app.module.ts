@@ -4,7 +4,7 @@ import { MatButtonModule } from '@angular/material/button'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { MatListModule } from '@angular/material/list';
 
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
@@ -16,7 +16,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatGridListModule} from '@angular/material/grid-list';
 
-import { MatListModule } from '@angular/material/list'; 
+
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 
@@ -91,6 +91,7 @@ import { WatchListComponent } from './watch-list/watch-list.component';
     MatGridListModule,
     MatButtonModule,
     MatIconModule,
+    MatListModule,
     MatRadioModule,
     MatProgressBarModule,
     MatCardModule,
