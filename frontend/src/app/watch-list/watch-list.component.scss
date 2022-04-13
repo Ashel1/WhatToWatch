@@ -2,7 +2,7 @@
 
 .jumbotron {
 
-    background-image:linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.5)),url(/assets/images/moviebg.jpg); 
+    background-image:linear-gradient(rgba(223, 213, 213, 0.747), rgba(255, 255, 255, 0.774)),url(/assets/images/moviebg.jpg); 
     padding-top: 10%;
     padding-bottom: 10%;
   }
@@ -20,7 +20,20 @@
     color:white;
     font-size:18px;
 }
+.my-card {
+ 
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+}
 .fa-circle{
     font-size:8px;
     padding-right: 5px;
   }
+  .content {
+    padding: 20px;
+}
+
+.content > mat-card {
+    width: 200px;
+}
