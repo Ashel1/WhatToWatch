@@ -3,4 +3,5 @@ export class Movie {
     name!: string;
     image: string | undefined;
     description: string | undefined;
+    platform: string | undefined;
 }
