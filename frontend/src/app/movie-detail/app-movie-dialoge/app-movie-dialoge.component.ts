@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Inject, ViewEncapsulation } from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import { DomSanitizer } from '@angular/platform-browser';
 @Component({
   selector: 'app-app-movie-dialoge',
   templateUrl: './app-movie-dialoge.component.html',
@@ -8,14 +9,12 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
   encapsulation: ViewEncapsulation.None
 })
 export class AppMovieDialogeComponent implements OnInit {
-
-  constructor( public dialogRef: MatDialogRef<AppMovieDialogeComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
+  safeUrl: any;
+  constructor(private _sanitizer : DomSanitizer ) { }
 
   ngOnInit(): void {
+    this.safeUrl =this._sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/8ugaeA-nMTc');
   }
-  closeDialog() {
-    this.dialogRef.close('movie');
-  }
+ 
 
 }

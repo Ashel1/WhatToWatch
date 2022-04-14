@@ -17,13 +17,10 @@ export class MovieDetailComponent implements OnInit {
   ngOnInit(): void {
   }
   openDialogMovie(video:any): void {
-    this.safeUrl =this._sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/8ugaeA-nMTc');
-
-    this.dialog.open( AppMovieDialogeComponent, {
-      height: '600px',
-      width: '900px',
-      data: { video:  this.safeUrl}
-    });
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+   let dialogRef = this.dialog.open( AppMovieDialogeComponent , {width: '900px', height: '600px'});
   }
 
 }
