@@ -10,6 +10,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class MovieDetailComponent implements OnInit {
 
+  platform:string = "Netflix";
   public video: boolean | undefined;
   safeUrl: any;
   constructor(private dialog: MatDialog,     private _sanitizer: DomSanitizer,) { }
