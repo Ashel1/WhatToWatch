@@ -1,0 +1,257 @@
+.container-fluid {
+    width: 95%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+  .col-md-12 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .listing-space {
+    margin: 40px 0px 40px;
+  }
+  .info__movies {
+    display: flex;
+    align-items: initial;
+  }
+  .left {
+    display: none;
+  
+    @media (min-width: $breakpoint-medium) {
+      display: block;
+      width: 25%;
+      max-width: 400px;
+      padding-right: 3rem;
+    }
+  
+    @media (min-width: $breakpoint-large) {
+      padding-right: 5rem;
+    }
+  }
+  
+  .backdrop_ {
+
+    .head {
+      display: flex;
+      align-items: baseline;
+      margin-bottom: 1.5rem;
+  
+      @media (min-width: $breakpoint-large) {
+        margin-bottom: 2rem;
+      }
+    }
+  
+    .title {
+      font-size: 1.8rem;
+      letter-spacing: $letter-spacing;
+  
+      @media (min-width: $breakpoint-large) {
+        font-size: 2.4rem;
+      }
+    }
+  
+    .count {
+      margin-left: 1rem;
+      font-size: 1.2rem;
+      color: $text-color-grey;
+      letter-spacing: $letter-spacing;
+  
+      @media (min-width: $breakpoint-large) {
+        font-size: 1.4rem;
+      }
+    }
+  
+    .items {
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: -0.4rem;
+      margin-left: -0.4rem;
+    }
+  
+  
+    .item {
+      padding: 0.4rem;
+    }
+  
+  //   .image {
+  //     position: relative;
+  //     height: 0;
+  //     overflow: hidden;
+  //     background-color: $secondary-color;
+  
+  //     img {
+  //       position: absolute;
+  //       top: 0;
+  //       left: 0;
+  //       width: 100%;
+  //       height: 100%;
+  //     }
+  //   }
+  
+    .backdrop_ {
+      width: 50%;
+  
+      @media (min-width: $breakpoint-xsmall) {
+        width: 33.3333333%;
+      }
+  
+      @media (min-width: $breakpoint-medium) {
+        width: 25%;
+      }
+  
+      @media (min-width: 1500px) {
+        width: 20%;
+      }
+  
+      @media (min-width: 1800px) {
+        width: 16.6666667%;
+      }
+  
+      @media (min-width: 2500px) {
+        width: 14.2857143%;
+      }
+  
+      // .image {
+      //   padding-top: 56.28%;
+      // }
+    }
+  
+    .poster {
+      width: 33.3333333%;
+  
+      @media (min-width: $breakpoint-xsmall) {
+        width: 25%;
+      }
+  
+      @media (min-width: $breakpoint-medium) {
+        width: 20%;
+      }
+  
+      @media (min-width: 1500px) {
+        width: 16.6666667%;
+      }
+  
+      @media (min-width: 1800px) {
+        width: 14.2857143%;
+      }
+  
+      @media (min-width: 2500px) {
+        width: 12.5%;
+      }
+  
+      // .image {
+      //   padding-top: 150.27%;
+      // }
+    }
+  }
+
+  .right {
+    @media (min-width: $breakpoint-medium) {
+      flex: 1;
+    }
+  }
+  .overview {
+    max-width: 1000px;
+    margin-bottom: 3rem;
+    font-size: 1.5rem;
+    color: #000000;
+  
+    @media (min-width: $breakpoint-large) {
+      font-size: 1.6rem;
+    }
+  }
+  .stats {
+    margin-bottom: 3rem;
+    font-size: 1.5rem;
+    color: #000000;
+  
+    @media (min-width: $breakpoint-large) {
+      font-size: 1.6rem;
+    }
+  
+    ul {
+      @media (min-width: $breakpoint-medium) {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+  
+    li {
+      display: flex;
+      padding: 0.2rem 0;
+  
+      @media (min-width: $breakpoint-medium) {
+        width: 50%;
+      }
+  
+      @media (min-width: $breakpoint-xlarge) {
+        width: 100%;
+      }
+    }
+  
+    a {
+      color: $primary-color;
+      text-decoration: underline;
+    }
+  }
+
+  .nolist {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .value {
+    flex: 2;
+  }
+  .label {
+    flex: 1;
+    max-width: 90px;
+    margin-right: 1.5rem;
+    color: rgb(65, 62, 62);
+  
+    @media (min-width: $breakpoint-xsmall) {
+      max-width: 110px;
+    }
+  }
+  
+  
+  .comma_ {
+    margin-right: 9px;
+  
+    &:not(:last-child):after {
+      content: ',';
+    }
+  }
+
+  .navbar {
+    height: 65px;
+    background-color: #313030;
+    padding: 0 47px;
+    margin: 0 auto;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  
+  
+  }  
+
+  .trailer {
+    margin-top: 3rem;
+  
+    
+  
+    @media (min-width: 1650px) {
+      font-size: 0.9vw;
+    }
+  }

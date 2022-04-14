@@ -15,7 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar'; 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatGridListModule} from '@angular/material/grid-list';
-
+import {MatTabsModule} from '@angular/material/tabs';
 
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -48,6 +48,8 @@ import { MovieRecommendComponent } from './movie-recommend/movie-recommend.compo
 import { ShowmovieComponent } from './showmovie/showmovie.component';
 import { YoutubeComponent } from './youtube/youtube.component';
 import { WatchListComponent } from './watch-list/watch-list.component';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { AppMovieDialogeComponent } from './movie-detail/app-movie-dialoge/app-movie-dialoge.component';
 
 
 @NgModule({
@@ -70,7 +72,9 @@ import { WatchListComponent } from './watch-list/watch-list.component';
     MovieRecommendComponent,
     ShowmovieComponent,
     YoutubeComponent,
-    WatchListComponent
+    WatchListComponent,
+    MovieDetailComponent,
+    AppMovieDialogeComponent
   ],
   imports: [
     BrowserModule,
@@ -78,6 +82,7 @@ import { WatchListComponent } from './watch-list/watch-list.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatFormFieldModule,
+    MatTabsModule,
     MatSelectModule,
     MatSlideToggleModule, 
     MatInputModule,

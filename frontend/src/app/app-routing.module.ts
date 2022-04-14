@@ -16,6 +16,7 @@ import { ShowmovieComponent } from './showmovie/showmovie.component';
 import { WatchListComponent } from './watch-list/watch-list.component';
 import { LoginComponent } from './login/login.component';
 
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 const routes: Routes = [
   {path: 'Home', component: HomeComponent},
   { path: '', redirectTo: '/Home', pathMatch: 'full' },
@@ -32,7 +33,8 @@ const routes: Routes = [
   {path:'Movieshuffle', component: MovieRecommendComponent},
   {path:'video', component: YoutubeComponent},
   {path:'WatchList', component: WatchListComponent},
-  {path:'login', component: LoginComponent}
+  {path:'login', component: LoginComponent},
+  {path:'details', component: MovieDetailComponent}
 
 ];
 
