@@ -25,6 +25,7 @@ export class Question6Component implements OnInit {
   }
   
   goBack(page:string):void{
+    this.data.clearAns5();
     this.router.navigate([`${page}`]);
   }
   

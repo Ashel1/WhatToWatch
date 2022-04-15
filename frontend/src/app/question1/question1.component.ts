@@ -33,7 +33,11 @@ export class Question1Component implements OnInit {
   }
 
   radioChange(event:any){
-    this.selectedOccasion = event.target.value;
+    //console.log("hiii"+typeof(event.target.value))
+    //if(typeof(event.target.value) !== 'undefined'){
+      this.selectedOccasion = event.target.value;
+      console.log("Q1"+event.target.value)
+    //}
   }
 
 }

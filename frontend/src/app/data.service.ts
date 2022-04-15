@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { EMPTY } from 'rxjs';
 import { BehaviorSubject } from "rxjs";
 
 @Injectable({
@@ -34,27 +35,39 @@ export class DataService {
   changeAns1(ans: string){
     this.ans1.next(ans);
   }
-
+  clearAns1(){
+    this.ans1.next('');
+  }
   changeAns2(ans:any){
     this.ans2.next(this.ans2.getValue().concat([ans]));
-    //this.ans2.next([this.ans2.getValue(),ans])
+  }
+  clearAns2(){
+    this.ans2.next([])
   }
   changeAns3(ans: string){
-    //this.ans3.next(this.ans3.getValue().concat([ans]));
     this.ans3.next(ans);
   }
-
+  clearAns3(){
+    this.ans3.next('');
+  }
   changeAns4(ans: string){
     this.ans4.next(ans);
+  }
+  clearAns4(){
+    this.ans4.next('');
   }
   changeAns5(ans: string){
     this.ans5.next(ans);
   }
-
+  clearAns5(){
+    this.ans5.next('');
+  }
   changeAns6(ans: string){
     this.ans6.next(ans);
   }
-
+  clearAns6(){
+    this.ans6.next('');
+  }
   changeLoginCheck(ans: string){
     this.logincheck.next(ans);
   }

@@ -15,8 +15,9 @@
     <mat-radio-group
       aria-labelledby="example-radio-group-label"
       class="example-radio-group"
-      [(ngModel)]="selectedOccasion">
-        <mat-radio-button class="example-radio-button" *ngFor="let occ of occasions" value="{{occ}}" color="warn" (change)="radioChange($event)"> 
+      [(ngModel)]="selectedOccasion"
+      >
+        <mat-radio-button class="example-radio-button" *ngFor="let occ of occasions" value="{{occ}}" color="warn" (ngModelChange)="radioChange($event)"> 
           {{occ}}
         </mat-radio-button>
     </mat-radio-group>

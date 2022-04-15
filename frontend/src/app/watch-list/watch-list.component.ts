@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Movie } from '/Users/anupamanair/Desktop/sprint4/WhatToWatch/frontend/src/shared/movie';
+import { Movie } from 'src/shared/movie';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-watch-list',
