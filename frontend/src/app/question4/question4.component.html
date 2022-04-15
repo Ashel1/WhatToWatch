@@ -13,8 +13,8 @@
     <br>
     <div class="rad">
         <mat-radio-group aria-label="Select an option"  [(ngModel)]="selectedAns" >
-            <mat-radio-button value="yes" color="warn" (change)="radioChange($event)">Yes</mat-radio-button>
-            <mat-radio-button value="no" color="warn" (change)="radioChange($event)">No</mat-radio-button>
+            <mat-radio-button value="yes" color="warn" (ngModelChange)="radioChange($event)">Yes</mat-radio-button>
+            <mat-radio-button value="no" color="warn" (ngModelChange)="radioChange($event)">No</mat-radio-button>
           </mat-radio-group>
     </div>
 

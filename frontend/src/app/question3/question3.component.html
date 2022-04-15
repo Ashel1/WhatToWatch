@@ -16,7 +16,7 @@
         aria-labelledby="example-radio-group-label"
         class="example-radio-group"
         [(ngModel)]="selectedGenre">
-        <mat-radio-button class="example-radio-button" *ngFor="let genre of typeOfGenres" [value]="genre" color="warn" (change)="radioChange($event)">
+        <mat-radio-button class="example-radio-button" *ngFor="let genre of typeOfGenres" [value]="genre" color="warn" (ngModelChange)="radioChange($event)">
             {{genre}}
         </mat-radio-button>
       </mat-radio-group>
