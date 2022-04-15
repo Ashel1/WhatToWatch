@@ -79,6 +79,7 @@ type JsonResponse struct {
 	Type string `json:"type"`
 	Data string `json:"data"`
 }
+
 type quesResponse struct {
 	Type string `json:"type"`
 	Data movRes `json:"data"`
@@ -178,18 +179,15 @@ func register(w http.ResponseWriter, r *http.Request) {
 		  address := r.FormValue("address")
 		  fmt.Println(name)
 		  fmt.Println(address)*/
-
 		database, _ := sql.Open("sqlite3", "./user.db")
 		statement, _ := database.Prepare("CREATE TABLE IF NOT EXISTS User (Username TEXT PRIMARY KEY, Fname TEXT, Lname TEXT, Email TEXT, Password TEXT)")
 		statement.Exec()
-
 		/*db, err := gorm.Open(sqlite.Open("user.db"), &gorm.Config{})
 		if err != nil {
 			panic("failed to connect database")
 		}
 		// Migrate the schema
 		db.AutoMigrate(&registerstruct{})*/
-
 		// Create
 		hashedPassword, _ := HashPassword(user.Password)
 		statement, _ = database.Prepare("INSERT INTO User (Fname,Lname,Email,Username,Password) VALUES (?, ? ,?, ?, ?)")
@@ -198,7 +196,6 @@ func register(w http.ResponseWriter, r *http.Request) {
 		//fmt.Fprintf(w, "Registration Successful")
 		var response = JsonResponse{Type: "Correct"}
 		json.NewEncoder(w).Encode(response)
-
 	default:
 		fmt.Fprintf(w, "Only Post request please!")
 	}
@@ -430,11 +427,8 @@ func main() {
 	if err != nil {
 		panic("failed to connect database")
 	}
-
 	// Migrate the schema
 	db.AutoMigrate(&Product{})
-
 	// Create
 	db.Create(&Product{Userid: "ash", Password: "12345678"})*/
-
 }
