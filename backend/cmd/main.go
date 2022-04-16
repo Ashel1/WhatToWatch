@@ -70,7 +70,7 @@ type movRes struct {
 	RunTime     string
 	Rating      string
 	Link        string
-	Director    string
+	Dir    string
 	Overview    string
 	Genre       string
 }
@@ -262,7 +262,10 @@ func questionnaire(w http.ResponseWriter, r *http.Request) {
 		database, _ := sql.Open("sqlite3", "./movieDatabase.db")
 		qy := fmt.Sprintf("SELECT title, Released_Year, Certificate, Runtime, Genre, IMDB_Rating, Overview, director, Poster_Link FROM movies where " + platform + ") AND genre LIKE '%%" + answers.Q3 + "%%' AND certificate ='U' AND Released_Year>" + ryear + " AND IMDB_Rating>" + rati + ";")
 		fmt.Println(qy)
-		rows, _ := database.Query(qy)
+		rows, err := database.Query(qy)
+		if err != nil {
+			fmt.Println(qy)
+		}
 		defer rows.Close()
 		var mov []movRes
 		var overview string
@@ -275,12 +278,12 @@ func questionnaire(w http.ResponseWriter, r *http.Request) {
 		var Director string
 		var Poster_Link string
 		for rows.Next() {
-			err := rows.Scan(&title, &Released_Year, &Certificate, &Runtime, &IMDB_Rating, &Director, &Poster_Link, &overview, &genre)
+			err := rows.Scan(&title, &Released_Year, &Certificate, &Runtime,  &genre, &IMDB_Rating, &overview,&Director, &Poster_Link)
 			if err != nil {
-				log.Fatal(err)
+				//log.Fatal(err)'
 			}
 			//log.Println(overview, genre)
-			mov = append(mov, movRes{Title: title, ReleaseYear: Released_Year, Cert: Certificate, RunTime: Runtime, Rating: IMDB_Rating, Director: Director, Link: Poster_Link, Overview: overview, Genre: genre})
+			mov = append(mov, movRes{Title: title, ReleaseYear: Released_Year, Cert: Certificate, RunTime: Runtime, Rating: IMDB_Rating, Dir: Director, Link: Poster_Link, Overview: overview, Genre: genre})
 		}
 		var randnum int
 		randnum = rand.Intn(len(mov))
