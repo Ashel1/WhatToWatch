@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { EMPTY } from 'rxjs';
 import { BehaviorSubject } from "rxjs";
 
 @Injectable({
@@ -29,7 +28,6 @@ export class DataService {
 
   private user_name = new BehaviorSubject<string>(" ");
   currentuser = this.user_name.asObservable();
-
 
   constructor() { }
   changeAns1(ans: string){

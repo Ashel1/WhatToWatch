@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { DataService } from '../data.service';
-import { HttpClient } from '@angular/common/http';
+import { MovieService } from '../movie.service';
 
 @Component({
   selector: 'app-showmovie',
@@ -49,7 +49,7 @@ export class ShowmovieComponent implements OnInit {
 
   
   
-  constructor(private router:Router, private data:DataService) { }
+  constructor(private router:Router, private data:DataService, private movie:MovieService) { }
   ngOnInit() {
     this.data.currentans1.subscribe(ans1=>this.ans1=ans1)
     this.data.currentans2.subscribe(ans2=>this.ans2=ans2)
@@ -76,8 +76,11 @@ export class ShowmovieComponent implements OnInit {
     })
     .then(response => response.json())
     .then(currdata => {
-    console.log('Success:', currdata.data['Title']);
+    //console.log('Success:', currdata.data['Title']);
+    console.log(currdata.data);
       this.title = currdata.data['Title'];
+      this.movie.changeTitle(this.title);
+      //console.log(this.title);
       this.details = currdata.data['Link'];
       this.platform = "Netflix";
       this.photo = currdata.data['Genre'];
