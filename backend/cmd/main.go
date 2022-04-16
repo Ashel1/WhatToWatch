@@ -260,7 +260,7 @@ func questionnaire(w http.ResponseWriter, r *http.Request) {
 			rati = "5"
 		}
 		database, _ := sql.Open("sqlite3", "./movieDatabase.db")
-		qy := fmt.Sprintf("SELECT title, Released_Year, Certificate, Runtime, Genre, IMDB_Rating, Overview, Director, Poster_Link FROM movies where " + platform + ") AND genre LIKE '%%" + answers.Q3 + "%%' AND certificate ='U' AND Released_Year>" + ryear + " AND IMDB_Rating>" + rati + ";")
+		qy := fmt.Sprintf("SELECT title, Released_Year, Certificate, Runtime, Genre, IMDB_Rating, Overview, director, Poster_Link FROM movies where " + platform + ") AND genre LIKE '%%" + answers.Q3 + "%%' AND certificate ='U' AND Released_Year>" + ryear + " AND IMDB_Rating>" + rati + ";")
 		fmt.Println(qy)
 		rows, _ := database.Query(qy)
 		defer rows.Close()
