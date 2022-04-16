@@ -81,9 +81,9 @@ export class ShowmovieComponent implements OnInit {
       this.title = currdata.data['Title'];
       this.movie.changeTitle(this.title);
       //console.log(this.title);
-      this.details = currdata.data['Link'];
+      this.details = currdata.data['Overview'];
       this.platform = "Netflix";
-      this.photo = currdata.data['Genre'];
+      this.photo = currdata.data['Link'];
     })
     .catch((error) => {
     console.error('Error:', error);
