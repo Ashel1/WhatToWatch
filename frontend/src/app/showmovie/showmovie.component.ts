@@ -39,6 +39,11 @@ export class ShowmovieComponent implements OnInit {
   details:string="";
   platform:string="";
   photo:string="";
+  rate:string="";
+  time:string="";
+  year:string="";
+  director:string="";
+  genre:string="";
   answer: any;
   ans1: string="";
   ans2: any []=[];
@@ -80,10 +85,30 @@ export class ShowmovieComponent implements OnInit {
     console.log(currdata.data);
       this.title = currdata.data['Title'];
       this.movie.changeTitle(this.title);
-      //console.log(this.title);
+      
       this.details = currdata.data['Overview'];
+      this.movie.changeoverview(this.details);
+
       this.platform = "Netflix";
+      this.movie.changeplatform(this.platform);
+      
       this.photo = currdata.data['Link'];
+      this.movie.changephoto(this.photo);
+
+      this.time = currdata.data['RunTime'];
+      this.movie.changeTime(this.time);
+
+      this.rate = currdata.data['Rating'];
+      this.movie.changeRate(this.rate);
+
+      this.year = currdata.data['ReleaseYear'];
+      this.movie.changeReleaseYear(this.year);
+
+      this.director = currdata.data['Dir'];
+      this.movie.changeDirector(this.director);
+
+      this.genre = currdata.data['Genre'];
+      this.movie.changeGenre(this.genre);
     })
     .catch((error) => {
     console.error('Error:', error);

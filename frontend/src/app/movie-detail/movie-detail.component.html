@@ -12,11 +12,11 @@
 
                 <div class="info">
                     <span class="rate">
-                        <i class="material-icons">star</i><span>8</span> /10
+                        <i class="material-icons">star</i><span>{{rate}}</span> /10
                     </span>
                     <span> 12223 Reviews</span>
-                    <span>{{1834| date: 'yyyy' }}</span>
-                    <span>1 hour</span>
+                    <span>{{releaseyear| date: 'yyyy' }}</span>
+                    <span>{{time}}</span>
                 </div>
             </div>
             <p style="margin-bottom:1cm;"></p>
@@ -37,13 +37,13 @@
                     <div class="listing-space info__movies">
                         <div class="left">
                             <div class="poster">
-                                <img src="https://static.wikia.nocookie.net/marvelcinematicuniverse/images/1/1e/Iron_Man_Official_Poster.jpg"  height="600px" width="400px">
+                                <img src={{photo}} height="600px" width="400px">
                             </div>
                         </div>
                         <div class="right">
                             <div class="overview">
                                 <h2 class="title">Storyline</h2>
-                                <div>2008's Iron Man tells the story of Tony Stark, a billionaire industrialist and genius inventor who is kidnapped and forced to build a devastating weapon. Instead, using his intelligence and ingenuity, Tony builds a high-tech suit of armor and escapes captivity.</div>
+                                <div>{{details}}</div>
                             </div>
                             <div class="stats">
                                 <ul class="nolist">
@@ -52,7 +52,7 @@
                                             Released
                                         </div>
                                         <div class="value">
-                                            14 March 2019
+                                            {{releaseyear}}
                                         </div>
                                     </li>
                                     <li>
@@ -60,7 +60,7 @@
                                             Runtime
                                         </div>
                                         <div class="value">
-                                            1 Hour
+                                            {{time}}
                                         </div>
                                     </li>
                                     
@@ -69,8 +69,8 @@
                                         <div class="label">
                                             Genre
                                         </div>
-                                        <div class="comma_" >
-                                            Action Comedy
+                                        <div  >
+                                            {{genre}}
                                         </div>
                                  
                                     <li >
@@ -89,9 +89,17 @@
                                             English
                                         </div>
                                     </li>
+                                    <li >
+                                        <div class="label">
+                                            Director
+                                        </div>
+                                        <div class="comma_" >
+                                            {{director}}
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
-                            <button mat-raised-button color="warn" width="100px">Watch On {{ platform}}</button>
+                            <button mat-raised-button color="warn" width="100px">Watch On {{platform}}</button>
                         </div>
                     </div>
                     

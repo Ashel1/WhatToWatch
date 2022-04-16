@@ -12,15 +12,33 @@ import { MovieService } from '../movie.service';
 })
 export class MovieDetailComponent implements OnInit {
 
-  platform:string = "Netflix";
+  
+  
   public video: boolean | undefined;
   safeUrl: any;
   title: string|undefined;
+  details: string|undefined;
+  photo: string|undefined;
+  time: string|undefined;
+  rate: string|undefined;
+  releaseyear: string|undefined;
+  genre: string|undefined;
+  director: string|undefined;
+  platform: string|undefined;
+
   
   constructor(private dialog: MatDialog, private _sanitizer: DomSanitizer, private movie:MovieService) { }
 
   ngOnInit(): void {
     this.movie.currenttitle.subscribe(title=>this.title=title)
+    this.movie.currentoverview.subscribe(details=>this.details=details)
+    this.movie.currentphoto.subscribe(photo=>this.photo=photo)
+    this.movie.currenttime.subscribe(time=>this.time=time)
+    this.movie.currentrate.subscribe(rate=>this.rate=rate)
+    this.movie.currentreleaseyear.subscribe(releaseyear=>this.releaseyear=releaseyear)
+    this.movie. currentgenre.subscribe(genre=>this.genre=genre)
+    this.movie.currentdirector.subscribe(director=>this.director=director)
+    this.movie.currentplatform.subscribe(platform=>this.platform=platform)
 
   }
   openDialogMovie(video:any): void {
