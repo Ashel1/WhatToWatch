@@ -1,16 +1,43 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from 'src/shared/movie';
 import { Router } from '@angular/router';
+import { DataService } from '../data.service';
 @Component({
   selector: 'app-watch-list',
   templateUrl: './watch-list.component.html',
   styleUrls: ['./watch-list.component.scss']
 })
 export class WatchListComponent implements OnInit {
-
-  constructor(private router:Router) { }
+  user_names: string= "";
+  user:any;
+  stringJson1: string | undefined;
+ 
+  stringObject1: any;
+  constructor(private router:Router,private data:DataService) { }
 
   ngOnInit(): void {
+    this.data.currentuser.subscribe(user_names=>this.user_names=user_names)
+    this.user = '{"Username":"'+ this.user_names +'"}';
+    this.stringJson1 = JSON.stringify(this.user);
+    
+    this.stringObject1 = JSON.parse(this.user);
+    console.log("JSON object -", this.stringObject1);
+
+    fetch('http://localhost:3000/getWatchLater', {
+  method: 'POST', // or 'PUT'
+ 
+  body: JSON.stringify(this.stringObject1),
+  })
+  .then(response => response.json())
+  .then(currdata => {
+  //console.log('Success:', currdata.data['Title']);
+  console.log(currdata.data);
+   
+    
+  })
+  .catch((error) => {
+  console.error('Error:', error);
+});
   }
   movies: Movie[] = [
     {

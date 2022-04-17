@@ -32,6 +32,9 @@ export class ShowmovieComponent implements OnInit {
   //photo = "https://i.pinimg.com/originals/93/b3/c0/93b3c0d4745f4839a2f276427d340203.jpg";
   stringJson: string | undefined;
   stringObject: any;
+  stringJson1: string | undefined;
+ 
+  stringObject1: any;
   toggleFlip() {
     this.flip = (this.flip == 'inactive') ? 'active' : 'inactive';
   }
@@ -46,6 +49,7 @@ export class ShowmovieComponent implements OnInit {
   director:string="";
   genre:string="";
   answer: any;
+  user:any;
   ans1: string="";
   ans2: any []=[];
   ans3: string="";
@@ -63,15 +67,18 @@ export class ShowmovieComponent implements OnInit {
     this.data.currentans4.subscribe(ans4=>this.ans4=ans4)
     this.data.currentans5.subscribe(ans5=>this.ans5=ans5)
     this.data.currentans6.subscribe(ans6=>this.ans6=ans6)
-    this.data.currentuser.subscribe(user_names=>this.user_names=user_names);
+    this.data.currentuser.subscribe(user_names=>this.user_names=user_names)
 
     this.answer = '{"Q1":"'+ this.ans1 +'",  "Q2":"'+this.ans2+'",  "Q3":"'+this.ans3+'",  "Q4":"'+this.ans4+'",  "Q5":"'+this.ans5+'",  "Q6":"'+this.ans6+'"}';
-    
+    this.user = '{"Username":"'+ this.user_names +'"}';
+
     this.stringJson = JSON.stringify(this.answer);
+    this.stringObject = JSON.parse(this.answer);
     //console.log("String json object :", this.stringJson);
     //console.log("Type :", typeof this.stringJson);
-
-    this.stringObject = JSON.parse(this.answer);
+    this.stringJson1 = JSON.stringify(this.user);
+    
+    this.stringObject1 = JSON.parse(this.user);
     console.log("JSON object -", this.stringObject);
     
     fetch('http://localhost:3000/questionnaire', {
@@ -116,7 +123,8 @@ export class ShowmovieComponent implements OnInit {
     .catch((error) => {
     console.error('Error:', error);
 });
-  
+
+
   
 
 }
