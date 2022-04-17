@@ -127,7 +127,7 @@ export class ShowmovieComponent implements OnInit {
   alert() {
 
 
-    this.http.post<any>("http://localhost:3000/register", {
+    this.http.post<any>("http://localhost:3000/addWatchLater", {
       Username: this.user_names,
       Movie: this.title
     })
