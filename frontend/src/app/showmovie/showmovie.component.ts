@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { DataService } from '../data.service';
 import { MovieService } from '../movie.service';
-
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-showmovie',
   templateUrl: './showmovie.component.html',
@@ -28,6 +28,7 @@ export class ShowmovieComponent implements OnInit {
   //details = " A billionaire idustrialist and genius inventor, Tony Stark (Robert Downey Jr.), is conducting weapons tests overseas, but terrorists kidnap him to force him to build a devastating weapon. Instead, he builds an armored suit and upends his captors. Returning to America, Stark refines the suit and uses it to combat crime and terrorism.";
   // platform ="Amazon";
   flip: string = 'inactive';
+  user_names: string= "";
   //photo = "https://i.pinimg.com/originals/93/b3/c0/93b3c0d4745f4839a2f276427d340203.jpg";
   stringJson: string | undefined;
   stringObject: any;
@@ -54,7 +55,7 @@ export class ShowmovieComponent implements OnInit {
 
   
   
-  constructor(private router:Router, private data:DataService, private movie:MovieService) { }
+  constructor(private router:Router, private data:DataService, private movie:MovieService, private http :HttpClient) { }
   ngOnInit() {
     this.data.currentans1.subscribe(ans1=>this.ans1=ans1)
     this.data.currentans2.subscribe(ans2=>this.ans2=ans2)
@@ -62,9 +63,10 @@ export class ShowmovieComponent implements OnInit {
     this.data.currentans4.subscribe(ans4=>this.ans4=ans4)
     this.data.currentans5.subscribe(ans5=>this.ans5=ans5)
     this.data.currentans6.subscribe(ans6=>this.ans6=ans6)
+    this.data.currentuser.subscribe(user_names=>this.user_names=user_names);
 
     this.answer = '{"Q1":"'+ this.ans1 +'",  "Q2":"'+this.ans2+'",  "Q3":"'+this.ans3+'",  "Q4":"'+this.ans4+'",  "Q5":"'+this.ans5+'",  "Q6":"'+this.ans6+'"}';
-
+    
     this.stringJson = JSON.stringify(this.answer);
     //console.log("String json object :", this.stringJson);
     //console.log("Type :", typeof this.stringJson);
@@ -91,7 +93,7 @@ export class ShowmovieComponent implements OnInit {
 
       this.platform = "Netflix";
       this.movie.changeplatform(this.platform);
-      
+
       this.photo = currdata.data['Link'];
       this.movie.changephoto(this.photo);
 
@@ -109,6 +111,7 @@ export class ShowmovieComponent implements OnInit {
 
       this.genre = currdata.data['Genre'];
       this.movie.changeGenre(this.genre);
+      
     })
     .catch((error) => {
     console.error('Error:', error);
@@ -122,7 +125,21 @@ export class ShowmovieComponent implements OnInit {
     this.router.navigate([`${page}`]);
   }
   alert() {
-    window.alert('Succesfully added to watchlist');
+
+
+    this.http.post<any>("http://localhost:3000/register", {
+      Username: this.user_names,
+      Movie: this.title
+    })
+    .subscribe({
+      next: (v) => console.log(v),
+      error: (e) => alert("Something went wrong!!"),
+      complete: () => {
+        alert("added successfully to the watchlist")
+       
+    }
+  })
+   
   }
  
   
