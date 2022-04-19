@@ -48,6 +48,7 @@ export class ShowmovieComponent implements OnInit {
   year:string="";
   director:string="";
   genre:string="";
+  ylink:string="";
   answer: any;
   user:any;
   ans1: string="";
@@ -68,6 +69,7 @@ export class ShowmovieComponent implements OnInit {
     this.data.currentans5.subscribe(ans5=>this.ans5=ans5)
     this.data.currentans6.subscribe(ans6=>this.ans6=ans6)
     this.data.currentuser.subscribe(user_names=>this.user_names=user_names)
+   
 
     this.answer = '{"Q1":"'+ this.ans1 +'",  "Q2":"'+this.ans2+'",  "Q3":"'+this.ans3+'",  "Q4":"'+this.ans4+'",  "Q5":"'+this.ans5+'",  "Q6":"'+this.ans6+'"}';
     this.user = '{"Username":"'+ this.user_names +'"}';
@@ -118,6 +120,10 @@ export class ShowmovieComponent implements OnInit {
 
       this.genre = currdata.data['Genre'];
       this.movie.changeGenre(this.genre);
+
+
+      this.ylink = currdata.data['Ylink'];
+      this.movie.changeylink(this.ylink);
       
     })
     .catch((error) => {

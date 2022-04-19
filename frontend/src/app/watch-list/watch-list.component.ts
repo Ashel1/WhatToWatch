@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Movie } from 'src/shared/movie';
 import { Router } from '@angular/router';
 import { DataService } from '../data.service';
+import { MovieService } from '../movie.service';
 @Component({
   selector: 'app-watch-list',
   templateUrl: './watch-list.component.html',
@@ -11,10 +12,24 @@ export class WatchListComponent implements OnInit {
   user_names: string= "";
   user:any;
   stringJson1: string | undefined;
- 
+  stringJson2: string | undefined;
+  userarray: string[] | undefined;
   stringObject1: any;
-  constructor(private router:Router,private data:DataService) { }
+  stringObject2: any;
 
+
+  title:string="";
+  details:string="";
+  platform:string="";
+  photo:string="";
+  rate:string="";
+  time:string="";
+  year:string="";
+  director:string="";
+  genre:string="";
+  answer: any;
+  constructor(private router:Router,private data:DataService,private movie:MovieService) { }
+  user1:any;
   ngOnInit(): void {
     this.data.currentuser.subscribe(user_names=>this.user_names=user_names)
     this.user = '{"Username":"'+ this.user_names +'"}';
@@ -32,12 +47,13 @@ export class WatchListComponent implements OnInit {
   .then(currdata => {
   //console.log('Success:', currdata.data['Title']);
   console.log(currdata.data);
-   
+  this.userarray = currdata.data; 
     
   })
   .catch((error) => {
   console.error('Error:', error);
 });
+
   }
   movies: Movie[] = [
     {
@@ -73,6 +89,61 @@ export class WatchListComponent implements OnInit {
 
    goToVideo(page:string):void{
     this.router.navigate([`${page}`]);
+  }
+
+  fetchdetails(title1:string)
+  {
+    window.alert(title1);
+    this.user1 = '{"Username":"'+ title1 +'"}';
+    this.stringJson2 = JSON.stringify(this.user1);
+    
+    this.stringObject2 = JSON.parse(this.user1);
+    console.log("JSON object -", this.stringObject2);
+    /*fetch('http://localhost:3000/getMovieData', {
+    method: 'POST', // or 'PUT'
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(this.stringObject2),
+    })
+    .then(response => response.json())
+    .then(currdata => {
+    //console.log('Success:', currdata.data['Title']);
+    console.log(currdata.data);
+      this.title = currdata.data['Title'];
+      this.movie.changeTitle(this.title);
+      
+      this.details = currdata.data['Overview'];
+      this.movie.changeoverview(this.details);
+
+      this.platform = "Netflix";
+      this.movie.changeplatform(this.platform);
+
+      this.photo = currdata.data['Link'];
+      this.movie.changephoto(this.photo);
+
+      this.time = currdata.data['RunTime'];
+      this.movie.changeTime(this.time);
+
+      this.rate = currdata.data['Rating'];
+      this.movie.changeRate(this.rate);
+
+      this.year = currdata.data['ReleaseYear'];
+      this.movie.changeReleaseYear(this.year);
+
+      this.director = currdata.data['Dir'];
+      this.movie.changeDirector(this.director);
+
+      this.genre = currdata.data['Genre'];
+      this.movie.changeGenre(this.genre);
+      this.router.navigate([`details`])
+    })
+    .catch((error) => {
+    console.error('Error:', error);
+});
+*/
+
+
   }
 
 }
