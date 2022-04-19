@@ -66,7 +66,6 @@ type addWH struct {
 type movRes struct {
 	Title       string
 	ReleaseYear string
-	Cert        string
 	RunTime     string
 	Rating      string
 	Link        string
@@ -299,13 +298,13 @@ func questionnaire(w http.ResponseWriter, r *http.Request) {
 			rati = "5"
 		}
 		database, _ := sql.Open("sqlite3", "./movieDatabase.db")
-		qy := fmt.Sprintf("SELECT NETFLIX,AMAZONPRIME,HOTSTAR, title, Released_Year, Certificate, Runtime, Genre, IMDB_Rating, Overview, director, Poster_Link, YoutubeLink FROM movies where " + platform + ") AND genre LIKE '%%" + answers.Q3 + "%%' AND certificate ='U' AND Released_Year>" + ryear + " AND IMDB_Rating>" + rati + ";")
+		qy := fmt.Sprintf("SELECT NETFLIX,AMAZONPRIME,HOTSTAR, title, Released_Year, Runtime, Genre, IMDB_Rating, Overview, director, Poster_Link, YoutubeLink FROM movies where " + platform + ") AND genre LIKE '%%" + answers.Q3 + "%%' AND certificate ='U' AND Released_Year>" + ryear + " AND IMDB_Rating>" + rati + ";")
 		fmt.Println(qy)
 		rows, err := database.Query(qy)
 		//fmt.Print(rows)
 		if err != sql.ErrNoRows {
 			fmt.Print("No rows")
-			qy := fmt.Sprintf("SELECT NETFLIX,AMAZONPRIME,HOTSTAR, title, Released_Year, Certificate, Runtime, Genre, IMDB_Rating, Overview, director, Poster_Link, YoutubeLink FROM movies where genre LIKE '%%" + answers.Q3 + "%%';")
+			qy := fmt.Sprintf("SELECT NETFLIX,AMAZONPRIME,HOTSTAR, title, Released_Year, Runtime, Genre, IMDB_Rating, Overview, director, Poster_Link, YoutubeLink FROM movies where genre LIKE '%%" + answers.Q3 + "%%';")
 			fmt.Println(qy)
 			rows, err = database.Query(qy)
 			if err != nil {
@@ -319,7 +318,6 @@ func questionnaire(w http.ResponseWriter, r *http.Request) {
 		var genre string
 		var title string
 		var Released_Year string
-		var Certificate string
 		var Runtime string
 		var IMDB_Rating string
 		var Director string
@@ -329,12 +327,12 @@ func questionnaire(w http.ResponseWriter, r *http.Request) {
 		var amazon string 
 		var hulu string
 		for rows.Next() {
-			err := rows.Scan(&netflix,&amazon,&hulu,&title, &Released_Year, &Certificate, &Runtime, &genre, &IMDB_Rating, &overview, &Director, &Poster_Link, &ylink)
+			err := rows.Scan(&netflix,&amazon,&hulu,&title, &Released_Year, &Runtime, &genre, &IMDB_Rating, &overview, &Director, &Poster_Link, &ylink)
 			if err != nil {
 				log.Fatal(err)
 			}
 			//log.Println(overview, genre)
-			mov = append(mov, movRes{Title: title, ReleaseYear: Released_Year, Cert: Certificate, RunTime: Runtime, Rating: IMDB_Rating, Dir: Director, Link: Poster_Link, Overview: overview, Genre: genre, Ylink: ylink, Netflix: netflix, Amazon: amazon, Hulu: hulu})
+			mov = append(mov, movRes{Title: title, ReleaseYear: Released_Year, RunTime: Runtime, Rating: IMDB_Rating, Dir: Director, Link: Poster_Link, Overview: overview, Genre: genre, Ylink: ylink, Netflix: netflix, Amazon: amazon, Hulu: hulu})
 		}
 		var randnum int
 		randnum = rand.Intn(len(mov))
