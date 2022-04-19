@@ -41,7 +41,9 @@ export class ShowmovieComponent implements OnInit {
 
   title:string="";
   details:string="";
+
   platform:string="";
+
   photo:string="";
   rate:string="";
   time:string="";
@@ -100,8 +102,36 @@ export class ShowmovieComponent implements OnInit {
       this.details = currdata.data['Overview'];
       this.movie.changeoverview(this.details);
 
-      this.platform = "Netflix";
-      this.movie.changeplatform(this.platform);
+
+
+
+     // this.Amazon = currdata.data['Amazon'];
+
+      if (currdata.data['Amazon'] == "1")
+      {
+        this.movie.changeplatform("Amazon");
+        this.platform = currdata.data['Amazon']
+
+      }
+
+     
+
+      if (currdata.data['Hulu'] == "1")
+      {
+        this.movie.changeplatform("Hulu");
+        this.platform = currdata.data['Amazon']
+      }
+
+     
+
+      if (currdata.data['Netflix'] == "1")
+      {
+        this.movie.changeplatform("Netflix");
+        this.platform = currdata.data['Amazon']
+      }
+
+
+      
 
       this.photo = currdata.data['Link'];
       this.movie.changephoto(this.photo);
