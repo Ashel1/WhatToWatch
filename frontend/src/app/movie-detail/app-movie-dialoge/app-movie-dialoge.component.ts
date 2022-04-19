@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Inject, ViewEncapsulation } from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import { DomSanitizer } from '@angular/platform-browser';
+import { MovieService } from '../../movie.service';
+
 @Component({
   selector: 'app-app-movie-dialoge',
   templateUrl: './app-movie-dialoge.component.html',
@@ -10,10 +12,13 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class AppMovieDialogeComponent implements OnInit {
   safeUrl: any;
-  constructor(private _sanitizer : DomSanitizer ) { }
+  ylink: string="";
+  constructor(private _sanitizer : DomSanitizer,private movie:MovieService ) { }
 
   ngOnInit(): void {
-    this.safeUrl =this._sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/8ugaeA-nMTc');
+    this.movie.currentylink.subscribe(ylink=>this.ylink=ylink)
+    this.safeUrl =this._sanitizer.bypassSecurityTrustResourceUrl(this.ylink);
+    
   }
  
 

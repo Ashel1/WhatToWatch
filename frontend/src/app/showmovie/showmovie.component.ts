@@ -41,13 +41,16 @@ export class ShowmovieComponent implements OnInit {
 
   title:string="";
   details:string="";
+
   platform:string="";
+
   photo:string="";
   rate:string="";
   time:string="";
   year:string="";
   director:string="";
   genre:string="";
+  ylink:string="";
   answer: any;
   user:any;
   ans1: string="";
@@ -68,6 +71,7 @@ export class ShowmovieComponent implements OnInit {
     this.data.currentans5.subscribe(ans5=>this.ans5=ans5)
     this.data.currentans6.subscribe(ans6=>this.ans6=ans6)
     this.data.currentuser.subscribe(user_names=>this.user_names=user_names)
+   
 
     this.answer = '{"Q1":"'+ this.ans1 +'",  "Q2":"'+this.ans2+'",  "Q3":"'+this.ans3+'",  "Q4":"'+this.ans4+'",  "Q5":"'+this.ans5+'",  "Q6":"'+this.ans6+'"}';
     this.user = '{"Username":"'+ this.user_names +'"}';
@@ -98,8 +102,36 @@ export class ShowmovieComponent implements OnInit {
       this.details = currdata.data['Overview'];
       this.movie.changeoverview(this.details);
 
-      this.platform = "Netflix";
-      this.movie.changeplatform(this.platform);
+
+
+
+     // this.Amazon = currdata.data['Amazon'];
+
+      if (currdata.data['Amazon'] == "1")
+      {
+        this.movie.changeplatform("Amazon");
+        this.platform = currdata.data['Amazon']
+
+      }
+
+     
+
+      if (currdata.data['Hulu'] == "1")
+      {
+        this.movie.changeplatform("Hulu");
+        this.platform = currdata.data['Amazon']
+      }
+
+     
+
+      if (currdata.data['Netflix'] == "1")
+      {
+        this.movie.changeplatform("Netflix");
+        this.platform = currdata.data['Amazon']
+      }
+
+
+      
 
       this.photo = currdata.data['Link'];
       this.movie.changephoto(this.photo);
@@ -118,6 +150,10 @@ export class ShowmovieComponent implements OnInit {
 
       this.genre = currdata.data['Genre'];
       this.movie.changeGenre(this.genre);
+
+
+      this.ylink = currdata.data['Ylink'];
+      this.movie.changeylink(this.ylink);
       
     })
     .catch((error) => {
