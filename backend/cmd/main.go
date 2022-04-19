@@ -70,11 +70,37 @@ type movRes struct {
 	RunTime     string
 	Rating      string
 	Link        string
-	Dir    string
+	Dir         string
 	Overview    string
 	Genre       string
 }
 
+type allMov struct{
+	Poster_Link string
+	Title string
+	Released_Year string
+	Certificate string
+	Youtube_Link string
+	Genre string
+	IMDB_Rating string
+	Overview string
+	Meta_score string
+	Director string 
+	Star1 string
+	Star2 string
+	Star3 string
+	Star4 string 
+	No_of_Votes string
+	Show_id string
+	Type string
+	Cast string
+	Country string
+	Runtime string
+	Description string 
+	Netflix string
+	Amazonprime string
+	Hulu string
+}
 type JsonResponse struct {
 	Type string `json:"type"`
 	Data string `json:"data"`
@@ -83,6 +109,15 @@ type JsonResponse struct {
 type quesResponse struct {
 	Type string `json:"type"`
 	Data movRes `json:"data"`
+}
+
+type movNameStruct struct {
+	MovieName string
+}
+
+type movieRes struct{
+	Type string `json:"type"`
+	Data allMov `json:"data"`
 }
 
 type history struct {
@@ -264,7 +299,7 @@ func questionnaire(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(qy)
 		rows, err := database.Query(qy)
 		if err != nil {
-			fmt.Println(qy)
+			log.Fatal(err)
 		}
 		defer rows.Close()
 		var mov []movRes
@@ -278,8 +313,9 @@ func questionnaire(w http.ResponseWriter, r *http.Request) {
 		var Director string
 		var Poster_Link string
 		for rows.Next() {
-			err := rows.Scan(&title, &Released_Year, &Certificate, &Runtime,  &genre, &IMDB_Rating, &overview,&Director, &Poster_Link)
+			err := rows.Scan(&title, &Released_Year, &Certificate, &Runtime, &genre, &IMDB_Rating, &overview, &Director, &Poster_Link)
 			if err != nil {
+				fmt.Println("Hello World!")
 				//log.Fatal(err)'
 			}
 			//log.Println(overview, genre)
@@ -411,6 +447,41 @@ func addWatchLater(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func getMovieData(w http.ResponseWriter, r *http.Request) {
+	switch r.Method {
+	case "GET":
+		fmt.Fprintf(w, "Only Post request please!")
+	case "POST":
+		var ans movNameStruct
+		err := json.NewDecoder(r.Body).Decode(&ans)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusBadRequest)
+			return
+		}
+		database, _ := sql.Open("sqlite3", "./movieDatabase.db")
+		qy := fmt.Sprintf("Select * from movies where title='" + ans.MovieName + "';")
+		fmt.Println(qy)
+		rows, err := database.Query(qy)
+		if err != nil {
+			log.Fatal(err)
+		}
+		defer rows.Close()
+		var mov []allMov
+		var Poster_Link,Title,Released_Year,Certificate,Youtube_Link,Genre,IMDB_Rating,Overview,Meta_score,Director,Star1,Star2,Star3,Star4,No_of_Votes,Show_id,Type,Cast,Country,Runtime,Description,Netflix,Amazonprime,Hulu string
+		for rows.Next() {
+			err := rows.Scan(&Poster_Link,&Title,&Released_Year,&Certificate,&Youtube_Link,&Genre,&IMDB_Rating,&Overview,&Meta_score,&Director,&Star1,&Star2,&Star3,&Star4,&No_of_Votes,&Show_id,&Type,&Cast,&Country,&Runtime,&Description,&Netflix,&Amazonprime,&Hulu)
+			if err != nil {
+				fmt.Println("Hello World!")
+				log.Fatal(err)
+			}
+			//log.Println(overview, genre)
+			mov = append(mov, allMov{Poster_Link : Poster_Link,Title:Title,Released_Year:Released_Year,Certificate:Certificate,Youtube_Link:Youtube_Link,Genre:Genre,IMDB_Rating:IMDB_Rating,Overview:Overview,Meta_score:Meta_score,Director:Director,Star1:Star1,Star2:Star2,Star3:Star3,Star4:Star4,No_of_Votes:No_of_Votes,Show_id:Show_id,Type:Type,Cast:Cast,Country:Country,Runtime:Runtime,Description:Description,Netflix:Netflix,Amazonprime:Amazonprime,Hulu:Hulu})
+		}
+		fmt.Print(mov[0])
+		var response = movieRes{Type: "Correct", Data: mov[0]}
+		json.NewEncoder(w).Encode(response)
+	}
+}
 func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/register", register)
@@ -420,6 +491,7 @@ func main() {
 	mux.HandleFunc("/getWatchHistory", getWatchHistory)
 	mux.HandleFunc("/addWatchHistory", addWatchHistory)
 	mux.HandleFunc("/addWatchLater", addWatchLater)
+	mux.HandleFunc("/getMovieData", getMovieData)
 	//http.HandleFunc("/signin", signin)
 	//http.HandleFunc("/register", register)
 	//http.HandleFunc("/questionnaire", questionnaire)
