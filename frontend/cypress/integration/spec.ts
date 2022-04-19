@@ -1,5 +1,7 @@
 ///<reference types="cypress"/>
 
+import { eq } from "cypress/types/lodash";
+
 //import Chance from 'chance';
 //const chance = new Chance();
 
@@ -61,7 +63,10 @@ describe('login pg', () => {
 
       cy.visit('/Home');
       cy.get('[name=ques]').click();
-      cy.get('[type="radio"]').eq(0).check({force: true});
+      cy.get('[type="radio"]').select("Watching By Myself",{force: true}).should('be.checked');
+      //cy.get('#mat-radio-2').should('have.class', 'mat-radio-checked');
+      //cy.contains('.example-selected-value', 'Watching By Myself')
+
       cy.visit('/Question2');
       cy.get('mat-selection-list').get('mat-list-option').contains('Netflix').click();
       cy.visit('/Question3');

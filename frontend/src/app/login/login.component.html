@@ -15,8 +15,11 @@
       <mat-form-field>
         <input matInput placeholder="Username" type="text"  formControlName="username" required (keyup)="getVal($event)" >
         <mat-error>Username is required</mat-error>
-        <h1>{{currentVal}}</h1>
-        
+cy.get("[data-cy=radioButton]")
+  .children()
+  .first()
+  .click()
+  .trigger('change');        
         
       </mat-form-field>
       <mat-form-field>
