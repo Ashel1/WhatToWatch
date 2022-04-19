@@ -48,8 +48,28 @@ export class MovieDetailComponent implements OnInit {
    let dialogRef = this.dialog.open( AppMovieDialogeComponent , {width: '900px', height: '600px'});
 
    //try
-   
   
+  
+  }
+  gotoPlatform()
+  {
+    if(this.platform == "Netflix")
+    {
+      window.location.href = "https://www.netflix.com/";
+    }
+    else if(this.platform == "Amazon Prime")
+    {
+      window.location.href = "https://www.amazon.com/Amazon-Video/b/?&node=2858778011&ref=dvm_MLP_ROWNA_US_1";
+    }
+    else if (this.platform == "Hulu"){
+      window.location.href = "https://www.hulu.com/";
+    }
+    else if(this.platform == "")
+    {
+      window.alert("No movie recommended! Please try again!")
+    }
+    
+
   }
 
 
