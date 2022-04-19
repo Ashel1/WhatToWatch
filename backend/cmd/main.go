@@ -302,10 +302,12 @@ func questionnaire(w http.ResponseWriter, r *http.Request) {
 		qy := fmt.Sprintf("SELECT NETFLIX,AMAZONPRIME,HOTSTAR, title, Released_Year, Certificate, Runtime, Genre, IMDB_Rating, Overview, director, Poster_Link, YoutubeLink FROM movies where " + platform + ") AND genre LIKE '%%" + answers.Q3 + "%%' AND certificate ='U' AND Released_Year>" + ryear + " AND IMDB_Rating>" + rati + ";")
 		fmt.Println(qy)
 		rows, err := database.Query(qy)
+		fmt.Print(rows)
 		if err != nil {
 			log.Fatal(err)
 		}
-		defer rows.Close()
+		fmt.Print("Hello World")
+		
 		var mov []movRes
 		var overview string
 		var genre string
