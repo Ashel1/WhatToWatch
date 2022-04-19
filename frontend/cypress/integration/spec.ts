@@ -32,11 +32,11 @@ describe('login pg', () => {
   }
 
   const username = string + '@gmail.com';
-  const password = "burger1244";
+  const password = "watch123";
   const fname = string;
   const lname = string;
 
-  it('New Instructor should be able to register', ()=>{
+  /*it('New user should be able to register', ()=>{
       cy.visit('/Signup');
       // cy.get('[name=registerlabel]').click();
       //cy.get('div[role=tab]').eq(1).click();
@@ -47,20 +47,40 @@ describe('login pg', () => {
       cy.get('[formControlName=password]').type(`${password}`);
       cy.get('[name=register]').click();
   })
- // cy.visit('/Home');
-  it('Instructor should be able to login', ()=>{
+
+  it('User should be able to login', ()=>{
 
     cy.visit('/Home');
     cy.get('[name=loginbutton]').click();
-    cy.get('[formControlName="username"]').type(`${username}`);
-    cy.get('[formControlName="password"]').type(`${password}`);
+    cy.get('[formControlName=username]').type(`${username}`);
+    cy.get('[formControlName=password]').type(`${password}`);
     cy.get('[name=login]').click();
-    sleep(1000);
-  //  cy.getLocalStorage('ACCESS_TOKEN').then((token) => {
-      //  console.log(token);
-    })
-    //cy.getLocalStorage('ACCESS_TOKEN');
+    })*/
     
+    it('User should be able to answer questions', ()=>{
+
+      cy.visit('/Home');
+      cy.get('[name=ques]').click();
+      cy.get('[type="radio"]').eq(0).check({force: true});
+      cy.visit('/Question2');
+      cy.get('mat-selection-list').get('mat-list-option').contains('Netflix').click();
+      cy.visit('/Question3');
+      cy.get('[type="radio"]').eq(0).check({force: true});
+      cy.visit('/Question4');
+      cy.get('[type="radio"]').eq(1).check({force: true});
+      cy.visit('/Question5');
+      cy.get('[type="radio"]').eq(3).check({force: true});
+      cy.visit('/Question6');
+      sleep(1000);
+      cy.get('[type="radio"]').eq(4).check({force: true});
+      cy.visit('/ShowMovie');
+
+
+      //cy.get('#mat-radio-2').should('have.class', 'mat-radio-checked');
+      //cy.contains('.example-selected-value', 'Watching by myself')
+
+
+      })
 });
 
 
