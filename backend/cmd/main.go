@@ -302,12 +302,18 @@ func questionnaire(w http.ResponseWriter, r *http.Request) {
 		qy := fmt.Sprintf("SELECT NETFLIX,AMAZONPRIME,HOTSTAR, title, Released_Year, Certificate, Runtime, Genre, IMDB_Rating, Overview, director, Poster_Link, YoutubeLink FROM movies where " + platform + ") AND genre LIKE '%%" + answers.Q3 + "%%' AND certificate ='U' AND Released_Year>" + ryear + " AND IMDB_Rating>" + rati + ";")
 		fmt.Println(qy)
 		rows, err := database.Query(qy)
-		fmt.Print(rows)
-		if err != nil {
-			log.Fatal(err)
+		//fmt.Print(rows)
+		if err != sql.ErrNoRows {
+			fmt.Print("No rows")
+			qy := fmt.Sprintf("SELECT NETFLIX,AMAZONPRIME,HOTSTAR, title, Released_Year, Certificate, Runtime, Genre, IMDB_Rating, Overview, director, Poster_Link, YoutubeLink FROM movies where genre LIKE '%%" + answers.Q3 + "%%';")
+			fmt.Println(qy)
+			rows, err = database.Query(qy)
+			if err != nil {
+				log.Fatal(err);
+			}
+			//log.Fatal(err)
 		}
-		fmt.Print("Hello World")
-		
+		defer rows.Close()
 		var mov []movRes
 		var overview string
 		var genre string
@@ -325,8 +331,7 @@ func questionnaire(w http.ResponseWriter, r *http.Request) {
 		for rows.Next() {
 			err := rows.Scan(&netflix,&amazon,&hulu,&title, &Released_Year, &Certificate, &Runtime, &genre, &IMDB_Rating, &overview, &Director, &Poster_Link, &ylink)
 			if err != nil {
-				fmt.Println("Hello World!")
-				//log.Fatal(err)'
+				log.Fatal(err)
 			}
 			//log.Println(overview, genre)
 			mov = append(mov, movRes{Title: title, ReleaseYear: Released_Year, Cert: Certificate, RunTime: Runtime, Rating: IMDB_Rating, Dir: Director, Link: Poster_Link, Overview: overview, Genre: genre, Ylink: ylink, Netflix: netflix, Amazon: amazon, Hulu: hulu})
