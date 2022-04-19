@@ -20,8 +20,11 @@ Date: 20th April 2022
 
 <h2>Tasks Accomplished in the Front-end</h2>
 
-
-
+-Added Movie Details Page
+-Added YouTube Links
+-Added User WatchList
+-Linked to Viewing Website
+-End-to-end using Cypress Testing
 
 <hr>
 <h2>Tasks Accomplished in the Back-end</h2>
