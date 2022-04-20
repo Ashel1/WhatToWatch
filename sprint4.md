@@ -23,7 +23,7 @@ Date: 20th April 2022
 - Added Movie Details Page
 - Added YouTube Links
 - Added User WatchList
-- Linked to Viewing Website
+- Link to the corresponding movie platform (Netflix,Hulu,Amazon Prime)
 - End-to-end using Cypress Testing
 
 <hr>
