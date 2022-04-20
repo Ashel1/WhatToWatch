@@ -5,7 +5,7 @@
 
 This api fetches the data from the sqlite database according to the user requirement. The user will be asked several questions and upon answering them, the user will be given a random movie that matches the criteria of all the answer that the user provide with the help of a random function
 
-**URL** : ```/api/Questionnaire/```
+**URL** : ```/api/questionnaire/```
 
 **Method** : ```POST```
 
