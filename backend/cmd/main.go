@@ -272,12 +272,12 @@ func questionnaire(w http.ResponseWriter, r *http.Request) {
 			}
 		}
 		//fmt.Printf("Platform %s\n", platform)
-		/*var certi string
+		var certi string
 		if answers.Q4 == "no" {
-			certi = "='A"
+			certi = "='A'"
 		} else {
-			certi = "<>'A"
-		}*/
+			certi = "<>'A'"
+		}
 		var ryear string
 		if strings.Contains(answers.Q5, "Year") {
 			ryear = "2020"
@@ -299,7 +299,7 @@ func questionnaire(w http.ResponseWriter, r *http.Request) {
 			rati = "5"
 		}
 		database, _ := sql.Open("sqlite3", "./movieDatabase.db")
-		qy := fmt.Sprintf("SELECT NETFLIX,AMAZONPRIME,HOTSTAR, title, Released_Year, Runtime, Genre, IMDB_Rating, Overview, director, Poster_Link, YoutubeLink FROM movies where " + platform + ") AND genre LIKE '%%" + answers.Q3 + "%%' AND certificate ='U' AND Released_Year>" + ryear + " AND IMDB_Rating>" + rati + ";")
+		qy := fmt.Sprintf("SELECT NETFLIX,AMAZONPRIME,HOTSTAR, title, Released_Year, Runtime, Genre, IMDB_Rating, Overview, director, Poster_Link, YoutubeLink FROM movies where " + platform + ") AND genre LIKE '%%" + answers.Q3 + "%%' AND certificate "+certi+" AND Released_Year>" + ryear + " AND IMDB_Rating>" + rati + ";")
 		fmt.Println(qy)
 		rows, err := database.Query(qy)
 		//fmt.Print(rows)
