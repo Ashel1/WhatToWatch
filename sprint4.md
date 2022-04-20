@@ -21,7 +21,7 @@ Date: 20th April 2022
 <h2>Tasks Accomplished in the Front-end</h2>
 
 - Added Movie Details Page
-- Added YouTube Links
+- Added embeded YouTube Links
 - Added User WatchList
 - Link to the corresponding movie platform (Netflix,Hulu,Amazon Prime)
 - End-to-end using Cypress Testing
