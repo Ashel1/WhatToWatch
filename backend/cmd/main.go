@@ -72,37 +72,38 @@ type movRes struct {
 	Dir         string
 	Overview    string
 	Genre       string
-	Ylink 		string
-	Amazon		string
-	Netflix		string
-	Hulu		string
+	Ylink       string
+	Amazon      string
+	Netflix     string
+	Hulu        string
 }
 
-type allMov struct{
-	Poster_Link string
-	Title string
+type allMov struct {
+	Poster_Link   string
+	Title         string
 	Released_Year string
-	Certificate string
-	Youtube_Link string
-	Genre string
-	IMDB_Rating string
-	Overview string
-	Meta_score string
-	Director string 
-	Star1 string
-	Star2 string
-	Star3 string
-	Star4 string 
-	No_of_Votes string
-	Show_id string
-	Type string
-	Cast string
-	Country string
-	Runtime string
-	Description string 
-	Netflix string
-	Amazonprime string
-	Hulu string
+	Certificate   string
+	Youtube_Link  string
+	Genre         string
+	IMDB_Rating   string
+	Overview      string
+	Meta_score    string
+	Director      string
+	Star1         string
+	Star2         string
+	Star3         string
+	Star4         string
+	No_of_Votes   string
+	Show_id       string
+	Type          string
+	Cast          string
+	Country       string
+	Runtime       string
+	Description   string
+	Netflix       string
+	Amazonprime   string
+	Hulu          string
+	Hlink         string
 }
 type JsonResponse struct {
 	Type string `json:"type"`
@@ -118,7 +119,7 @@ type movNameStruct struct {
 	MovieName string
 }
 
-type movieRes struct{
+type movieRes struct {
 	Type string `json:"type"`
 	Data allMov `json:"data"`
 }
@@ -308,7 +309,7 @@ func questionnaire(w http.ResponseWriter, r *http.Request) {
 			fmt.Println(qy)
 			rows, err = database.Query(qy)
 			if err != nil {
-				log.Fatal(err);
+				log.Fatal(err)
 			}
 			//log.Fatal(err)
 		}
@@ -324,10 +325,10 @@ func questionnaire(w http.ResponseWriter, r *http.Request) {
 		var Poster_Link string
 		var ylink string
 		var netflix string
-		var amazon string 
+		var amazon string
 		var hulu string
 		for rows.Next() {
-			err := rows.Scan(&netflix,&amazon,&hulu,&title, &Released_Year, &Runtime, &genre, &IMDB_Rating, &overview, &Director, &Poster_Link, &ylink)
+			err := rows.Scan(&netflix, &amazon, &hulu, &title, &Released_Year, &Runtime, &genre, &IMDB_Rating, &overview, &Director, &Poster_Link, &ylink)
 			if err != nil {
 				log.Fatal(err)
 			}
@@ -480,15 +481,15 @@ func getMovieData(w http.ResponseWriter, r *http.Request) {
 		}
 		defer rows.Close()
 		var mov []allMov
-		var Poster_Link,Title,Released_Year,Certificate,Youtube_Link,Genre,IMDB_Rating,Overview,Meta_score,Director,Star1,Star2,Star3,Star4,No_of_Votes,Show_id,Type,Cast,Country,Runtime,Description,Netflix,Amazonprime,Hulu string
+		var Poster_Link, Title, Released_Year, Certificate, Youtube_Link, Genre, IMDB_Rating, Overview, Meta_score, Director, Star1, Star2, Star3, Star4, No_of_Votes, Show_id, Type, Cast, Country, Runtime, Description, Netflix, Amazonprime, Hulu, Hlink string
 		for rows.Next() {
-			err := rows.Scan(&Poster_Link,&Title,&Released_Year,&Certificate,&Youtube_Link,&Genre,&IMDB_Rating,&Overview,&Meta_score,&Director,&Star1,&Star2,&Star3,&Star4,&No_of_Votes,&Show_id,&Type,&Cast,&Country,&Runtime,&Description,&Netflix,&Amazonprime,&Hulu)
+			err := rows.Scan(&Poster_Link, &Title, &Released_Year, &Certificate, &Youtube_Link, &Genre, &IMDB_Rating, &Overview, &Meta_score, &Director, &Star1, &Star2, &Star3, &Star4, &No_of_Votes, &Show_id, &Type, &Cast, &Country, &Runtime, &Description, &Netflix, &Amazonprime, &Hulu, &Hlink)
 			if err != nil {
 				fmt.Println("Hello World!")
 				log.Fatal(err)
 			}
 			//log.Println(overview, genre)
-			mov = append(mov, allMov{Poster_Link : Poster_Link,Title:Title,Released_Year:Released_Year,Certificate:Certificate,Youtube_Link:Youtube_Link,Genre:Genre,IMDB_Rating:IMDB_Rating,Overview:Overview,Meta_score:Meta_score,Director:Director,Star1:Star1,Star2:Star2,Star3:Star3,Star4:Star4,No_of_Votes:No_of_Votes,Show_id:Show_id,Type:Type,Cast:Cast,Country:Country,Runtime:Runtime,Description:Description,Netflix:Netflix,Amazonprime:Amazonprime,Hulu:Hulu})
+			mov = append(mov, allMov{Poster_Link: Poster_Link, Title: Title, Released_Year: Released_Year, Certificate: Certificate, Youtube_Link: Youtube_Link, Genre: Genre, IMDB_Rating: IMDB_Rating, Overview: Overview, Meta_score: Meta_score, Director: Director, Star1: Star1, Star2: Star2, Star3: Star3, Star4: Star4, No_of_Votes: No_of_Votes, Show_id: Show_id, Type: Type, Cast: Cast, Country: Country, Runtime: Runtime, Description: Description, Netflix: Netflix, Amazonprime: Amazonprime, Hulu: Hulu, Hlink: Hlink})
 		}
 		fmt.Print(mov[0])
 		var response = movieRes{Type: "Correct", Data: mov[0]}
