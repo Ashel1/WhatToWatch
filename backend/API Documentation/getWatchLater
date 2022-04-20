@@ -18,7 +18,7 @@ This api fetches the data from the sqlite database according to the username pro
 
 ```
 {
-    "
+    "Username"  :   "Username to be checked"
 }
 ```
 
