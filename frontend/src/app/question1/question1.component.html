@@ -17,7 +17,7 @@
       class="example-radio-group"
       [(ngModel)]="selectedOccasion"
       >
-        <mat-radio-button name="question" class="example-radio-button" *ngFor="let occ of occasions" value="{{occ}}" color="warn" (ngModelChange)="radioChange($event)" required> 
+        <mat-radio-button name="question" class="example-radio-button" *ngFor="let occ of occasions" value="{{occ}}" color="warn" (onChange)="radioChange($event)"> 
           {{occ}}
         </mat-radio-button>
     </mat-radio-group>
@@ -28,4 +28,3 @@
     <button mat-raised-button color="warn" (click)="goToQuestions('Question2')" style="border-radius: 6px;">Next</button>
   </div>
 </div>
-<!--<h1> {{selectedOccasion}} </h1>-->

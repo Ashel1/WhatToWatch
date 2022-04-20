@@ -20,6 +20,7 @@ export class Question2Component implements OnInit {
   ngOnInit(): void {
     this.data.currentans1.subscribe(ans1=>this.ans1=ans1)
     this.data.currentans2.subscribe(ans2=>this.ans2=ans2)
+    console.log("ans1 "+this.ans1);
   }
     
   goBack(page:string):void{
