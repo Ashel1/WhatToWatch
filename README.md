@@ -21,22 +21,22 @@ In the modern world there is a need for a source of information that provides va
 Project board: https://github.com/Ashel1/WhatToWatch/projects/1 <br>
 Sprint deliverable : https://github.com/Ashel1/WhatToWatch/blob/125bbc39155b67ce79d66dc6c2b3c8feb52dc8c1/Sprint1.md <br>
 <br>
-<br>
+
 <b><h2>Sprint 2:</h2></b>
 Project board: https://github.com/Ashel1/WhatToWatch/projects/5 <br>
 Sprint deliverable :https://github.com/Ashel1/WhatToWatch/blob/main/Sprint2.md<br>
 <br>
-<br>
+
 <b><h2>Sprint 3:</h2></b>
 Project board: https://github.com/Ashel1/WhatToWatch/projects/6<br>
 Sprint deliverable :https://github.com/Ashel1/WhatToWatch/blob/main/Sprint3.md<br>
 <br>
-<br>
+
 <b><h2>Sprint 4:</h2></b>
 Project board:https://github.com/Ashel1/WhatToWatch/projects/8<br>
 Sprint deliverable :https://github.com/Ashel1/WhatToWatch/blob/main/sprint4.md<br>
 <br>
-<br>
+
 
 <b><h2>Group Members:</h2></b>
 Ashutosh Yadav (Backend), </br>
