@@ -168,6 +168,85 @@ export class ShowmovieComponent implements OnInit {
   goToVideo(page:string):void{
     this.router.navigate([`${page}`]);
   }
+
+  getRec():void{
+    fetch('http://localhost:3000/questionnaire', {
+    method: 'POST', // or 'PUT'
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(this.stringObject),
+    })
+    .then(response => response.json())
+    .then(currdata => {
+    //console.log('Success:', currdata.data['Title']);
+    console.log(currdata.data);
+      this.title = currdata.data['Title'];
+      this.movie.changeTitle(this.title);
+      
+      this.details = currdata.data['Overview'];
+      this.movie.changeoverview(this.details);
+
+
+
+
+     // this.Amazon = currdata.data['Amazon'];
+
+      if (currdata.data['Amazon'] == "1")
+      {
+        this.movie.changeplatform("Amazon");
+        this.platform = currdata.data['Amazon']
+
+      }
+
+     
+
+      if (currdata.data['Hulu'] == "1")
+      {
+        this.movie.changeplatform("Hulu");
+        this.platform = currdata.data['Amazon']
+      }
+
+     
+
+      if (currdata.data['Netflix'] == "1")
+      {
+        this.movie.changeplatform("Netflix");
+        this.platform = currdata.data['Amazon']
+      }
+
+
+      
+
+      this.photo = currdata.data['Link'];
+      this.movie.changephoto(this.photo);
+
+      this.time = currdata.data['RunTime'];
+      this.movie.changeTime(this.time);
+
+      this.rate = currdata.data['Rating'];
+      this.movie.changeRate(this.rate);
+
+      this.year = currdata.data['ReleaseYear'];
+      this.movie.changeReleaseYear(this.year);
+
+      this.director = currdata.data['Dir'];
+      this.movie.changeDirector(this.director);
+
+      this.genre = currdata.data['Genre'];
+      this.movie.changeGenre(this.genre);
+
+
+      this.ylink = currdata.data['Ylink'];
+      this.movie.changeylink(this.ylink);
+      
+    })
+    .catch((error) => {
+    console.error('Error:', error);
+});
+
+  }
+
   alert() {
 
 
