@@ -64,7 +64,7 @@ type addWH struct {
 	Movie    string
 }
 
-type movRes struct {
+/*type movRes struct {
 	Title       string
 	ReleaseYear string
 	RunTime     string
@@ -77,7 +77,7 @@ type movRes struct {
 	Amazon      string
 	Netflix     string
 	Hulu        string
-}
+}*/
 
 type allMov struct {
 	Poster_Link   string
@@ -111,10 +111,10 @@ type JsonResponse struct {
 	Data string `json:"data"`
 }
 
-type quesResponse struct {
+/*type quesResponse struct {
 	Type string `json:"type"`
 	Data movRes `json:"data"`
-}
+}*/
 
 type movNameStruct struct {
 	MovieName string
@@ -300,13 +300,13 @@ func questionnaire(w http.ResponseWriter, r *http.Request) {
 			rati = "5"
 		}
 		database, _ := sql.Open("sqlite3", "./movieDatabase.db")
-		qy := fmt.Sprintf("SELECT NETFLIX,AMAZONPRIME,HOTSTAR, title, Released_Year, Runtime, Genre, IMDB_Rating, Overview, director, Poster_Link, YoutubeLink FROM movies where " + platform + ") AND genre LIKE '%%" + answers.Q3 + "%%' AND certificate " + certi + " AND Released_Year>" + ryear + " AND IMDB_Rating>" + rati + ";")
+		qy := fmt.Sprintf("SELECT * FROM movies where " + platform + ") AND genre LIKE '%%" + answers.Q3 + "%%' AND certificate " + certi + " AND Released_Year>" + ryear + " AND IMDB_Rating>" + rati + ";")
 		fmt.Println(qy)
 		rows, err := database.Query(qy)
 		//fmt.Print(rows)
 		if err != sql.ErrNoRows {
 			fmt.Print("No rows")
-			qy := fmt.Sprintf("SELECT NETFLIX,AMAZONPRIME,HOTSTAR, title, Released_Year, Runtime, Genre, IMDB_Rating, Overview, director, Poster_Link, YoutubeLink FROM movies where genre LIKE '%%" + answers.Q3 + "%%';")
+			qy := fmt.Sprintf("SELECT * FROM movies where genre LIKE '%%" + answers.Q3 + "%%';")
 			fmt.Println(qy)
 			rows, err = database.Query(qy)
 			if err != nil {
@@ -315,33 +315,23 @@ func questionnaire(w http.ResponseWriter, r *http.Request) {
 			//log.Fatal(err)
 		}
 		defer rows.Close()
-		var mov []movRes
-		var overview string
-		var genre string
-		var title string
-		var Released_Year string
-		var Runtime string
-		var IMDB_Rating string
-		var Director string
-		var Poster_Link string
-		var ylink string
-		var netflix string
-		var amazon string
-		var hulu string
+		var mov []allMov
+		var Poster_Link, Title, Released_Year, Certificate, Youtube_Link, Genre, IMDB_Rating, Overview, Meta_score, Director, Star1, Star2, Star3, Star4, No_of_Votes, Show_id, Type, Cast, Country, Runtime, Description, Netflix, Amazonprime, Hulu, Hlink string
 		for rows.Next() {
-			err := rows.Scan(&netflix, &amazon, &hulu, &title, &Released_Year, &Runtime, &genre, &IMDB_Rating, &overview, &Director, &Poster_Link, &ylink)
+			err := rows.Scan(&Poster_Link, &Title, &Released_Year, &Certificate, &Youtube_Link, &Genre, &IMDB_Rating, &Overview, &Meta_score, &Director, &Star1, &Star2, &Star3, &Star4, &No_of_Votes, &Show_id, &Type, &Cast, &Country, &Runtime, &Description, &Netflix, &Amazonprime, &Hulu, &Hlink)
 			if err != nil {
+				fmt.Println("Hello World!")
 				log.Fatal(err)
 			}
 			//log.Println(overview, genre)
-			mov = append(mov, movRes{Title: title, ReleaseYear: Released_Year, RunTime: Runtime, Rating: IMDB_Rating, Dir: Director, Link: Poster_Link, Overview: overview, Genre: genre, Ylink: ylink, Netflix: netflix, Amazon: amazon, Hulu: hulu})
+			mov = append(mov, allMov{Poster_Link: Poster_Link, Title: Title, Released_Year: Released_Year, Certificate: Certificate, Youtube_Link: Youtube_Link, Genre: Genre, IMDB_Rating: IMDB_Rating, Overview: Overview, Meta_score: Meta_score, Director: Director, Star1: Star1, Star2: Star2, Star3: Star3, Star4: Star4, No_of_Votes: No_of_Votes, Show_id: Show_id, Type: Type, Cast: Cast, Country: Country, Runtime: Runtime, Description: Description, Netflix: Netflix, Amazonprime: Amazonprime, Hulu: Hulu, Hlink: Hlink})
 		}
 		var randnum int
 		randnum = rand.Intn(len(mov))
 		//println(randnum)
 		//var rts string
 		//rts="\"Name:\""
-		var response = quesResponse{Type: "Correct", Data: mov[randnum]}
+		var response = movieRes{Type: "Correct", Data: mov[randnum]}
 		json.NewEncoder(w).Encode(response)
 		//fmt.Fprintf(w, "%+v", mov[randnum])
 		/*statement, _ := database.Prepare("CREATE TABLE IF NOT EXISTS Movie (Poster_Link varchar(255), title varchar(255),Released_in_Year INTEGER,
