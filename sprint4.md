@@ -14,6 +14,8 @@ Date: 20th April 2022
 <h3>Link to API Documentation</h3>
 <h3>Link to Project board</h3>
 https://github.com/Ashel1/WhatToWatch/projects
+<hr>
+<hr>
 Link to sprint 4 : https://github.com/Ashel1/WhatToWatch/projects/8
 <br>
 <h1>Tasks accomplished in Sprint 4</h1>
