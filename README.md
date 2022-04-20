@@ -44,7 +44,7 @@ Questionnaire :https://github.com/Ashel1/WhatToWatch/blob/main/backend/API%20Doc
 SignIn : https://github.com/Ashel1/WhatToWatch/blob/main/backend/API%20Documentation/Sign-in.md<br>
 Adding Watch History: https://github.com/Ashel1/WhatToWatch/blob/main/backend/API%20Documentation/addWatchHistory.md<br>
 Adding Watch Later:https://github.com/Ashel1/WhatToWatch/blob/main/backend/API%20Documentation/addWatchLater.md<br>
-Get Movie Data:https://github.com/Ashel1/WhatToWatch/blob/main/backend/API%20Documentation/getMovieData.md<br>
+Get Movie Data :https://github.com/Ashel1/WhatToWatch/blob/main/backend/API%20Documentation/getMovieData.md<br>
 Getting Watch History:https://github.com/Ashel1/WhatToWatch/blob/main/backend/API%20Documentation/getWatchLater.md<br>
 Getting Watch Later:https://github.com/Ashel1/WhatToWatch/blob/e30f745ddbf52c4b348948a3894ea803cc58a507/backend/API%20Documentation/getWatchLater.md<br>
 Test API to check if hosted server is working:https://github.com/Ashel1/WhatToWatch/blob/main/backend/API%20Documentation/test.md
