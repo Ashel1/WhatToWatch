@@ -36,7 +36,7 @@ Condition : If username is found according to criteria
 ```
 
 
-| Parameter      | Description
+| Parameter      |Description |
 | :---        |    ----:  
 | type | type correct indicates the hosted server is active | 
 
