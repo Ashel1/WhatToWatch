@@ -40,8 +40,8 @@ export class LoginComponent implements OnInit {
       .subscribe({
         next: (v) => console.log(v),
         error: (e) => alert("Something went wrong!!"),
-        complete: () => {alert("Login Success");
-      
+        complete: () => {
+        //alert("Login Success");
         this.loginForm.reset();
         this.dialogRef.close();
         this.router.navigate(['Question1'])

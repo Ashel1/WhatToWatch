@@ -39,7 +39,7 @@
         </mat-card-content>
         <p style="margin-bottom:1cm;"></p>
         <button mat-raised-button color="warn" width="100px" (click)="goToVideo('details')">More Details</button>
-        <button mat-raised-button color="warn" width="100px">Watch On {{ platform}}</button>
+        <button mat-raised-button color="warn" width="100px" (click)="gotoPlatform()">Watch On {{platform}}</button>
         </mat-card>
   
 		</div>
@@ -51,7 +51,7 @@
 </div>
 <p style="margin-bottom:0.5cm;"></p>
 <div class="getrec">
-  <button mat-raised-button color="warn" width="500px" (click)="alert()">Watch later</button>
+  <button *ngIf="logincheck=='Logged'" mat-raised-button color="warn" width="500px" (click)="alert()">Add to Watch list</button>
 </div>
 </div>
 </div>

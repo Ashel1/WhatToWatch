@@ -27,6 +27,7 @@ export class ShowmovieComponent implements OnInit {
   //title = "jhvyt";
   //details = " A billionaire idustrialist and genius inventor, Tony Stark (Robert Downey Jr.), is conducting weapons tests overseas, but terrorists kidnap him to force him to build a devastating weapon. Instead, he builds an armored suit and upends his captors. Returning to America, Stark refines the suit and uses it to combat crime and terrorism.";
   // platform ="Amazon";
+
   flip: string = 'inactive';
   user_names: string= "";
   //photo = "https://i.pinimg.com/originals/93/b3/c0/93b3c0d4745f4839a2f276427d340203.jpg";
@@ -59,8 +60,7 @@ export class ShowmovieComponent implements OnInit {
   ans4: string="";
   ans5: string="";
   ans6: string="";
-
-  
+  logincheck:string="";  
   
   constructor(private router:Router, private data:DataService, private movie:MovieService, private http :HttpClient) { }
   ngOnInit() {
@@ -71,7 +71,7 @@ export class ShowmovieComponent implements OnInit {
     this.data.currentans5.subscribe(ans5=>this.ans5=ans5)
     this.data.currentans6.subscribe(ans6=>this.ans6=ans6)
     this.data.currentuser.subscribe(user_names=>this.user_names=user_names)
-   
+    this.data.currentlogincheck.subscribe(logincheck=>this.logincheck=logincheck);
 
     this.answer = '{"Q1":"'+ this.ans1 +'",  "Q2":"'+this.ans2+'",  "Q3":"'+this.ans3+'",  "Q4":"'+this.ans4+'",  "Q5":"'+this.ans5+'",  "Q6":"'+this.ans6+'"}';
     this.user = '{"Username":"'+ this.user_names +'"}';
@@ -102,11 +102,6 @@ export class ShowmovieComponent implements OnInit {
       this.details = currdata.data['Overview'];
       this.movie.changeoverview(this.details);
 
-
-
-
-     // this.Amazon = currdata.data['Amazon'];
-
       if (currdata.data['Amazon'] == "1")
       {
         this.movie.changeplatform("Amazon");
@@ -114,17 +109,13 @@ export class ShowmovieComponent implements OnInit {
 
       }
 
-     
-
-      if (currdata.data['Hulu'] == "1")
+      else if (currdata.data['Hulu'] == "1")
       {
         this.movie.changeplatform("Hulu");
         this.platform = "Hulu";
       }
 
-     
-
-      if (currdata.data['Netflix'] == "1")
+     else if (currdata.data['Netflix'] == "1")
       {
         this.movie.changeplatform("Netflix");
         this.platform = "Netflix";
@@ -179,42 +170,31 @@ export class ShowmovieComponent implements OnInit {
     .then(currdata => {
     //console.log('Success:', currdata.data['Title']);
     console.log(currdata.data);
+
+    if (currdata.data['Amazon'] == "1")
+    {
+      this.movie.changeplatform("Amazon");
+      this.platform = "Amazon";
+
+    }
+
+    else if (currdata.data['Hulu'] == "1")
+    {
+      this.movie.changeplatform("Hulu");
+      this.platform = "Hulu";
+    }
+
+   else if (currdata.data['Netflix'] == "1")
+    {
+      this.movie.changeplatform("Netflix");
+      this.platform = "Netflix";
+    }
+
       this.title = currdata.data['Title'];
       this.movie.changeTitle(this.title);
       
       this.details = currdata.data['Overview'];
-      this.movie.changeoverview(this.details);
-
-
-
-
-     // this.Amazon = currdata.data['Amazon'];
-
-      if (currdata.data['Amazon'] == "1")
-      {
-        this.movie.changeplatform("Amazon");
-        this.platform = currdata.data['Amazon']
-
-      }
-
-     
-
-      if (currdata.data['Hulu'] == "1")
-      {
-        this.movie.changeplatform("Hulu");
-        this.platform = currdata.data['Amazon']
-      }
-
-     
-
-      if (currdata.data['Netflix'] == "1")
-      {
-        this.movie.changeplatform("Netflix");
-        this.platform = currdata.data['Amazon']
-      }
-
-
-      
+      this.movie.changeoverview(this.details);    
 
       this.photo = currdata.data['Link'];
       this.movie.changephoto(this.photo);
@@ -245,6 +225,27 @@ export class ShowmovieComponent implements OnInit {
 
   }
 
+  gotoPlatform()
+  {
+    if(this.platform == "Netflix")
+    {
+      window.location.href = "https://www.netflix.com/";
+    }
+    else if(this.platform == "Amazon Prime")
+    {
+      window.location.href = "https://www.amazon.com/Amazon-Video/b/?&node=2858778011&ref=dvm_MLP_ROWNA_US_1";
+    }
+    else if (this.platform == "Hulu"){
+      window.location.href = "https://www.hulu.com/";
+    }
+    else if(this.platform == "")
+    {
+      window.alert("No movie recommended! Please try again!")
+    }
+  
+  }
+
+
   alert() {
 
 
@@ -256,7 +257,7 @@ export class ShowmovieComponent implements OnInit {
       next: (v) => console.log(v),
       error: (e) => alert("Something went wrong!!"),
       complete: () => {
-        alert("added successfully to the watchlist")
+        //alert("added successfully to the watchlist")
        
     }
   })

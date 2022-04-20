@@ -93,7 +93,7 @@ export class WatchListComponent implements OnInit {
 
   fetchdetails(title1:string)
   {
-    window.alert(title1);
+    //window.alert(title1);
     this.user1 = '{"movieName":"'+ title1 +'"}';
     this.stringJson2 = JSON.stringify(this.user1);
     
