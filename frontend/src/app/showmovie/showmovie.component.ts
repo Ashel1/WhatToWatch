@@ -110,7 +110,7 @@ export class ShowmovieComponent implements OnInit {
       if (currdata.data['Amazon'] == "1")
       {
         this.movie.changeplatform("Amazon");
-        this.platform = currdata.data['Amazon']
+        this.platform = "Amazon";
 
       }
 
@@ -119,7 +119,7 @@ export class ShowmovieComponent implements OnInit {
       if (currdata.data['Hulu'] == "1")
       {
         this.movie.changeplatform("Hulu");
-        this.platform = currdata.data['Amazon']
+        this.platform = "Hulu";
       }
 
      
@@ -127,11 +127,9 @@ export class ShowmovieComponent implements OnInit {
       if (currdata.data['Netflix'] == "1")
       {
         this.movie.changeplatform("Netflix");
-        this.platform = currdata.data['Amazon']
+        this.platform = "Netflix";
       }
 
-
-      
 
       this.photo = currdata.data['Link'];
       this.movie.changephoto(this.photo);

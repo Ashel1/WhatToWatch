@@ -1,32 +1,10 @@
-<h1>WatchList</h1>
 <div class="container jumbotron">
 
   
-    <div class="content">
-    
-        <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center">
-          <div fxFlex="20%" *ngFor="let dish of movies">
-            <mat-card >
-              <mat-card-header>
-                <mat-card-title>{{dish.name}}</mat-card-title>
-              </mat-card-header>
-              <img mat-card-image src={{dish.image}} height="400px" width="400px" >
-              <mat-card-content>
-                <p>
-                  {{dish.description}}
-                </p>
-              </mat-card-content>
-              <mat-card-actions>
-                <button mat-raised-button color="warn" width="100px" (click)="goToVideo('details')">More Details</button>
-        <button mat-raised-button color="warn" width="100px">Watch On {{ dish.platform}}</button>
-              </mat-card-actions>
-            </mat-card>
-          </div>
-        </div>
-        </div>
-    </div>
-    <h1>{{user_names}}</h1>
 
-    <li *ngFor="let hero of userarray">
-      <td (click)="fetchdetails(hero)">{{hero}}</td>
-    </li>
+  <h1>{{user_names}}</h1>
+
+  <li *ngFor="let hero of userarray">
+    <td (click)="fetchdetails(hero)">{{hero}}</td>
+  </li>
+</div>

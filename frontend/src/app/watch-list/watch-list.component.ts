@@ -94,12 +94,13 @@ export class WatchListComponent implements OnInit {
   fetchdetails(title1:string)
   {
     window.alert(title1);
-    this.user1 = '{"Username":"'+ title1 +'"}';
+    this.user1 = '{"movieName":"'+ title1 +'"}';
     this.stringJson2 = JSON.stringify(this.user1);
     
     this.stringObject2 = JSON.parse(this.user1);
     console.log("JSON object -", this.stringObject2);
-    /*fetch('http://localhost:3000/getMovieData', {
+
+    fetch('http://localhost:3000/getMovieData', {
     method: 'POST', // or 'PUT'
     headers: {
       'Content-Type': 'application/json',
@@ -141,7 +142,7 @@ export class WatchListComponent implements OnInit {
     .catch((error) => {
     console.error('Error:', error);
 });
-*/
+
 
 
   }
