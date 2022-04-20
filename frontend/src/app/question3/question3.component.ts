@@ -12,7 +12,7 @@ export class Question3Component implements OnInit {
   //What2Watch List of Genres
   ans2:any[]=[];
   ans3: string="";
-  typeOfGenres: string[] = ['Action', 'Adventure', 'Comedy', 'Crime & Mystery', 'Fantasy', 'Historical', 'Horror', 'Romance', 'Satire', 'Science Fiction', 'Thriller', 'Western'];
+  typeOfGenres: string[] = ['Action', 'Adventure', 'Comedy', 'Crime', 'Fantasy', 'Horror', 'Romance', 'Thriller', 'Western'];
   selectedGenre: string="";
   array:any[]=[];
 
