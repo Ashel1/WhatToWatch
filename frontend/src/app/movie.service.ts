@@ -37,6 +37,9 @@ export class MovieService {
  
   private ylink = new BehaviorSubject<string>("");
   currentylink= this.ylink.asObservable();
+
+  private hphoto = new BehaviorSubject<string>("");
+  currenthphoto= this.hphoto.asObservable();
   
   changeTitle(ans: string){
     this.title.next(ans);
@@ -68,5 +71,8 @@ export class MovieService {
 
   changeylink(ans: string){
     this.ylink.next(ans);
+  }
+  changehphoto(ans: string){
+    this.hphoto.next(ans);
   }
 }

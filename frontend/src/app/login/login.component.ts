@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
     
   }
   login() {
-      this.http.post<any>("http://localhost:3000/signin", this.loginForm.value)
+      this.http.post<any>("https://what2watchbackend.herokuapp.com/signin", this.loginForm.value)
       .subscribe({
         next: (v) => console.log(v),
         error: (e) => alert("Something went wrong!!"),

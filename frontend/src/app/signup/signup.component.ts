@@ -32,7 +32,7 @@ export class SignupComponent implements OnInit {
 
   }
   onSubmit(){
-    this.http.post<any>("http://localhost:3000/register", this.signupFrom.value)
+    this.http.post<any>("https://what2watchbackend.herokuapp.com/register", this.signupFrom.value)
     .subscribe({
       next: (v) => console.log(v),
       error: (e) => alert("Something went wrong!!"),
