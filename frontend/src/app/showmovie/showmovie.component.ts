@@ -54,6 +54,7 @@ export class ShowmovieComponent implements OnInit {
   ylink:string="";
   hlink:string = "";
   reviews:string = "";
+  Cast:string = "";
   answer: any;
   user:any;
   ans1: string="";
@@ -150,6 +151,8 @@ export class ShowmovieComponent implements OnInit {
       
       this.reviews= currdata.data['No_of_Votes'];
       this.movie.changereview(this.reviews);
+      this.Cast= currdata.data['Cast'];
+      this.movie.changeCast(this.Cast);
       
     })
     .catch((error) => {
@@ -229,6 +232,9 @@ export class ShowmovieComponent implements OnInit {
       this.movie.changehphoto(this.hlink);
       this.reviews= currdata.data['No_of_Votes'];
       this.movie.changereview(this.reviews);
+      
+      this.Cast= currdata.data['Cast'];
+      this.movie.changeCast(this.Cast);
       
       
     })

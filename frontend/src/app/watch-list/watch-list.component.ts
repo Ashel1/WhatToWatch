@@ -29,6 +29,8 @@ export class WatchListComponent implements OnInit {
   genre:string="";
   ylink:string="";
   hlink:string="";
+  reviews:string="";
+  Cast:string="";
   answer: any;
   constructor(private router:Router,private data:DataService,private movie:MovieService) { }
   user1:any;
@@ -163,6 +165,12 @@ export class WatchListComponent implements OnInit {
       
       this.hlink= currdata.data['Hlink'];
       this.movie.changehphoto(this.hlink);
+      this.reviews= currdata.data['No_of_Votes'];
+      this.movie.changereview(this.reviews);
+      
+      this.Cast= currdata.data['Cast'];
+      this.movie.changeCast(this.Cast);
+      
       
 
       this.router.navigate([`details`])
