@@ -13,6 +13,9 @@ Date: 20th April 2022
 <hr>
 <h3>Link to API Documentation</h3>
 <h3>Link to Project board</h3>
+https://github.com/Ashel1/WhatToWatch/projects
+<br>
+Link to sprint 4 : https://github.com/Ashel1/WhatToWatch/projects/8
 <br>
 <h1>Tasks accomplished in Sprint 4</h1>
 
@@ -21,7 +24,7 @@ Date: 20th April 2022
 <h2>Tasks Accomplished in the Front-end</h2>
 
 - Added Movie Details Page
-- Added YouTube Links
+- Added embeded YouTube Links
 - Added User WatchList
 - Link to the corresponding movie platform (Netflix,Hulu,Amazon Prime)
 - End-to-end using Cypress Testing

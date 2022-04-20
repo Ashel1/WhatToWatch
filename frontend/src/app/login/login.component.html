@@ -13,25 +13,25 @@
   <mat-dialog-content>
     <p>
       <mat-form-field>
-        <input matInput placeholder="Username" type="text"  formControlName="username" required (keyup)="getVal($event)" >
+        <input matInput placeholder="Username" type="text"  formControlName="userid" id="userid" required (keyup)="getVal($event)" >
         <mat-error>Username is required</mat-error>        
         
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'"  formControlName="password" required>
+        <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password" required>
         <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       
 
         <mat-error>password is required</mat-error>
         
       </mat-form-field>
-      <mat-checkbox >Remember Me</mat-checkbox>
+      <mat-checkbox>Remember Me</mat-checkbox>
     </p>
   </mat-dialog-content>
   <mat-dialog-actions>
     <span class="flex-spacer"></span>
     <button mat-button mat-dialog-close>Cancel</button>
-    <button type="submit" name="login"  [disabled]="!loginForm.valid"  mat-button class="background-primary text-floral-white"   color = "warn">Login</button>
+    <button type="submit"  id="loginuser" mat-button class="background-primary text-floral-white"   color = "warn">Login</button>
   </mat-dialog-actions>
 </form>
 
