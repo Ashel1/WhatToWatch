@@ -4,6 +4,8 @@ import {MatDialogConfig} from "@angular/material/dialog";
 import {  AppMovieDialogeComponent } from '../movie-detail/app-movie-dialoge/app-movie-dialoge.component';;
 import { DomSanitizer } from '@angular/platform-browser';
 import { MovieService } from '../movie.service';
+import { HttpClient } from '@angular/common/http';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-movie-detail',
@@ -27,8 +29,10 @@ export class MovieDetailComponent implements OnInit {
   platform: string|undefined;
   ylink: string|undefined;
   hlink: string|undefined;
+  user_names: string= "";
+  logincheck:string="";  
   
-  constructor(private dialog: MatDialog, private _sanitizer: DomSanitizer, private movie:MovieService) { }
+  constructor(private dialog: MatDialog, private _sanitizer: DomSanitizer, private movie:MovieService, private http :HttpClient,private data:DataService) { }
 
   ngOnInit(): void {
     this.movie.currenttitle.subscribe(title=>this.title=title)
@@ -42,6 +46,8 @@ export class MovieDetailComponent implements OnInit {
     this.movie.currentplatform.subscribe(platform=>this.platform=platform)
     this.movie.currentylink.subscribe(ylink=>this.ylink=ylink)
     this.movie.currenthphoto.subscribe(hlink=>this.hlink=hlink)
+    this.data.currentuser.subscribe(user_names=>this.user_names=user_names)
+    this.data.currentlogincheck.subscribe(logincheck=>this.logincheck=logincheck)
 
   }
   openDialogMovie(video:any): void {
@@ -74,6 +80,25 @@ export class MovieDetailComponent implements OnInit {
     
 
   }
+
+  alert() {
+    window.alert("Successfully added to watch list");
+ 
+     this.http.post<any>("https://what2watchbackend.herokuapp.com/addWatchLater", {
+       Username: this.user_names,
+       Movie: this.title
+     })
+     .subscribe({
+       next: (v) => console.log(v),
+       error: (e) => alert("Something went wrong!!"),
+       complete: () => {
+         //alert("added successfully to the watchlist")
+        
+     }
+   })
+    
+   }
+  
 
 
   

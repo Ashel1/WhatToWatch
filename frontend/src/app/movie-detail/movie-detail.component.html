@@ -100,6 +100,8 @@
                                 </ul>
                             </div>
                             <button mat-raised-button color="warn" width="100px"  (click)="gotoPlatform()">Watch On {{platform}}</button>
+                            <p style="margin-bottom:0.5cm;"></p>
+                            <button *ngIf="logincheck=='Logged'" mat-raised-button color="warn" width="100px"  (click)="alert()">Add to WatchList</button>
                         </div>
                     </div>
                     
