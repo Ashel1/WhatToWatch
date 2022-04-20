@@ -26,7 +26,7 @@ export class MovieDetailComponent implements OnInit {
   director: string|undefined;
   platform: string|undefined;
   ylink: string|undefined;
-
+  hlink: string|undefined;
   
   constructor(private dialog: MatDialog, private _sanitizer: DomSanitizer, private movie:MovieService) { }
 
@@ -41,6 +41,7 @@ export class MovieDetailComponent implements OnInit {
     this.movie.currentdirector.subscribe(director=>this.director=director)
     this.movie.currentplatform.subscribe(platform=>this.platform=platform)
     this.movie.currentylink.subscribe(ylink=>this.ylink=ylink)
+    this.movie.currenthphoto.subscribe(hlink=>this.hlink=hlink)
 
   }
   openDialogMovie(video:any): void {

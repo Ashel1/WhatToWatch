@@ -52,6 +52,7 @@ export class ShowmovieComponent implements OnInit {
   director:string="";
   genre:string="";
   ylink:string="";
+  hlink:string = "";
   answer: any;
   user:any;
   ans1: string="";
@@ -85,7 +86,7 @@ export class ShowmovieComponent implements OnInit {
     this.stringObject1 = JSON.parse(this.user);
     console.log("JSON object -", this.stringObject);
     
-    fetch('http://localhost:3000/questionnaire', {
+    fetch('https://what2watchbackend.herokuapp.com/questionnaire', {
     method: 'POST', // or 'PUT'
     headers: {
       'Content-Type': 'application/json',
@@ -96,85 +97,10 @@ export class ShowmovieComponent implements OnInit {
     .then(currdata => {
     //console.log('Success:', currdata.data['Title']);
     console.log(currdata.data);
-      this.title = currdata.data['Title'];
-      this.movie.changeTitle(this.title);
-      
-      this.details = currdata.data['Overview'];
-      this.movie.changeoverview(this.details);
-
-      if (currdata.data['Amazon'] == "1")
-      {
-        this.movie.changeplatform("Amazon");
-        this.platform = "Amazon";
-
-      }
-
-      else if (currdata.data['Hulu'] == "1")
-      {
-        this.movie.changeplatform("Hulu");
-        this.platform = "Hulu";
-      }
-
-     else if (currdata.data['Netflix'] == "1")
-      {
-        this.movie.changeplatform("Netflix");
-        this.platform = "Netflix";
-      }
-
-
-      this.photo = currdata.data['Link'];
-      this.movie.changephoto(this.photo);
-
-      this.time = currdata.data['RunTime'];
-      this.movie.changeTime(this.time);
-
-      this.rate = currdata.data['Rating'];
-      this.movie.changeRate(this.rate);
-
-      this.year = currdata.data['ReleaseYear'];
-      this.movie.changeReleaseYear(this.year);
-
-      this.director = currdata.data['Dir'];
-      this.movie.changeDirector(this.director);
-
-      this.genre = currdata.data['Genre'];
-      this.movie.changeGenre(this.genre);
-
-
-      this.ylink = currdata.data['Ylink'];
-      this.movie.changeylink(this.ylink);
-      
-    })
-    .catch((error) => {
-    console.error('Error:', error);
-});
-
-
-  
-
-}
-
-  goToVideo(page:string):void{
-    this.router.navigate([`${page}`]);
-  }
-
-  getRec():void{
-    fetch('http://localhost:3000/questionnaire', {
-    method: 'POST', // or 'PUT'
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(this.stringObject),
-    })
-    .then(response => response.json())
-    .then(currdata => {
-    //console.log('Success:', currdata.data['Title']);
-    console.log(currdata.data);
-
-    if (currdata.data['Amazon'] == "1")
+    if (currdata.data['Amazonprime'] == "1")
     {
-      this.movie.changeplatform("Amazon");
-      this.platform = "Amazon";
+      this.movie.changeplatform("Amazon prime");
+      this.platform = "Amazon Prime";
 
     }
 
@@ -196,27 +122,109 @@ export class ShowmovieComponent implements OnInit {
       this.details = currdata.data['Overview'];
       this.movie.changeoverview(this.details);    
 
-      this.photo = currdata.data['Link'];
+      this.photo = currdata.data['Poster_Link'];
       this.movie.changephoto(this.photo);
 
-      this.time = currdata.data['RunTime'];
+      this.time = currdata.data['Runtime'];
       this.movie.changeTime(this.time);
 
-      this.rate = currdata.data['Rating'];
+      this.rate = currdata.data['IMDB_Rating'];
       this.movie.changeRate(this.rate);
 
-      this.year = currdata.data['ReleaseYear'];
+      this.year = currdata.data['Released_Year'];
       this.movie.changeReleaseYear(this.year);
 
-      this.director = currdata.data['Dir'];
+      this.director = currdata.data['Director'];
       this.movie.changeDirector(this.director);
 
       this.genre = currdata.data['Genre'];
       this.movie.changeGenre(this.genre);
 
 
-      this.ylink = currdata.data['Ylink'];
+      this.ylink = currdata.data['Youtube_Link'];
       this.movie.changeylink(this.ylink);
+      
+      this.hlink= currdata.data['Hlink'];
+      this.movie.changehphoto(this.hlink);
+      
+      
+    })
+    .catch((error) => {
+    console.error('Error:', error);
+});
+
+
+  
+
+}
+
+  goToVideo(page:string):void{
+    this.router.navigate([`${page}`]);
+  }
+
+  getRec():void{
+    fetch('https://what2watchbackend.herokuapp.com/questionnaire', {
+    method: 'POST', // or 'PUT'
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(this.stringObject),
+    })
+    .then(response => response.json())
+    .then(currdata => {
+    //console.log('Success:', currdata.data['Title']);
+    console.log(currdata.data);
+
+    if (currdata.data['Amazonprime'] == "1")
+    {
+      this.movie.changeplatform("Amazon prime");
+      this.platform = "Amazon Prime";
+
+    }
+
+    else if (currdata.data['Hulu'] == "1")
+    {
+      this.movie.changeplatform("Hulu");
+      this.platform = "Hulu";
+    }
+
+   else if (currdata.data['Netflix'] == "1")
+    {
+      this.movie.changeplatform("Netflix");
+      this.platform = "Netflix";
+    }
+
+      this.title = currdata.data['Title'];
+      this.movie.changeTitle(this.title);
+      
+      this.details = currdata.data['Overview'];
+      this.movie.changeoverview(this.details);    
+
+      this.photo = currdata.data['Poster_Link'];
+      this.movie.changephoto(this.photo);
+
+      this.time = currdata.data['Runtime'];
+      this.movie.changeTime(this.time);
+
+      this.rate = currdata.data['IMDB_Rating'];
+      this.movie.changeRate(this.rate);
+
+      this.year = currdata.data['Released_Year'];
+      this.movie.changeReleaseYear(this.year);
+
+      this.director = currdata.data['Director'];
+      this.movie.changeDirector(this.director);
+
+      this.genre = currdata.data['Genre'];
+      this.movie.changeGenre(this.genre);
+
+
+      this.ylink = currdata.data['Youtube_Link'];
+      this.movie.changeylink(this.ylink);
+      
+      this.hlink= currdata.data['Hlink'];
+      this.movie.changehphoto(this.hlink);
+      
       
     })
     .catch((error) => {
@@ -249,7 +257,7 @@ export class ShowmovieComponent implements OnInit {
   alert() {
    window.alert("Successfully added to watch list");
 
-    this.http.post<any>("http://localhost:3000/addWatchLater", {
+    this.http.post<any>("https://what2watchbackend.herokuapp.com/addWatchLater", {
       Username: this.user_names,
       Movie: this.title
     })

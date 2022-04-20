@@ -27,6 +27,8 @@ export class WatchListComponent implements OnInit {
   year:string="";
   director:string="";
   genre:string="";
+  ylink:string="";
+  hlink:string="";
   answer: any;
   constructor(private router:Router,private data:DataService,private movie:MovieService) { }
   user1:any;
@@ -38,7 +40,7 @@ export class WatchListComponent implements OnInit {
     this.stringObject1 = JSON.parse(this.user);
     console.log("JSON object -", this.stringObject1);
 
-    fetch('http://localhost:3000/getWatchLater', {
+    fetch('https://what2watchbackend.herokuapp.com/getWatchLater', {
   method: 'POST', // or 'PUT'
  
   body: JSON.stringify(this.stringObject1),
@@ -100,7 +102,7 @@ export class WatchListComponent implements OnInit {
     this.stringObject2 = JSON.parse(this.user1);
     console.log("JSON object -", this.stringObject2);
 
-    fetch('http://localhost:3000/getMovieData', {
+    fetch('https://what2watchbackend.herokuapp.com/getMovieData', {
     method: 'POST', // or 'PUT'
     headers: {
       'Content-Type': 'application/json',
@@ -111,32 +113,58 @@ export class WatchListComponent implements OnInit {
     .then(currdata => {
     //console.log('Success:', currdata.data['Title']);
     console.log(currdata.data);
+      
+    if (currdata.data['Amazonprime'] == "1")
+    {
+      this.movie.changeplatform("Amazon prime");
+      this.platform = "Amazon Prime";
+
+    }
+
+    else if (currdata.data['Hulu'] == "1")
+    {
+      this.movie.changeplatform("Hulu");
+      this.platform = "Hulu";
+    }
+
+   else if (currdata.data['Netflix'] == "1")
+    {
+      this.movie.changeplatform("Netflix");
+      this.platform = "Netflix";
+    }
+
       this.title = currdata.data['Title'];
       this.movie.changeTitle(this.title);
       
       this.details = currdata.data['Overview'];
-      this.movie.changeoverview(this.details);
+      this.movie.changeoverview(this.details);    
 
-      this.platform = "Netflix";
-      this.movie.changeplatform(this.platform);
-
-      this.photo = currdata.data['Link'];
+      this.photo = currdata.data['Poster_Link'];
       this.movie.changephoto(this.photo);
 
       this.time = currdata.data['RunTime'];
       this.movie.changeTime(this.time);
 
-      this.rate = currdata.data['Rating'];
+      this.rate = currdata.data['IMDB_Rating'];
       this.movie.changeRate(this.rate);
 
-      this.year = currdata.data['ReleaseYear'];
+      this.year = currdata.data['Released_Year'];
       this.movie.changeReleaseYear(this.year);
 
-      this.director = currdata.data['Dir'];
+      this.director = currdata.data['Director'];
       this.movie.changeDirector(this.director);
 
       this.genre = currdata.data['Genre'];
       this.movie.changeGenre(this.genre);
+
+
+      this.ylink = currdata.data['Youtube_Link'];
+      this.movie.changeylink(this.ylink);
+      
+      this.hlink= currdata.data['Hlink'];
+      this.movie.changehphoto(this.hlink);
+      
+
       this.router.navigate([`details`])
     })
     .catch((error) => {
