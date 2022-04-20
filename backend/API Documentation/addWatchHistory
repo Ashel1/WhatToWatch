@@ -5,7 +5,7 @@
 
 This api posts the data to the sqlite database according to the username and movie name provided by the frontend. The frontend provides the username and movie name to be added to the database.
 
-**URL** : ```/api/addWatchLater/```
+**URL** : ```/api/addWatchHistory/```
 
 **Method** : ```POST```
 
