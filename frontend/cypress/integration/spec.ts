@@ -58,30 +58,30 @@ describe('login pg', () => {
     })*/
     
     it('User should be able to answer questions', ()=>{
-
       cy.visit('/Home');
       cy.get('[name=ques]').click();
-      cy.get('[type="radio"]').eq(0).check({force: true});
-      cy.visit('/Question2');
+      cy.get('[type="radio"]').eq(0).check({ force: true })
+      cy.contains('Next').click();
       cy.get('mat-selection-list').get('mat-list-option').contains('Netflix').click();
-      cy.visit('/Question3');
+      cy.contains('Next').click();
       cy.get('[type="radio"]').eq(0).check({force: true});
-      cy.visit('/Question4');
+      cy.contains('Next').click();
       cy.get('[type="radio"]').eq(1).check({force: true});
-      cy.visit('/Question5');
+      cy.contains('Next').click();
       cy.get('[type="radio"]').eq(3).check({force: true});
-      cy.visit('/Question6');
-      sleep(1000);
-      cy.get('[type="radio"]').eq(4).check({force: true});
-      cy.visit('/ShowMovie');
+      cy.contains('Next').click();
+      cy.get('[type="radio"]').eq(2).check({force: true});
+      cy.contains('Next').click();      
+      })
 
-
-      //cy.get('#mat-radio-2').should('have.class', 'mat-radio-checked');
-      //cy.contains('.example-selected-value', 'Watching by myself')
-
-
+      it('User should be able to view recommended movie', ()=>{
+      /*sleep(8000);
+      cy.get('#movie-card').click('bottomLeft', { force: true });
+      sleep(10000);
+      cy.get('#movie-card').click('bottomLeft', { force: true });
+      sleep(10000);
+      cy.contains('Get another').click();
+      sleep(10000);
+      cy.get('#movie-card').click('bottomLeft', { force: true });*/
       })
 });
-
-
-
