@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"math/rand"
 	"net/http"
+	"os"
 	"strings"
 
 	"github.com/rs/cors"
@@ -299,7 +300,7 @@ func questionnaire(w http.ResponseWriter, r *http.Request) {
 			rati = "5"
 		}
 		database, _ := sql.Open("sqlite3", "./movieDatabase.db")
-		qy := fmt.Sprintf("SELECT NETFLIX,AMAZONPRIME,HOTSTAR, title, Released_Year, Runtime, Genre, IMDB_Rating, Overview, director, Poster_Link, YoutubeLink FROM movies where " + platform + ") AND genre LIKE '%%" + answers.Q3 + "%%' AND certificate "+certi+" AND Released_Year>" + ryear + " AND IMDB_Rating>" + rati + ";")
+		qy := fmt.Sprintf("SELECT NETFLIX,AMAZONPRIME,HOTSTAR, title, Released_Year, Runtime, Genre, IMDB_Rating, Overview, director, Poster_Link, YoutubeLink FROM movies where " + platform + ") AND genre LIKE '%%" + answers.Q3 + "%%' AND certificate " + certi + " AND Released_Year>" + ryear + " AND IMDB_Rating>" + rati + ";")
 		fmt.Println(qy)
 		rows, err := database.Query(qy)
 		//fmt.Print(rows)
@@ -496,9 +497,16 @@ func getMovieData(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(response)
 	}
 }
+
+func test(w http.ResponseWriter, r *http.Request) {
+	var response = JsonResponse{Type: "Correct"}
+	json.NewEncoder(w).Encode(response)
+}
+
 func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/register", register)
+	mux.HandleFunc("/test", test)
 	mux.HandleFunc("/signin", signin)
 	mux.HandleFunc("/questionnaire", questionnaire)
 	mux.HandleFunc("/getWatchLater", getWatchLater)
@@ -506,12 +514,16 @@ func main() {
 	mux.HandleFunc("/addWatchHistory", addWatchHistory)
 	mux.HandleFunc("/addWatchLater", addWatchLater)
 	mux.HandleFunc("/getMovieData", getMovieData)
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "3000"
+	}
 	//http.HandleFunc("/signin", signin)
 	//http.HandleFunc("/register", register)
 	//http.HandleFunc("/questionnaire", questionnaire)
 	handler := cors.Default().Handler(mux)
 	//log.Fatal(http.ListenAndServe(":3000", nil))
-	http.ListenAndServe(":3000", handler)
+	http.ListenAndServe(":"+port, handler)
 	/*db, err := gorm.Open(sqlite.Open("user.db"), &gorm.Config{})
 	if err != nil {
 		panic("failed to connect database")
