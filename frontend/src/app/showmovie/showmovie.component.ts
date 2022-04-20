@@ -247,7 +247,7 @@ export class ShowmovieComponent implements OnInit {
 
 
   alert() {
-
+   window.alert("Successfully added to watch list");
 
     this.http.post<any>("http://localhost:3000/addWatchLater", {
       Username: this.user_names,
