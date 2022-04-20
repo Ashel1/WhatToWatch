@@ -1,10 +1,10 @@
 <div class="container jumbotron">
-
-  
-
-  <h1>{{user_names}}</h1>
-
-  <li *ngFor="let hero of userarray">
-    <td (click)="fetchdetails(hero)">{{hero}}</td>
-  </li>
+  <div class="watchl">
+    <label>Watch List</label>
+  </div>
+<div class="rad">
+  <ul class="list" *ngFor="let hero of userarray">
+    <div (click)="fetchdetails(hero)">{{hero}}</div>
+  </ul>
+</div>
 </div>
