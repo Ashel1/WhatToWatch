@@ -40,6 +40,13 @@ export class MovieService {
 
   private hphoto = new BehaviorSubject<string>("");
   currenthphoto= this.hphoto.asObservable();
+
+  private reviews = new BehaviorSubject<string>("");
+  currentreview= this.reviews.asObservable();
+
+  private Cast = new BehaviorSubject<string>("");
+  currentcast= this.Cast.asObservable();
+  
   
   changeTitle(ans: string){
     this.title.next(ans);
@@ -74,5 +81,11 @@ export class MovieService {
   }
   changehphoto(ans: string){
     this.hphoto.next(ans);
+  }
+  changereview(ans: string){
+    this.reviews.next(ans);
+  }
+  changeCast(ans: string){
+    this.Cast.next(ans);
   }
 }

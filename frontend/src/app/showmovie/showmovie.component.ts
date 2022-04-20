@@ -53,6 +53,7 @@ export class ShowmovieComponent implements OnInit {
   genre:string="";
   ylink:string="";
   hlink:string = "";
+  reviews:string = "";
   answer: any;
   user:any;
   ans1: string="";
@@ -147,6 +148,8 @@ export class ShowmovieComponent implements OnInit {
       this.hlink= currdata.data['Hlink'];
       this.movie.changehphoto(this.hlink);
       
+      this.reviews= currdata.data['No_of_Votes'];
+      this.movie.changereview(this.reviews);
       
     })
     .catch((error) => {
@@ -224,6 +227,8 @@ export class ShowmovieComponent implements OnInit {
       
       this.hlink= currdata.data['Hlink'];
       this.movie.changehphoto(this.hlink);
+      this.reviews= currdata.data['No_of_Votes'];
+      this.movie.changereview(this.reviews);
       
       
     })

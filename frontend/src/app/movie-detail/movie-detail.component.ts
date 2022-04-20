@@ -29,6 +29,7 @@ export class MovieDetailComponent implements OnInit {
   platform: string|undefined;
   ylink: string|undefined;
   hlink: string|undefined;
+  reviews: string|undefined;
   user_names: string= "";
   logincheck:string="";  
   
@@ -46,6 +47,7 @@ export class MovieDetailComponent implements OnInit {
     this.movie.currentplatform.subscribe(platform=>this.platform=platform)
     this.movie.currentylink.subscribe(ylink=>this.ylink=ylink)
     this.movie.currenthphoto.subscribe(hlink=>this.hlink=hlink)
+    this.movie.currentreview.subscribe(reviews=>this.reviews=reviews)
     this.data.currentuser.subscribe(user_names=>this.user_names=user_names)
     this.data.currentlogincheck.subscribe(logincheck=>this.logincheck=logincheck)
 
