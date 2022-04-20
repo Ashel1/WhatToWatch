@@ -2,13 +2,13 @@
 
 .jumbotron {
 
-    background-image:linear-gradient(rgba(223, 213, 213, 0.747), rgba(255, 255, 255, 0.774)),url(/assets/images/moviebg.jpg); 
+    background-image:linear-gradient(rgba(185, 179, 179, 0.747), rgba(209, 202, 202, 0.774)),url(/assets/images/moviebg.jpg); 
     padding-top: 7%;
-    padding-bottom: 10%;
+    padding-bottom: 20%;
   }
 .rad .watchl{
-    align-items: center;
-    justify-content: center
+   align-items: left;
+   justify-content: left;
   }
   .rad{
     margin-top:80px;
@@ -16,7 +16,7 @@
   
   .list {
     border: 2px solid #EE4B2B;
-    width: 800px;
+    width: 1200px;
     height: 100%;
     padding: 25px;
     border-radius: 6px;
@@ -30,13 +30,17 @@
   }
 
   label{
-    color:white;
-    font-size:25px;
-    background-color: #000000;
-    background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
-    border: 2px solid #EE4B2B;
-    padding: 25px;
-    border-radius: 6px;
+    color:rgb(56, 54, 54);
+    font-size:40px;
+    //background-color: #000000;
+   // background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
+   // border: 2px solid #EE4B2B;
+   // padding: 25px;
+   // border-radius: 6px;
     margin-left:200px;
+    font-weight:bold;
+    font-family: "Gill Sans", sans-serif;
     margin-bottom: 100px;
   }
+
+  
