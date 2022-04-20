@@ -9,7 +9,7 @@
       }
     }
   
-  describe('login pg', () => {
+  describe('What2Watch', () => {
     var chars = 'abcdefghijklmnopqrstuvwxyz1234567890';
     var string = '';
     for(var ii=0; ii<8; ii++){
@@ -21,10 +21,8 @@
     const fname = string;
     const lname = string;
   
-    /*it('New user should be able to register', ()=>{
+    it('New user should be able to register', ()=>{
         cy.visit('/Signup');
-        // cy.get('[name=registerlabel]').click();
-        //cy.get('div[role=tab]').eq(1).click();
         cy.get('[formControlName=firstname]').type(`${fname}`);
         cy.get('[formControlName=lastname]').type(`${lname}`);
         cy.get('[formControlName=username]').type(`${username}`);
@@ -33,16 +31,25 @@
         cy.get('[name=register]').click();
     })
   
-    it('User should be able to login', ()=>{
+    it('User should be able to go to login', ()=>{
   
       cy.visit('/Home');
       cy.get('[name=loginbutton]').click();
-      cy.get('[formControlName=username]').type(`${username}`);
+    })
+
+    it('User should be able to enter values', ()=>{
+      sleep(1000);
+      cy.get('[formControlName=userid]').type(`${username}`);
       cy.get('[formControlName=password]').type(`${password}`);
-      cy.get('[name=login]').click();
-      })*/
+      })
+
+      it('User should be able to login', ()=>{
+               sleep(1000);
+        cy.get('#loginuser').click({ force: true });
+      })
       
       it('User should be able to answer questions', ()=>{
+ 
         cy.visit('/Home');
         cy.get('[name=ques]').click();
         cy.get('[type="radio"]').eq(0).check({ force: true })
@@ -60,7 +67,6 @@
         })
   
         it('User should be able to view recommended movie', ()=>{
-        sleep(8000);
         cy.get('#movie-card').click('bottomLeft', { force: true });
         })
   
@@ -82,6 +88,11 @@
         it('User should be able to view movie details', ()=>{
           sleep(8000);
           cy.get('#movie-card').contains('More').click({ force: true });
+        })
+
+        it('User should be able to view movie trailer on YouTube', ()=>{
+          sleep(8000);
+          cy.contains('Watch').click({ force: true });
         })
   });
   
