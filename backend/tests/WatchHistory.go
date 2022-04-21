@@ -46,3 +46,4 @@ func TestReadWatched(t *testing.T) {
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 	router.ServeHTTP(w, req)
 	assert.Equal(t, 200, w.Code)
+}
