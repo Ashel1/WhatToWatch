@@ -31,3 +31,9 @@ Link to sprint 4 : https://github.com/Ashel1/WhatToWatch/projects/8
 
 <hr>
 <h2>Tasks Accomplished in the Back-end</h2>
+
+- Added getMovieData API to get details of a movie based on movie name.
+- Upgraded questionnaire API to return more data from the database.
+- Added test API to test if the backend is succesfully hosted online.
+- Hosted the backend on heroku. 
+- Completed documentation for new API and updated the documentation of old APIs based on recent changes. 
